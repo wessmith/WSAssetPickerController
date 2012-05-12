@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DE017CF9155EC92F002E7BB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
+		DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
+		DE017CFD155EC92F002E7BB0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */; };
+		DE017D03155EC92F002E7BB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE017D01155EC92F002E7BB0 /* InfoPlist.strings */; };
+		DE017D05155EC92F002E7BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D04155EC92F002E7BB0 /* main.m */; };
+		DE017D09155EC92F002E7BB0 /* W5AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D08155EC92F002E7BB0 /* W5AppDelegate.m */; };
+		DE017D11155EC930002E7BB0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017D10155EC930002E7BB0 /* SenTestingKit.framework */; };
+		DE017D12155EC930002E7BB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
+		DE017D13155EC930002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
+		DE017D1B155EC930002E7BB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE017D19155EC930002E7BB0 /* InfoPlist.strings */; };
+		DE017D1E155EC930002E7BB0 /* W5AssetPickerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D1D155EC930002E7BB0 /* W5AssetPickerControllerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DE017D14155EC930002E7BB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE017CEB155EC92F002E7BB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE017CF3155EC92F002E7BB0;
+			remoteInfo = W5AssetPickerController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = W5AssetPickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE017CF8155EC92F002E7BB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DE017CFA155EC92F002E7BB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DE017D00155EC92F002E7BB0 /* W5AssetPickerController-Info.plist */ = {isa = PBXFileReference; path = "W5AssetPickerController-Info.plist"; sourceTree = "<group>"; };
+		DE017D02155EC92F002E7BB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DE017D04155EC92F002E7BB0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DE017D06155EC92F002E7BB0 /* W5AssetPickerController-Prefix.pch */ = {isa = PBXFileReference; path = "W5AssetPickerController-Prefix.pch"; sourceTree = "<group>"; };
+		DE017D07155EC92F002E7BB0 /* W5AppDelegate.h */ = {isa = PBXFileReference; path = W5AppDelegate.h; sourceTree = "<group>"; };
+		DE017D08155EC92F002E7BB0 /* W5AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = W5AppDelegate.m; sourceTree = "<group>"; };
+		DE017D0F155EC930002E7BB0 /* W5AssetPickerControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = W5AssetPickerControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE017D10155EC930002E7BB0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		DE017D18155EC930002E7BB0 /* W5AssetPickerControllerTests-Info.plist */ = {isa = PBXFileReference; path = "W5AssetPickerControllerTests-Info.plist"; sourceTree = "<group>"; };
+		DE017D1A155EC930002E7BB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DE017D1C155EC930002E7BB0 /* W5AssetPickerControllerTests.h */ = {isa = PBXFileReference; path = W5AssetPickerControllerTests.h; sourceTree = "<group>"; };
+		DE017D1D155EC930002E7BB0 /* W5AssetPickerControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = W5AssetPickerControllerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE017CF1155EC92F002E7BB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE017CF9155EC92F002E7BB0 /* UIKit.framework in Frameworks */,
+				DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */,
+				DE017CFD155EC92F002E7BB0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE017D0B155EC930002E7BB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE017D11155EC930002E7BB0 /* SenTestingKit.framework in Frameworks */,
+				DE017D12155EC930002E7BB0 /* UIKit.framework in Frameworks */,
+				DE017D13155EC930002E7BB0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE017CE9155EC92F002E7BB0 = {
+			isa = PBXGroup;
+			children = (
+				DE017CFE155EC92F002E7BB0 /* W5AssetPickerController */,
+				DE017D16155EC930002E7BB0 /* W5AssetPickerControllerTests */,
+				DE017CF7155EC92F002E7BB0 /* Frameworks */,
+				DE017CF5155EC92F002E7BB0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE017CF5155EC92F002E7BB0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */,
+				DE017D0F155EC930002E7BB0 /* W5AssetPickerControllerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE017CF7155EC92F002E7BB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE017CF8155EC92F002E7BB0 /* UIKit.framework */,
+				DE017CFA155EC92F002E7BB0 /* Foundation.framework */,
+				DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */,
+				DE017D10155EC930002E7BB0 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE017CFE155EC92F002E7BB0 /* W5AssetPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				DE017D07155EC92F002E7BB0 /* W5AppDelegate.h */,
+				DE017D08155EC92F002E7BB0 /* W5AppDelegate.m */,
+				DE017CFF155EC92F002E7BB0 /* Supporting Files */,
+			);
+			path = W5AssetPickerController;
+			sourceTree = "<group>";
+		};
+		DE017CFF155EC92F002E7BB0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE017D00155EC92F002E7BB0 /* W5AssetPickerController-Info.plist */,
+				DE017D01155EC92F002E7BB0 /* InfoPlist.strings */,
+				DE017D04155EC92F002E7BB0 /* main.m */,
+				DE017D06155EC92F002E7BB0 /* W5AssetPickerController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE017D16155EC930002E7BB0 /* W5AssetPickerControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE017D1C155EC930002E7BB0 /* W5AssetPickerControllerTests.h */,
+				DE017D1D155EC930002E7BB0 /* W5AssetPickerControllerTests.m */,
+				DE017D17155EC930002E7BB0 /* Supporting Files */,
+			);
+			path = W5AssetPickerControllerTests;
+			sourceTree = "<group>";
+		};
+		DE017D17155EC930002E7BB0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE017D18155EC930002E7BB0 /* W5AssetPickerControllerTests-Info.plist */,
+				DE017D19155EC930002E7BB0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE017CF3155EC92F002E7BB0 /* W5AssetPickerController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE017D21155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "W5AssetPickerController" */;
+			buildPhases = (
+				DE017CF0155EC92F002E7BB0 /* Sources */,
+				DE017CF1155EC92F002E7BB0 /* Frameworks */,
+				DE017CF2155EC92F002E7BB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = W5AssetPickerController;
+			productName = W5AssetPickerController;
+			productReference = DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DE017D0E155EC930002E7BB0 /* W5AssetPickerControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE017D24155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "W5AssetPickerControllerTests" */;
+			buildPhases = (
+				DE017D0A155EC930002E7BB0 /* Sources */,
+				DE017D0B155EC930002E7BB0 /* Frameworks */,
+				DE017D0C155EC930002E7BB0 /* Resources */,
+				DE017D0D155EC930002E7BB0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE017D15155EC930002E7BB0 /* PBXTargetDependency */,
+			);
+			name = W5AssetPickerControllerTests;
+			productName = W5AssetPickerControllerTests;
+			productReference = DE017D0F155EC930002E7BB0 /* W5AssetPickerControllerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE017CEB155EC92F002E7BB0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = W5;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Wesley D. Smith";
+			};
+			buildConfigurationList = DE017CEE155EC92F002E7BB0 /* Build configuration list for PBXProject "W5AssetPickerController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DE017CE9155EC92F002E7BB0;
+			productRefGroup = DE017CF5155EC92F002E7BB0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE017CF3155EC92F002E7BB0 /* W5AssetPickerController */,
+				DE017D0E155EC930002E7BB0 /* W5AssetPickerControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE017CF2155EC92F002E7BB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE017D03155EC92F002E7BB0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE017D0C155EC930002E7BB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE017D1B155EC930002E7BB0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DE017D0D155EC930002E7BB0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE017CF0155EC92F002E7BB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE017D05155EC92F002E7BB0 /* main.m in Sources */,
+				DE017D09155EC92F002E7BB0 /* W5AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE017D0A155EC930002E7BB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE017D1E155EC930002E7BB0 /* W5AssetPickerControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE017D15155EC930002E7BB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE017CF3155EC92F002E7BB0 /* W5AssetPickerController */;
+			targetProxy = DE017D14155EC930002E7BB0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DE017D01155EC92F002E7BB0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE017D02155EC92F002E7BB0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DE017D19155EC930002E7BB0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE017D1A155EC930002E7BB0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DE017D1F155EC930002E7BB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE017D20155EC930002E7BB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DE017D22155EC930002E7BB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "W5AssetPickerController/W5AssetPickerController-Prefix.pch";
+				INFOPLIST_FILE = "W5AssetPickerController/W5AssetPickerController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DE017D23155EC930002E7BB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "W5AssetPickerController/W5AssetPickerController-Prefix.pch";
+				INFOPLIST_FILE = "W5AssetPickerController/W5AssetPickerController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DE017D25155EC930002E7BB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/W5AssetPickerController.app/W5AssetPickerController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "W5AssetPickerController/W5AssetPickerController-Prefix.pch";
+				INFOPLIST_FILE = "W5AssetPickerControllerTests/W5AssetPickerControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DE017D26155EC930002E7BB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/W5AssetPickerController.app/W5AssetPickerController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "W5AssetPickerController/W5AssetPickerController-Prefix.pch";
+				INFOPLIST_FILE = "W5AssetPickerControllerTests/W5AssetPickerControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE017CEE155EC92F002E7BB0 /* Build configuration list for PBXProject "W5AssetPickerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE017D1F155EC930002E7BB0 /* Debug */,
+				DE017D20155EC930002E7BB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE017D21155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "W5AssetPickerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE017D22155EC930002E7BB0 /* Debug */,
+				DE017D23155EC930002E7BB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DE017D24155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "W5AssetPickerControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE017D25155EC930002E7BB0 /* Debug */,
+				DE017D26155EC930002E7BB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE017CEB155EC92F002E7BB0 /* Project object */;
+}
