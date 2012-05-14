@@ -7,38 +7,75 @@
 //
 
 #import "W5AlbumTableViewController.h"
+#import "W5AssetTableViewController.h"
 
 @interface W5AlbumTableViewController ()
 
+@property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
+@property (nonatomic, strong) NSMutableArray *assetGroups; // Model (all groups of assets).
+
 @end
+
 
 @implementation W5AlbumTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+@synthesize assetsLibrary = _assetsLibrary;
+@synthesize assetGroups = _assetGroups;
+
+#pragma mark - Getters 
+
+- (ALAssetsLibrary *)assetsLibrary
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    if (!_assetsLibrary) {
+        _assetsLibrary = [[ALAssetsLibrary alloc] init];
     }
-    return self;
+    return _assetsLibrary;
 }
+
+- (NSMutableArray *)assetGroups
+{
+    if (!_assetGroups) {
+        _assetGroups = [NSMutableArray array];
+    }
+    
+    return _assetGroups;
+}
+
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.navigationItem.title = @"Loading…";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel 
+                                                                                           target:self 
+                                                                                           action:@selector(cancelButtonAction:)];
+    
+    [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        
+        // If group is nil, the end has been reached.
+        if (group == nil) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.navigationItem.title = @"Albums";
+            });
+            return;
+        }
+        
+        // Add the group to the array.
+        [self.assetGroups addObject:group];
+        
+        // Reload the tableview on the main thread.
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
+    } failureBlock:^(NSError *error) {
+        // TODO: User denied access. Tell them we can't do anything.
+    }];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -46,82 +83,62 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+#pragma  mark - Actions
+
+- (void)cancelButtonAction:(id)sender 
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    [self.presentingViewController dismissModalViewControllerAnimated:YES];
 }
+
+
+#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.assetGroups count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"W5AlbumCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Get the group from the datasource.
+    ALAssetsGroup *group = [self.assetGroups objectAtIndex:indexPath.row];
+    [group setAssetsFilter:[ALAssetsFilter allPhotos]]; // TODO: Make this a delegate choice.
+    
+    // Setup the cell.
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d)", [group valueForProperty:ALAssetsGroupPropertyName], [group numberOfAssets]];
+    cell.imageView.image = [UIImage imageWithCGImage:[group posterImage]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    ALAssetsGroup *group = [self.assetGroups objectAtIndex:indexPath.row];
+    [group setAssetsFilter:[ALAssetsFilter allPhotos]]; // TODO: Make this a delegate choice.
+    
+    W5AssetTableViewController *assetTableViewController = [[W5AssetTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    assetTableViewController.assetsGroup = group;
+    
+    [self.navigationController pushViewController:assetTableViewController animated:YES];
+}
+
+#define ROW_HEIGHT 57.0f
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath 
+{	
+	return ROW_HEIGHT;
 }
 
 @end

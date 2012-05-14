@@ -10,4 +10,10 @@
 
 @interface W5AssetsTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) NSArray *cellAssetViews;
+
++ (W5AssetsTableViewCell *)assetsCellWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier;
+
+- (id)initWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier;
+
 @end

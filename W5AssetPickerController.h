@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol W5AssetPickerControllerDelegate <NSObject>
+
+@end
+
 @interface W5AssetPickerController : UINavigationController
+
+// Designated initializer.
+- (id)initWithDelegate:(id<W5AssetPickerControllerDelegate, UINavigationControllerDelegate>)delegate;
 
 @end

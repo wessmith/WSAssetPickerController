@@ -6,122 +6,225 @@
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
+// Tips from:
+// ELC iCodeBlog - 
+// NSScreencast - http://nsscreencast.com/episodes/8-automatic-uitableview-paging
+
 #import "W5AssetTableViewController.h"
+#import "W5AssetsTableViewCell.h"
+
+#define FETCH_SIZE 25
+#define ASSETS_PER_ROW 4
 
 @interface W5AssetTableViewController ()
 
+@property (nonatomic, strong) NSMutableArray *fetchedAssets;
+@property (nonatomic) NSInteger currentPage;
+@property (nonatomic) NSInteger totalPages;
+
 @end
+
 
 @implementation W5AssetTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize assetsGroup = _assetsGroup;
+@synthesize fetchedAssets = _fetchedAssets;
+@synthesize currentPage = _currentPage;
+@synthesize totalPages = _totalPages;
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    self.navigationItem.title = @"Loading";
+    
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
+                                                                                           target:self 
+                                                                                           action:@selector(doneButtonAction:)];
+    // Setup paging info.
+    self.totalPages = ceil(((double)self.assetsGroup.numberOfAssets / (double)ASSETS_PER_ROW) / (double)FETCH_SIZE);
+    self.currentPage = 0;   
+}
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+- (NSMutableArray *)fetchedAssets
+{
+    if (!_fetchedAssets) {
+        _fetchedAssets = [NSMutableArray arrayWithCapacity:FETCH_SIZE];
+    }
+    return _fetchedAssets;
+}
+
+- (void)fetchAssets
+{
+    DLog(@"PAGE: %d", self.currentPage);
+    
+    NSRange fetchRange;
+    fetchRange.location = (self.currentPage * FETCH_SIZE) * ASSETS_PER_ROW;
+    fetchRange.length = FETCH_SIZE * ASSETS_PER_ROW; // TODO: Change this to work with orientation changes.
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Make sure we don't fetch beyond numberOfAssets.
+    if (fetchRange.length > self.assetsGroup.numberOfAssets - fetchRange.location) {
+        fetchRange.length = self.assetsGroup.numberOfAssets - fetchRange.location;
+    }
+    
+    DLog(@"New fetch: %d -> %d (of %d)", fetchRange.location, fetchRange.length, self.assetsGroup.numberOfAssets);
+    
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:fetchRange];    
+    [self.assetsGroup enumerateAssetsAtIndexes:indexSet 
+                                       options:NSEnumerationConcurrent
+                                    usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                                        
+                                        if (result) {
+                                            //DLog(@"Fetched asset: %@", result);
+                                            [self.fetchedAssets addObject:result];
+                                        }
+                                        
+                                        if (!result || index == NSNotFound) {
+                                            DLog(@"Done fetching.");
+                                        }
+                                    }];
+
+    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.5];
 }
 
-- (void)viewDidUnload
+#pragma mark - Actions
+
+- (void)doneButtonAction:(id)sender
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    // TODO: Do something with selections here.
+    DLog(@"User is done selecting.");
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    // Show a loading cell.
+    if (self.currentPage == 0) {
+        
+        return 1;
+    } else if (self.currentPage  < self.totalPages) {
+        
+        return (self.fetchedAssets.count / ASSETS_PER_ROW) + 1; // TODO: Change this to work with orientation changes.
+    } else {
+        
+        return self.fetchedAssets.count / ASSETS_PER_ROW;
+    }   
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSArray *)assetsForIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    NSUInteger startIndex = indexPath.row * 4;
+//    NSUInteger stopIndex = indexPath.row * 4 + 3;
+//    
+//    //if (stopIndex > self.fetchedAssets.count) stopIndex = self.fetchedAssets.count - 1;
+//    
+//    DLog(@"Getting assets: %d -> %d (of %d) --- for row: %d", startIndex, stopIndex, self.fetchedAssets.count, indexPath.row);
+//    
+//    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(startIndex, stopIndex)];
+//    
+//    return [self.fetchedAssets objectsAtIndexes:indexSet];
     
-    // Configure the cell...
+    int index = (indexPath.row*4);
+	int maxIndex = (indexPath.row*4+3);
+    
+	// NSLog(@"Getting assets for %d to %d with array count %d", index, maxIndex, [assets count]);
+    
+	if(maxIndex < [self.fetchedAssets count]) {
+        
+		return [NSArray arrayWithObjects:[self.fetchedAssets objectAtIndex:index],
+				[self.fetchedAssets objectAtIndex:index+1],
+				[self.fetchedAssets objectAtIndex:index+2],
+				[self.fetchedAssets objectAtIndex:index+3],
+				nil];
+	}
+    
+	else if(maxIndex-1 < [self.fetchedAssets count]) {
+        
+		return [NSArray arrayWithObjects:[self.fetchedAssets objectAtIndex:index],
+				[self.fetchedAssets objectAtIndex:index+1],
+				[self.fetchedAssets objectAtIndex:index+2],
+				nil];
+	}
+    
+	else if(maxIndex-2 < [self.fetchedAssets count]) {
+        
+		return [NSArray arrayWithObjects:[self.fetchedAssets objectAtIndex:index],
+				[self.fetchedAssets objectAtIndex:index+1],
+				nil];
+	}
+    
+	else if(maxIndex-3 < [self.fetchedAssets count]) {
+        
+		return [NSArray arrayWithObject:[self.fetchedAssets objectAtIndex:index]];
+	}
+    
+	return nil;
+
+}
+
+- (UITableViewCell *)assetCellForIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *AssetCellIdentifier = @"W5AssetCell";
+    W5AssetsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AssetCellIdentifier];
+    
+    if (cell == nil) {
+        
+        cell = [[W5AssetsTableViewCell alloc] initWithAssets:[self assetsForIndexPath:indexPath] reuseIdentifier:AssetCellIdentifier];
+        
+    } else {
+        
+        cell.cellAssetViews = [self assetsForIndexPath:indexPath];
+    }
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)loadingCell
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    static NSString *LoadingCellIdentifier = @"W5LoadingCell";
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:LoadingCellIdentifier];
+    
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LoadingCellIdentifier];
+        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        activityView.center = cell.center;
+        [cell addSubview:activityView];
+        [activityView startAnimating];
+    }
+    
+    return cell;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    if (indexPath.row < (self.fetchedAssets.count / ASSETS_PER_ROW)) {
+               
+        return [self assetCellForIndexPath:indexPath];
+    } else {
+        
+        return [self loadingCell];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#define ROW_HEIGHT 79.0f
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath 
+{ 
+	return ROW_HEIGHT;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if ([cell.reuseIdentifier isEqualToString:@"W5LoadingCell"]) {
+        [self fetchAssets];
+        self.currentPage++;
+    }
 }
 
 @end

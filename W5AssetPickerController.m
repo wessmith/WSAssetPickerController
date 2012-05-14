@@ -7,32 +7,28 @@
 //
 
 #import "W5AssetPickerController.h"
+#import "W5AlbumTableViewController.h"
 
 @interface W5AssetPickerController ()
 
 @end
 
+
 @implementation W5AssetPickerController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithDelegate:(id<W5AssetPickerControllerDelegate, UINavigationControllerDelegate>)delegate;
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    // Create the Album TableView Controller.
+    W5AlbumTableViewController *albumTableViewController = [[W5AlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    if ((self = [super initWithRootViewController:albumTableViewController])) {
+        
+        self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        
+        self.delegate = delegate;
     }
+    
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

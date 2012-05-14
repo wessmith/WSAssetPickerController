@@ -10,4 +10,6 @@
 
 @interface W5AssetTableViewController : UITableViewController
 
+@property (nonatomic, weak) ALAssetsGroup *assetsGroup; // Model (a specific, filtered, group of assets).
+
 @end

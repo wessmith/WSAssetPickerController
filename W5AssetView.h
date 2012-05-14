@@ -10,4 +10,8 @@
 
 @interface W5AssetView : UIView
 
++ (W5AssetView *)assetViewWithAsset:(ALAsset *)asset;
+
+- (id)initWithAsset:(ALAsset *)asset;
+
 @end
