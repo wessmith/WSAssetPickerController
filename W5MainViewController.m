@@ -30,4 +30,19 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
+#pragma mark - W5AssetPickerControllerDelegate Methods
+
+- (void)assetPickerControllerDidCancel:(W5AssetPickerController *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    DLog(@"Picker cancelled.");
+}
+
+- (void)assetPickerController:(W5AssetPickerController *)sender didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    DLog(@"Picker done.");
+}
+
 @end
