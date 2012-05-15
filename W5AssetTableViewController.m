@@ -12,16 +12,16 @@
 
 #import "W5AssetTableViewController.h"
 #import "W5AssetsTableViewCell.h"
+#import "W5AssetPickerController.h"
+
 
 #define FETCH_SIZE 25
 #define ASSETS_PER_ROW 4
 
 @interface W5AssetTableViewController ()
-
 @property (nonatomic, strong) NSMutableArray *fetchedAssets;
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic) NSInteger totalPages;
-
 @end
 
 
@@ -41,6 +41,11 @@
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
                                                                                            target:self 
                                                                                            action:@selector(doneButtonAction:)];
+    // TableView configuration.
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.allowsSelection = NO;
+    
+    
     // Setup paging info.
     self.totalPages = ceil(((double)self.assetsGroup.numberOfAssets / (double)ASSETS_PER_ROW) / (double)FETCH_SIZE);
     self.currentPage = 0;   
@@ -90,9 +95,15 @@
 #pragma mark - Actions
 
 - (void)doneButtonAction:(id)sender
-{
-    // TODO: Do something with selections here.
-    DLog(@"User is done selecting.");
+{        
+    // The navigationController is actually a subclass of W5AssetPickerController. It's delegates conform to the
+    // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
+    id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.navigationController.delegate;
+    
+    if ([delegate respondsToSelector:@selector(assetPickerController:didFinishPickingMediaWithInfo:)]) {
+        
+        [delegate assetPickerController:(W5AssetPickerController *)self.navigationController didFinishPickingMediaWithInfo:nil];
+    }
 }
 
 

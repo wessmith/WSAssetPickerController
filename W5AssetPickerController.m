@@ -9,14 +9,12 @@
 #import "W5AssetPickerController.h"
 #import "W5AlbumTableViewController.h"
 
-@interface W5AssetPickerController ()
-
-@end
-
 
 @implementation W5AssetPickerController
 
-- (id)initWithDelegate:(id<W5AssetPickerControllerDelegate, UINavigationControllerDelegate>)delegate;
+#pragma mark - Initialization
+
+- (id)initWithDelegate:(id <W5AssetPickerControllerDelegate>)delegate;
 {
     // Create the Album TableView Controller.
     W5AlbumTableViewController *albumTableViewController = [[W5AlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
@@ -27,9 +25,12 @@
         
         self.delegate = delegate;
     }
-    
+
     return self;
 }
+
+
+#pragma mark - Configuration
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

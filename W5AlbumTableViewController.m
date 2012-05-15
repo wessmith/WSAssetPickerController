@@ -8,12 +8,12 @@
 
 #import "W5AlbumTableViewController.h"
 #import "W5AssetTableViewController.h"
+#import "W5AssetPickerController.h"
+
 
 @interface W5AlbumTableViewController ()
-
 @property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
 @property (nonatomic, strong) NSMutableArray *assetGroups; // Model (all groups of assets).
-
 @end
 
 
@@ -21,6 +21,7 @@
 
 @synthesize assetsLibrary = _assetsLibrary;
 @synthesize assetGroups = _assetGroups;
+
 
 #pragma mark - Getters 
 
@@ -87,8 +88,19 @@
 #pragma  mark - Actions
 
 - (void)cancelButtonAction:(id)sender 
-{
-    [self.presentingViewController dismissModalViewControllerAnimated:YES];
+{    
+    // The navigationController is actually a subclass of W5AssetPickerController. It's delegates conform to the
+    // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
+    id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.navigationController.delegate;
+    
+    if ([delegate respondsToSelector:@selector(assetPickerControllerDidCancel:)]) {
+        
+        [delegate assetPickerControllerDidCancel:(W5AssetPickerController *)self.navigationController];
+    } else {
+        
+        [self.presentingViewController dismissModalViewControllerAnimated:YES];
+    }
+
 }
 
 
