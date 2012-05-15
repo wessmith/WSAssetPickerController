@@ -9,7 +9,7 @@
 #import "W5MainViewController.h"
 #import "W5AssetPickerController.h"
 
-@interface W5MainViewController () <W5AssetPickerControllerDelegate, UINavigationControllerDelegate>
+@interface W5MainViewController () <W5AssetPickerControllerDelegate>
 
 @end
 
@@ -27,7 +27,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 

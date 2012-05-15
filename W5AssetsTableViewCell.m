@@ -50,20 +50,40 @@
     _cellAssetViews = [assetViews copy];
 }
 
-#define ASSET_VIEW_FRAME CGRectMake(4, 2, 75, 75);
+#define ASSET_VIEW_FRAME CGRectMake(0, 0, 75, 75)
+#define ASSET_VIEW_PADDING 4
 
 - (void)layoutSubviews
 {
+    // Calculate the container's width dynamically.
+    float containerWidth = (self.cellAssetViews.count * ASSET_VIEW_FRAME.size.width) + ((self.cellAssetViews.count - 1) * ASSET_VIEW_PADDING);
+
+    // Create the container frame dynamically.
+    CGRect containerFrame;
+    containerFrame.origin.x = (self.frame.size.width - containerWidth) / 2;
+    containerFrame.origin.y = (self.frame.size.height - ASSET_VIEW_FRAME.size.height) / 2;
+    containerFrame.size.width = containerWidth;
+    containerFrame.size.height = ASSET_VIEW_FRAME.size.height;
+    
+    // Create a containing view with flexible margins.
+    UIView *assetsContainerView = [[UIView alloc] initWithFrame:containerFrame];
+    assetsContainerView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | 
+    UIViewAutoresizingFlexibleRightMargin | 
+    UIViewAutoresizingFlexibleTopMargin | 
+    UIViewAutoresizingFlexibleBottomMargin;
+    
     CGRect frame = ASSET_VIEW_FRAME;
     
     for (W5AssetView *assetView in self.cellAssetViews) {
         
         assetView.frame = frame;
-        [self addSubview:assetView];
+        [assetsContainerView addSubview:assetView];
         
         // Adjust the frame x-origin of the next assetView.
-        frame.origin.x = frame.origin.x + frame.size.width + 4;
-    }
+        frame.origin.x = frame.origin.x + frame.size.width + ASSET_VIEW_PADDING;
+    }                                              
+    
+    [self addSubview:assetsContainerView];
 }
 
 @end

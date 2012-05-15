@@ -79,9 +79,12 @@
     }];
 }
 
+
+#pragma mark - Rotation
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 
@@ -89,7 +92,7 @@
 
 - (void)cancelButtonAction:(id)sender 
 {    
-    // The navigationController is actually a subclass of W5AssetPickerController. It's delegates conform to the
+    // The navigationController is actually a subclass of W5AssetPickerController. It's delegate conforms to the
     // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
     id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.navigationController.delegate;
     
