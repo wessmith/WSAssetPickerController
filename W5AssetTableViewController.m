@@ -67,7 +67,7 @@
     fetchRange.location = (self.currentPage * FETCH_SIZE) * ASSETS_PER_ROW;
     fetchRange.length = FETCH_SIZE * ASSETS_PER_ROW; // TODO: Change this to work with orientation changes.
  
-    // Make sure we don't fetch beyond numberOfAssets.
+    // Prevent fetching beyond numberOfAssets.
     if (fetchRange.length > self.assetsGroup.numberOfAssets - fetchRange.location) {
         fetchRange.length = self.assetsGroup.numberOfAssets - fetchRange.location;
     }
@@ -125,54 +125,21 @@
 }
 
 - (NSArray *)assetsForIndexPath:(NSIndexPath *)indexPath
-{
-//    NSUInteger startIndex = indexPath.row * 4;
-//    NSUInteger stopIndex = indexPath.row * 4 + 3;
-//    
-//    //if (stopIndex > self.fetchedAssets.count) stopIndex = self.fetchedAssets.count - 1;
-//    
-//    DLog(@"Getting assets: %d -> %d (of %d) --- for row: %d", startIndex, stopIndex, self.fetchedAssets.count, indexPath.row);
-//    
-//    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(startIndex, stopIndex)];
-//    
-//    return [self.fetchedAssets objectsAtIndexes:indexSet];
+{    
+    NSRange assetRange;
+    assetRange.location = indexPath.row * ASSETS_PER_ROW;
+    assetRange.length = ASSETS_PER_ROW;
     
-    int index = (indexPath.row*4);
-	int maxIndex = (indexPath.row*4+3);
+    // Prevent the range from exceeding the array length.
+    if (assetRange.length > self.fetchedAssets.count - assetRange.location) {
+        assetRange.length = self.fetchedAssets.count - assetRange.location;
+    }
     
-	// NSLog(@"Getting assets for %d to %d with array count %d", index, maxIndex, [assets count]);
+    DLog(@"Getting assets: %d -> %d (of %d) --- for row: %d", assetRange.location, assetRange.length, self.fetchedAssets.count, indexPath.row);
     
-	if(maxIndex < [self.fetchedAssets count]) {
-        
-		return [NSArray arrayWithObjects:[self.fetchedAssets objectAtIndex:index],
-				[self.fetchedAssets objectAtIndex:index+1],
-				[self.fetchedAssets objectAtIndex:index+2],
-				[self.fetchedAssets objectAtIndex:index+3],
-				nil];
-	}
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:assetRange];
     
-	else if(maxIndex-1 < [self.fetchedAssets count]) {
-        
-		return [NSArray arrayWithObjects:[self.fetchedAssets objectAtIndex:index],
-				[self.fetchedAssets objectAtIndex:index+1],
-				[self.fetchedAssets objectAtIndex:index+2],
-				nil];
-	}
-    
-	else if(maxIndex-2 < [self.fetchedAssets count]) {
-        
-		return [NSArray arrayWithObjects:[self.fetchedAssets objectAtIndex:index],
-				[self.fetchedAssets objectAtIndex:index+1],
-				nil];
-	}
-    
-	else if(maxIndex-3 < [self.fetchedAssets count]) {
-        
-		return [NSArray arrayWithObject:[self.fetchedAssets objectAtIndex:index]];
-	}
-    
-	return nil;
-
+    return [self.fetchedAssets objectsAtIndexes:indexSet];
 }
 
 - (UITableViewCell *)assetCellForIndexPath:(NSIndexPath *)indexPath
