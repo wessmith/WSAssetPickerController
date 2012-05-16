@@ -45,6 +45,15 @@
 
 #pragma mark - View Lifecycle
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.wantsFullScreenLayout = YES;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

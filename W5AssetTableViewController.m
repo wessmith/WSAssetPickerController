@@ -39,6 +39,14 @@
 
 #define TABLEVIEW_INSETS UIEdgeInsetsMake(2, 0, 2, 0);
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.wantsFullScreenLayout = YES;
+}
+
+
 - (void)viewDidLoad
 {
     self.navigationItem.title = @"Loading";
