@@ -13,17 +13,18 @@
 #import "W5AssetTableViewController.h"
 #import "W5AssetsTableViewCell.h"
 #import "W5AssetPickerController.h"
-
+#import "W5AssetWrapper.h"
 
 #define FETCH_SIZE 25
 #define ASSETS_PER_ROW_V 4
 #define ASSETS_PER_ROW_H 6
 
-@interface W5AssetTableViewController ()
+@interface W5AssetTableViewController () <W5AssetsTableViewCellDelegate>
 @property (nonatomic, strong) NSMutableArray *fetchedAssets;
 @property (nonatomic, readonly) NSInteger assetsPerRow;
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic) NSInteger totalPages;
+@property (nonatomic, readonly) NSArray *infoObjects;
 @end
 
 
@@ -34,6 +35,7 @@
 @synthesize assetsPerRow =_assetsPerRow;
 @synthesize currentPage = _currentPage;
 @synthesize totalPages = _totalPages;
+@dynamic infoObjects;
 
 #pragma mark - View Lifecycle
 
@@ -88,6 +90,36 @@
     }
 }
 
+- (NSArray *)infoObjects
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.isSelected == YES"];
+    NSArray *matches = [self.fetchedAssets filteredArrayUsingPredicate:predicate];
+    DLog(@"Matches: %@", matches);
+    
+    NSMutableArray *infoObjects = [NSMutableArray array];
+	
+	for(W5AssetWrapper *assetWrapper in matches) 
+    {
+        
+		NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
+        
+		[info setObject:[assetWrapper.asset valueForProperty:ALAssetPropertyType] 
+                              forKey:UIImagePickerControllerMediaType];
+        
+        [info setObject:[UIImage imageWithCGImage:[[assetWrapper.asset defaultRepresentation] fullScreenImage]] 
+                              forKey:UIImagePickerControllerOriginalImage];
+        
+		[info setObject:[[assetWrapper.asset valueForProperty:ALAssetPropertyURLs] 
+                                      valueForKey:[[[assetWrapper.asset valueForProperty:ALAssetPropertyURLs] allKeys] objectAtIndex:0]] 
+                              forKey:UIImagePickerControllerReferenceURL];
+        
+        
+        
+		[infoObjects addObject:info];	
+	}
+    
+    return infoObjects;
+}
 
 #pragma mark - Rotation
 
@@ -125,8 +157,9 @@
                                     usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                         
                                         if (result) {
-                                            //DLog(@"Fetched asset: %@", result);
-                                            [self.fetchedAssets addObject:result];
+
+                                            W5AssetWrapper *assetWrapper = [[W5AssetWrapper alloc] initWithAsset:result];
+                                            [self.fetchedAssets addObject:assetWrapper];
                                         }
                                         
                                         if (!result || index == NSNotFound) {
@@ -140,15 +173,33 @@
 #pragma mark - Actions
 
 - (void)doneButtonAction:(id)sender
-{        
+{     
     // The navigationController is actually a subclass of W5AssetPickerController. It's delegate conforms to the
     // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
     id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.navigationController.delegate;
     
-    if ([delegate respondsToSelector:@selector(assetPickerController:didFinishPickingMediaWithInfo:)]) {
+    if ([delegate respondsToSelector:@selector(assetPickerController:didFinishPickingMediaWithArray:)]) {
         
-        [delegate assetPickerController:(W5AssetPickerController *)self.navigationController didFinishPickingMediaWithInfo:nil];
+        [delegate assetPickerController:(W5AssetPickerController *)self.navigationController didFinishPickingMediaWithArray:self.infoObjects];
     }
+}
+
+
+#pragma mark - W5AssetsTableViewCellDelegate Methods
+
+- (void)assetsTableViewCell:(W5AssetsTableViewCell *)cell didSelectAsset:(BOOL)selected atColumn:(NSUInteger)column
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    DLog(@"Column: %d", column);
+    
+    // Calculate the index of the corresponding asset.
+    NSUInteger assetIndex = indexPath.row * self.assetsPerRow + column;
+    
+    
+    DLog(@"Asset Index: %d", assetIndex);
+    
+    W5AssetWrapper *assetWrapper = [self.fetchedAssets objectAtIndex:assetIndex];
+    assetWrapper.selected = selected;
 }
 
 
@@ -184,6 +235,7 @@
     
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:assetRange];
     
+    // Return the range of assets from fetchedAssets.
     return [self.fetchedAssets objectsAtIndexes:indexSet];
 }
 
@@ -194,12 +246,12 @@
     
     if (cell == nil) {
         
-        cell = [[W5AssetsTableViewCell alloc] initWithAssets:[self assetsForIndexPath:indexPath] reuseIdentifier:AssetCellIdentifier];
-        
+        cell = [[W5AssetsTableViewCell alloc] initWithAssets:[self assetsForIndexPath:indexPath] reuseIdentifier:AssetCellIdentifier];        
     } else {
         
         cell.cellAssetViews = [self assetsForIndexPath:indexPath];
     }
+    cell.delegate = self;
     
     return cell;
 }

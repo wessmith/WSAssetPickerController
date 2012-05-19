@@ -39,10 +39,10 @@
     DLog(@"Picker cancelled.");
 }
 
-- (void)assetPickerController:(W5AssetPickerController *)sender didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)assetPickerController:(W5AssetPickerController *)sender didFinishPickingMediaWithArray:(NSArray *)infoObjects
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
-    DLog(@"Picker done.");
+    DLog(@"Picker done: \n %@", infoObjects);
 }
 
 @end
