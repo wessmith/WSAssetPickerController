@@ -20,6 +20,6 @@
 @protocol W5AssetPickerControllerDelegate <UINavigationControllerDelegate>
 
 - (void)assetPickerControllerDidCancel:(W5AssetPickerController *)sender;
-- (void)assetPickerController:(W5AssetPickerController *)sender didFinishPickingMediaWithArray:(NSArray *)infoObjects;
+- (void)assetPickerController:(W5AssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets;
 
 @end
