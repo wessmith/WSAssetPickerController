@@ -7,7 +7,7 @@
 //
 
 #import "W5MainViewController.h"
-#import "W5AssetPickerController.h"
+#import <W5AssetPicker/W5AssetPicker.h>
 
 @interface W5MainViewController () <W5AssetPickerControllerDelegate>
 

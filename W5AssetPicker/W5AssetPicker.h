@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-
 #import <W5AssetPicker/W5AssetPickerController.h>

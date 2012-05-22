@@ -23,7 +23,7 @@
 		DEEC0FF3156B32B600B1F0D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
 		DEEC1017156B332900B1F0D2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
 		DEEC1018156B333600B1F0D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
-		DEEC1019156B334800B1F0D2 /* W5AssetPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE017D27155EC991002E7BB0 /* W5AssetPickerController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DEEC1019156B334800B1F0D2 /* W5AssetPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE017D27155EC991002E7BB0 /* W5AssetPickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DEEC101A156B335600B1F0D2 /* W5AlbumTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7FF80F155ECA7E00D7B3E8 /* W5AlbumTableViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		DEEC101B156B335700B1F0D2 /* W5AssetTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7FF81F155F09AD00D7B3E8 /* W5AssetTableViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		DEEC101C156B335900B1F0D2 /* W5AssetsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7FF826155F1E1100D7B3E8 /* W5AssetsTableViewCell.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -45,7 +45,7 @@
 		4A5F7F4C156BF46D006ABBCA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4A5F7F4D156BF46D006ABBCA /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		DE017CF4155EC92F002E7BB0 /* W5AssetPickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = W5AssetPickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE017CF4155EC92F002E7BB0 /* W5AssetPickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = W5AssetPickerDemo.app; path = "Picker Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE017CF8155EC92F002E7BB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE017CFA155EC92F002E7BB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -431,6 +431,7 @@
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 			};
@@ -448,6 +449,7 @@
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 			};
