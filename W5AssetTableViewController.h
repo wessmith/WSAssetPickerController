@@ -12,4 +12,6 @@
 
 @property (nonatomic, weak) ALAssetsGroup *assetsGroup; // Model (a specific, filtered, group of assets).
 
+@property (nonatomic, readonly) NSArray *selectedAssets;
+
 @end

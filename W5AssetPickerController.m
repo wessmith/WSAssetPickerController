@@ -8,6 +8,7 @@
 
 #import "W5AssetPickerController.h"
 #import "W5AlbumTableViewController.h"
+#import "W5AssetTableViewController.h"
 
 @interface W5AssetPickerController ()
 @property (nonatomic) UIStatusBarStyle originalStatusBarStyle;
@@ -15,6 +16,8 @@
 
 
 @implementation W5AssetPickerController
+
+@dynamic selectedAssets;
 
 @synthesize originalStatusBarStyle = _originalStatusBarStyle;
 
@@ -33,7 +36,7 @@
         
         self.delegate = delegate;
     }
-
+    
     return self;
 }
 
@@ -55,6 +58,18 @@
     [[UIApplication sharedApplication] setStatusBarStyle:self.originalStatusBarStyle animated:YES];
 }
 
+- (NSArray *)selectedAssets
+{
+    NSArray *assets = nil;
+    
+    if ([self.topViewController isMemberOfClass:[W5AssetTableViewController class]]) {
+        
+        W5AssetTableViewController *assetTableViewController = (W5AssetTableViewController *)self.topViewController;
+        assets = assetTableViewController.selectedAssets;
+    }
+    
+    return  assets;
+}
 
 #pragma mark - Rotation
 

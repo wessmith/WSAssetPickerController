@@ -6,9 +6,6 @@
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-// Tips from:
-// ELC iCodeBlog - 
-// NSScreencast - http://nsscreencast.com/episodes/8-automatic-uitableview-paging
 
 #import "W5AssetTableViewController.h"
 #import "W5AssetsTableViewCell.h"
@@ -19,19 +16,21 @@
 #define ASSETS_PER_ROW_V 4.0
 #define ASSETS_PER_ROW_H 6.0
 
+
 @interface W5AssetTableViewController () <W5AssetsTableViewCellDelegate>
 @property (nonatomic, strong) NSMutableArray *fetchedAssets;
 @property (nonatomic, readonly) NSInteger assetsPerRow;
-@property (nonatomic, readonly) NSArray *selectedAssets;
 @end
 
 
 @implementation W5AssetTableViewController
 
+@dynamic selectedAssets;
+
 @synthesize assetsGroup = _assetsGroup;
 @synthesize fetchedAssets = _fetchedAssets;
 @synthesize assetsPerRow =_assetsPerRow;
-@dynamic selectedAssets;
+
 
 #pragma mark - View Lifecycle
 
@@ -68,6 +67,7 @@
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
                                                                                            target:self 
                                                                                            action:@selector(doneButtonAction:)];
+    
     
     // TableView configuration.
     self.tableView.contentInset = TABLEVIEW_INSETS;
