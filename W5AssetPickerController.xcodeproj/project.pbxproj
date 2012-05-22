@@ -7,45 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AE5CCE5156AB6A2004C2AB7 /* W5NamerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE5CCE4156AB6A2004C2AB7 /* W5NamerView.m */; };
+		4AE5CCE8156AB810004C2AB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */; };
 		DE017CF9155EC92F002E7BB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
 		DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
 		DE017CFD155EC92F002E7BB0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */; };
 		DE017D03155EC92F002E7BB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE017D01155EC92F002E7BB0 /* InfoPlist.strings */; };
 		DE017D05155EC92F002E7BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D04155EC92F002E7BB0 /* main.m */; };
 		DE017D09155EC92F002E7BB0 /* W5AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D08155EC92F002E7BB0 /* W5AppDelegate.m */; };
-		DE017D11155EC930002E7BB0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017D10155EC930002E7BB0 /* SenTestingKit.framework */; };
-		DE017D12155EC930002E7BB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
-		DE017D13155EC930002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
-		DE017D1B155EC930002E7BB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE017D19155EC930002E7BB0 /* InfoPlist.strings */; };
-		DE017D1E155EC930002E7BB0 /* W5AssetPickerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D1D155EC930002E7BB0 /* W5AssetPickerControllerTests.m */; };
-		DE017D29155EC991002E7BB0 /* W5AssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D28155EC991002E7BB0 /* W5AssetPickerController.m */; };
-		DE017D2A155EC991002E7BB0 /* W5AssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D28155EC991002E7BB0 /* W5AssetPickerController.m */; };
-		DE7FF811155ECA7E00D7B3E8 /* W5AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF810155ECA7E00D7B3E8 /* W5AlbumTableViewController.m */; };
-		DE7FF812155ECA7E00D7B3E8 /* W5AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF810155ECA7E00D7B3E8 /* W5AlbumTableViewController.m */; };
 		DE7FF814155ECB0A00D7B3E8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
 		DE7FF81A155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE7FF819155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard */; };
-		DE7FF81B155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE7FF819155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard */; };
 		DE7FF81E155EFEC700D7B3E8 /* W5MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF81D155EFEC700D7B3E8 /* W5MainViewController.m */; };
-		DE7FF821155F09AD00D7B3E8 /* W5AssetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF820155F09AD00D7B3E8 /* W5AssetTableViewController.m */; };
-		DE7FF822155F09AD00D7B3E8 /* W5AssetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF820155F09AD00D7B3E8 /* W5AssetTableViewController.m */; };
-		DE7FF825155F1DD200D7B3E8 /* W5AssetViewColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF824155F1DD200D7B3E8 /* W5AssetViewColumn.m */; };
-		DE7FF828155F1E1100D7B3E8 /* W5AssetsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF827155F1E1100D7B3E8 /* W5AssetsTableViewCell.m */; };
 		DE885DEF15634437001A9D12 /* W5AssetViewSelectionIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = DE885DEE15634437001A9D12 /* W5AssetViewSelectionIndicator.png */; };
-		DE885DFC15635F06001A9D12 /* W5AssetWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE885DFB15635F06001A9D12 /* W5AssetWrapper.m */; };
+		DEBE3BBE156B1C66004A9A31 /* W5NamerBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BB4156B1C66004A9A31 /* W5NamerBackground.png */; };
+		DEBE3BBF156B1C66004A9A31 /* W5NamerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BB5156B1C66004A9A31 /* W5NamerBackground@2x.png */; };
+		DEBE3BC0156B1C66004A9A31 /* W5NamerTextFieldBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BB6156B1C66004A9A31 /* W5NamerTextFieldBackground.png */; };
+		DEBE3BC1156B1C66004A9A31 /* W5NamerTextFieldBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BB7156B1C66004A9A31 /* W5NamerTextFieldBackground@2x.png */; };
+		DEBE3BC2156B1C66004A9A31 /* W5NamerThumbSingle.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BB8156B1C66004A9A31 /* W5NamerThumbSingle.png */; };
+		DEBE3BC3156B1C66004A9A31 /* W5NamerThumbSingle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BB9156B1C66004A9A31 /* W5NamerThumbSingle@2x.png */; };
+		DEBE3BC4156B1C66004A9A31 /* W5NamerThumbStack.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BBA156B1C66004A9A31 /* W5NamerThumbStack.png */; };
+		DEBE3BC5156B1C66004A9A31 /* W5NamerThumbStack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BBB156B1C66004A9A31 /* W5NamerThumbStack@2x.png */; };
+		DEBE3BC6156B1C66004A9A31 /* W5NamerThumbTwoStack.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BBC156B1C66004A9A31 /* W5NamerThumbTwoStack.png */; };
+		DEBE3BC7156B1C66004A9A31 /* W5NamerThumbTwoStack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE3BBD156B1C66004A9A31 /* W5NamerThumbTwoStack@2x.png */; };
+		DEEC0FF3156B32B600B1F0D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
+		DEEC1000156B32B600B1F0D2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017D10155EC930002E7BB0 /* SenTestingKit.framework */; };
+		DEEC1001156B32B600B1F0D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
+		DEEC1002156B32B600B1F0D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
+		DEEC1005156B32B600B1F0D2 /* libW5AssetPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEC0FF2156B32B600B1F0D2 /* libW5AssetPicker.a */; };
+		DEEC100B156B32B600B1F0D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEEC1009156B32B600B1F0D2 /* InfoPlist.strings */; };
+		DEEC100E156B32B600B1F0D2 /* W5AssetPickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC100D156B32B600B1F0D2 /* W5AssetPickerTests.m */; };
+		DEEC1017156B332900B1F0D2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
+		DEEC1018156B333600B1F0D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
+		DEEC1019156B334800B1F0D2 /* W5AssetPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE017D27155EC991002E7BB0 /* W5AssetPickerController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DEEC101A156B335600B1F0D2 /* W5AlbumTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7FF80F155ECA7E00D7B3E8 /* W5AlbumTableViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DEEC101B156B335700B1F0D2 /* W5AssetTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7FF81F155F09AD00D7B3E8 /* W5AssetTableViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DEEC101C156B335900B1F0D2 /* W5AssetsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7FF826155F1E1100D7B3E8 /* W5AssetsTableViewCell.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DEEC101D156B335C00B1F0D2 /* W5AssetWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DE885DFA15635F06001A9D12 /* W5AssetWrapper.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DEEC101E156B336100B1F0D2 /* W5AssetViewColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7FF823155F1DD200D7B3E8 /* W5AssetViewColumn.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DEEC101F156B376400B1F0D2 /* W5AssetPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DEEC0FF7156B32B600B1F0D2 /* W5AssetPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DEEC1020156B37E300B1F0D2 /* W5AssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D28155EC991002E7BB0 /* W5AssetPickerController.m */; };
+		DEEC1021156B37F100B1F0D2 /* W5AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF810155ECA7E00D7B3E8 /* W5AlbumTableViewController.m */; };
+		DEEC1022156B37F800B1F0D2 /* W5AssetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF820155F09AD00D7B3E8 /* W5AssetTableViewController.m */; };
+		DEEC1023156B37FE00B1F0D2 /* W5AssetsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF827155F1E1100D7B3E8 /* W5AssetsTableViewCell.m */; };
+		DEEC1024156B380400B1F0D2 /* W5AssetWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE885DFB15635F06001A9D12 /* W5AssetWrapper.m */; };
+		DEEC1025156B380A00B1F0D2 /* W5AssetViewColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF824155F1DD200D7B3E8 /* W5AssetViewColumn.m */; };
+		DEEC102A156B39AB00B1F0D2 /* libW5AssetPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEC0FF2156B32B600B1F0D2 /* libW5AssetPicker.a */; };
+		DEEC102B156B39AF00B1F0D2 /* libW5AssetPicker.a in Resources */ = {isa = PBXBuildFile; fileRef = DEEC0FF2156B32B600B1F0D2 /* libW5AssetPicker.a */; };
 		DEF8938015671DC600DAA688 /* W5AssetViewSelectionIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEF8937F15671DC600DAA688 /* W5AssetViewSelectionIndicator@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DE017D14155EC930002E7BB0 /* PBXContainerItemProxy */ = {
+		DEEC1003156B32B600B1F0D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE017CEB155EC92F002E7BB0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DE017CF3155EC92F002E7BB0;
-			remoteInfo = W5AssetPickerController;
+			remoteGlobalIDString = DEEC0FF1156B32B600B1F0D2;
+			remoteInfo = W5AssetPicker;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AE5CCE3156AB6A2004C2AB7 /* W5NamerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5NamerView.h; sourceTree = "<group>"; };
+		4AE5CCE4156AB6A2004C2AB7 /* W5NamerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5NamerView.m; sourceTree = "<group>"; };
+		4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = W5AssetPickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE017CF8155EC92F002E7BB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE017CFA155EC92F002E7BB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,29 +80,42 @@
 		DE017D06155EC92F002E7BB0 /* W5AssetPickerController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "W5AssetPickerController-Prefix.pch"; sourceTree = "<group>"; };
 		DE017D07155EC92F002E7BB0 /* W5AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = W5AppDelegate.h; sourceTree = "<group>"; };
 		DE017D08155EC92F002E7BB0 /* W5AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = W5AppDelegate.m; sourceTree = "<group>"; };
-		DE017D0F155EC930002E7BB0 /* W5AssetPickerControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = W5AssetPickerControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE017D10155EC930002E7BB0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		DE017D18155EC930002E7BB0 /* W5AssetPickerControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "W5AssetPickerControllerTests-Info.plist"; sourceTree = "<group>"; };
-		DE017D1A155EC930002E7BB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DE017D1C155EC930002E7BB0 /* W5AssetPickerControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = W5AssetPickerControllerTests.h; sourceTree = "<group>"; };
-		DE017D1D155EC930002E7BB0 /* W5AssetPickerControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = W5AssetPickerControllerTests.m; sourceTree = "<group>"; };
-		DE017D27155EC991002E7BB0 /* W5AssetPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AssetPickerController.h; sourceTree = "<group>"; };
-		DE017D28155EC991002E7BB0 /* W5AssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AssetPickerController.m; sourceTree = "<group>"; };
-		DE7FF80F155ECA7E00D7B3E8 /* W5AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AlbumTableViewController.h; sourceTree = "<group>"; };
-		DE7FF810155ECA7E00D7B3E8 /* W5AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AlbumTableViewController.m; sourceTree = "<group>"; };
+		DE017D27155EC991002E7BB0 /* W5AssetPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AssetPickerController.h; sourceTree = SOURCE_ROOT; };
+		DE017D28155EC991002E7BB0 /* W5AssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AssetPickerController.m; sourceTree = SOURCE_ROOT; };
+		DE7FF80F155ECA7E00D7B3E8 /* W5AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W5AlbumTableViewController.h; path = ../W5AlbumTableViewController.h; sourceTree = "<group>"; };
+		DE7FF810155ECA7E00D7B3E8 /* W5AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W5AlbumTableViewController.m; path = ../W5AlbumTableViewController.m; sourceTree = "<group>"; };
 		DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		DE7FF819155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		DE7FF81C155EFEC700D7B3E8 /* W5MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5MainViewController.h; sourceTree = "<group>"; };
 		DE7FF81D155EFEC700D7B3E8 /* W5MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5MainViewController.m; sourceTree = "<group>"; };
-		DE7FF81F155F09AD00D7B3E8 /* W5AssetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AssetTableViewController.h; sourceTree = "<group>"; };
-		DE7FF820155F09AD00D7B3E8 /* W5AssetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AssetTableViewController.m; sourceTree = "<group>"; };
-		DE7FF823155F1DD200D7B3E8 /* W5AssetViewColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AssetViewColumn.h; sourceTree = "<group>"; };
-		DE7FF824155F1DD200D7B3E8 /* W5AssetViewColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AssetViewColumn.m; sourceTree = "<group>"; };
-		DE7FF826155F1E1100D7B3E8 /* W5AssetsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AssetsTableViewCell.h; sourceTree = "<group>"; };
-		DE7FF827155F1E1100D7B3E8 /* W5AssetsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AssetsTableViewCell.m; sourceTree = "<group>"; };
+		DE7FF81F155F09AD00D7B3E8 /* W5AssetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W5AssetTableViewController.h; path = ../W5AssetTableViewController.h; sourceTree = "<group>"; };
+		DE7FF820155F09AD00D7B3E8 /* W5AssetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W5AssetTableViewController.m; path = ../W5AssetTableViewController.m; sourceTree = "<group>"; };
+		DE7FF823155F1DD200D7B3E8 /* W5AssetViewColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W5AssetViewColumn.h; path = ../W5AssetViewColumn.h; sourceTree = "<group>"; };
+		DE7FF824155F1DD200D7B3E8 /* W5AssetViewColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W5AssetViewColumn.m; path = ../W5AssetViewColumn.m; sourceTree = "<group>"; };
+		DE7FF826155F1E1100D7B3E8 /* W5AssetsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W5AssetsTableViewCell.h; path = ../W5AssetsTableViewCell.h; sourceTree = "<group>"; };
+		DE7FF827155F1E1100D7B3E8 /* W5AssetsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W5AssetsTableViewCell.m; path = ../W5AssetsTableViewCell.m; sourceTree = "<group>"; };
 		DE885DEE15634437001A9D12 /* W5AssetViewSelectionIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = W5AssetViewSelectionIndicator.png; sourceTree = "<group>"; };
-		DE885DFA15635F06001A9D12 /* W5AssetWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AssetWrapper.h; sourceTree = "<group>"; };
-		DE885DFB15635F06001A9D12 /* W5AssetWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AssetWrapper.m; sourceTree = "<group>"; };
+		DE885DFA15635F06001A9D12 /* W5AssetWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W5AssetWrapper.h; path = ../W5AssetWrapper.h; sourceTree = "<group>"; };
+		DE885DFB15635F06001A9D12 /* W5AssetWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W5AssetWrapper.m; path = ../W5AssetWrapper.m; sourceTree = "<group>"; };
+		DEBE3BB4156B1C66004A9A31 /* W5NamerBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = W5NamerBackground.png; sourceTree = "<group>"; };
+		DEBE3BB5156B1C66004A9A31 /* W5NamerBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W5NamerBackground@2x.png"; sourceTree = "<group>"; };
+		DEBE3BB6156B1C66004A9A31 /* W5NamerTextFieldBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = W5NamerTextFieldBackground.png; sourceTree = "<group>"; };
+		DEBE3BB7156B1C66004A9A31 /* W5NamerTextFieldBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W5NamerTextFieldBackground@2x.png"; sourceTree = "<group>"; };
+		DEBE3BB8156B1C66004A9A31 /* W5NamerThumbSingle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = W5NamerThumbSingle.png; sourceTree = "<group>"; };
+		DEBE3BB9156B1C66004A9A31 /* W5NamerThumbSingle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W5NamerThumbSingle@2x.png"; sourceTree = "<group>"; };
+		DEBE3BBA156B1C66004A9A31 /* W5NamerThumbStack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = W5NamerThumbStack.png; sourceTree = "<group>"; };
+		DEBE3BBB156B1C66004A9A31 /* W5NamerThumbStack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W5NamerThumbStack@2x.png"; sourceTree = "<group>"; };
+		DEBE3BBC156B1C66004A9A31 /* W5NamerThumbTwoStack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = W5NamerThumbTwoStack.png; sourceTree = "<group>"; };
+		DEBE3BBD156B1C66004A9A31 /* W5NamerThumbTwoStack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W5NamerThumbTwoStack@2x.png"; sourceTree = "<group>"; };
+		DEEC0FF2156B32B600B1F0D2 /* libW5AssetPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libW5AssetPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEEC0FF6156B32B600B1F0D2 /* W5AssetPicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "W5AssetPicker-Prefix.pch"; sourceTree = "<group>"; };
+		DEEC0FF7156B32B600B1F0D2 /* W5AssetPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = W5AssetPicker.h; sourceTree = "<group>"; };
+		DEEC0FFF156B32B600B1F0D2 /* W5AssetPickerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = W5AssetPickerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEEC1008156B32B600B1F0D2 /* W5AssetPickerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "W5AssetPickerTests-Info.plist"; sourceTree = "<group>"; };
+		DEEC100A156B32B600B1F0D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DEEC100C156B32B600B1F0D2 /* W5AssetPickerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = W5AssetPickerTests.h; sourceTree = "<group>"; };
+		DEEC100D156B32B600B1F0D2 /* W5AssetPickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = W5AssetPickerTests.m; sourceTree = "<group>"; };
 		DEF8937F15671DC600DAA688 /* W5AssetViewSelectionIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W5AssetViewSelectionIndicator@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEEC102A156B39AB00B1F0D2 /* libW5AssetPicker.a in Frameworks */,
+				4AE5CCE8156AB810004C2AB7 /* QuartzCore.framework in Frameworks */,
 				DE7FF814155ECB0A00D7B3E8 /* AssetsLibrary.framework in Frameworks */,
 				DE017CF9155EC92F002E7BB0 /* UIKit.framework in Frameworks */,
 				DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */,
@@ -94,13 +133,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE017D0B155EC930002E7BB0 /* Frameworks */ = {
+		DEEC0FEF156B32B600B1F0D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE017D11155EC930002E7BB0 /* SenTestingKit.framework in Frameworks */,
-				DE017D12155EC930002E7BB0 /* UIKit.framework in Frameworks */,
-				DE017D13155EC930002E7BB0 /* Foundation.framework in Frameworks */,
+				DEEC1018156B333600B1F0D2 /* UIKit.framework in Frameworks */,
+				DEEC1017156B332900B1F0D2 /* AssetsLibrary.framework in Frameworks */,
+				DEEC0FF3156B32B600B1F0D2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEEC0FFB156B32B600B1F0D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEEC1000156B32B600B1F0D2 /* SenTestingKit.framework in Frameworks */,
+				DEEC1001156B32B600B1F0D2 /* UIKit.framework in Frameworks */,
+				DEEC1002156B32B600B1F0D2 /* Foundation.framework in Frameworks */,
+				DEEC1005156B32B600B1F0D2 /* libW5AssetPicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,16 +160,12 @@
 		DE017CE9155EC92F002E7BB0 = {
 			isa = PBXGroup;
 			children = (
-				DEF8937F15671DC600DAA688 /* W5AssetViewSelectionIndicator@2x.png */,
-				DE885DEE15634437001A9D12 /* W5AssetViewSelectionIndicator.png */,
-				DE7FF819155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard */,
-				DE7FF81C155EFEC700D7B3E8 /* W5MainViewController.h */,
-				DE7FF81D155EFEC700D7B3E8 /* W5MainViewController.m */,
-				DE7FF80D155ECA3C00D7B3E8 /* Asset Picker */,
-				DE017CFE155EC92F002E7BB0 /* W5AssetPickerController */,
-				DE017D16155EC930002E7BB0 /* W5AssetPickerControllerTests */,
+				DEEC1027156B38C400B1F0D2 /* Asset Picker Static Library */,
+				DEEC1026156B388E00B1F0D2 /* Demo App */,
 				DE017CF7155EC92F002E7BB0 /* Frameworks */,
 				DE017CF5155EC92F002E7BB0 /* Products */,
+				DE885DEE15634437001A9D12 /* W5AssetViewSelectionIndicator.png */,
+				DEF8937F15671DC600DAA688 /* W5AssetViewSelectionIndicator@2x.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,7 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */,
-				DE017D0F155EC930002E7BB0 /* W5AssetPickerControllerTests.octest */,
+				DEEC0FF2156B32B600B1F0D2 /* libW5AssetPicker.a */,
+				DEEC0FFF156B32B600B1F0D2 /* W5AssetPickerTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +182,7 @@
 		DE017CF7155EC92F002E7BB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */,
 				DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */,
 				DE017CF8155EC92F002E7BB0 /* UIKit.framework */,
 				DE017CFA155EC92F002E7BB0 /* Foundation.framework */,
@@ -144,47 +192,87 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DE017CFE155EC92F002E7BB0 /* W5AssetPickerController */ = {
+		DE017CFF155EC92F002E7BB0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				DE017D07155EC92F002E7BB0 /* W5AppDelegate.h */,
 				DE017D08155EC92F002E7BB0 /* W5AppDelegate.m */,
-				DE017CFF155EC92F002E7BB0 /* Supporting Files */,
-			);
-			path = W5AssetPickerController;
-			sourceTree = "<group>";
-		};
-		DE017CFF155EC92F002E7BB0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 				DE017D00155EC92F002E7BB0 /* W5AssetPickerController-Info.plist */,
 				DE017D01155EC92F002E7BB0 /* InfoPlist.strings */,
 				DE017D04155EC92F002E7BB0 /* main.m */,
 				DE017D06155EC92F002E7BB0 /* W5AssetPickerController-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = W5AssetPickerController;
 			sourceTree = "<group>";
 		};
-		DE017D16155EC930002E7BB0 /* W5AssetPickerControllerTests */ = {
+		DEBE3BB1156B1C3F004A9A31 /* W5NamerView */ = {
 			isa = PBXGroup;
 			children = (
-				DE017D1C155EC930002E7BB0 /* W5AssetPickerControllerTests.h */,
-				DE017D1D155EC930002E7BB0 /* W5AssetPickerControllerTests.m */,
-				DE017D17155EC930002E7BB0 /* Supporting Files */,
+				DEBE3BB3156B1C66004A9A31 /* Resources */,
+				4AE5CCE3156AB6A2004C2AB7 /* W5NamerView.h */,
+				4AE5CCE4156AB6A2004C2AB7 /* W5NamerView.m */,
 			);
-			path = W5AssetPickerControllerTests;
+			name = W5NamerView;
 			sourceTree = "<group>";
 		};
-		DE017D17155EC930002E7BB0 /* Supporting Files */ = {
+		DEBE3BB3156B1C66004A9A31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DE017D18155EC930002E7BB0 /* W5AssetPickerControllerTests-Info.plist */,
-				DE017D19155EC930002E7BB0 /* InfoPlist.strings */,
+				DEBE3BB4156B1C66004A9A31 /* W5NamerBackground.png */,
+				DEBE3BB5156B1C66004A9A31 /* W5NamerBackground@2x.png */,
+				DEBE3BB6156B1C66004A9A31 /* W5NamerTextFieldBackground.png */,
+				DEBE3BB7156B1C66004A9A31 /* W5NamerTextFieldBackground@2x.png */,
+				DEBE3BB8156B1C66004A9A31 /* W5NamerThumbSingle.png */,
+				DEBE3BB9156B1C66004A9A31 /* W5NamerThumbSingle@2x.png */,
+				DEBE3BBA156B1C66004A9A31 /* W5NamerThumbStack.png */,
+				DEBE3BBB156B1C66004A9A31 /* W5NamerThumbStack@2x.png */,
+				DEBE3BBC156B1C66004A9A31 /* W5NamerThumbTwoStack.png */,
+				DEBE3BBD156B1C66004A9A31 /* W5NamerThumbTwoStack@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DEEC0FF4156B32B600B1F0D2 /* libW5AssetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				DEEC1016156B32D500B1F0D2 /* Classes */,
+				DEEC0FF7156B32B600B1F0D2 /* W5AssetPicker.h */,
+				DEEC0FF5156B32B600B1F0D2 /* Supporting Files */,
+			);
+			name = libW5AssetPicker;
+			path = W5AssetPicker;
+			sourceTree = "<group>";
+		};
+		DEEC0FF5156B32B600B1F0D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DEEC0FF6156B32B600B1F0D2 /* W5AssetPicker-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DE7FF80D155ECA3C00D7B3E8 /* Asset Picker */ = {
+		DEEC1006156B32B600B1F0D2 /* libW5AssetPickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DEEC100C156B32B600B1F0D2 /* W5AssetPickerTests.h */,
+				DEEC100D156B32B600B1F0D2 /* W5AssetPickerTests.m */,
+				DEEC1007156B32B600B1F0D2 /* Supporting Files */,
+			);
+			name = libW5AssetPickerTests;
+			path = W5AssetPickerTests;
+			sourceTree = "<group>";
+		};
+		DEEC1007156B32B600B1F0D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DEEC1008156B32B600B1F0D2 /* W5AssetPickerTests-Info.plist */,
+				DEEC1009156B32B600B1F0D2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DEEC1016156B32D500B1F0D2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				DE017D27155EC991002E7BB0 /* W5AssetPickerController.h */,
@@ -200,10 +288,48 @@
 				DE7FF823155F1DD200D7B3E8 /* W5AssetViewColumn.h */,
 				DE7FF824155F1DD200D7B3E8 /* W5AssetViewColumn.m */,
 			);
-			name = "Asset Picker";
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		DEEC1026156B388E00B1F0D2 /* Demo App */ = {
+			isa = PBXGroup;
+			children = (
+				DEBE3BB1156B1C3F004A9A31 /* W5NamerView */,
+				DE7FF819155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard */,
+				DE7FF81C155EFEC700D7B3E8 /* W5MainViewController.h */,
+				DE7FF81D155EFEC700D7B3E8 /* W5MainViewController.m */,
+				DE017CFF155EC92F002E7BB0 /* Supporting Files */,
+			);
+			name = "Demo App";
+			sourceTree = "<group>";
+		};
+		DEEC1027156B38C400B1F0D2 /* Asset Picker Static Library */ = {
+			isa = PBXGroup;
+			children = (
+				DEEC0FF4156B32B600B1F0D2 /* libW5AssetPicker */,
+				DEEC1006156B32B600B1F0D2 /* libW5AssetPickerTests */,
+			);
+			name = "Asset Picker Static Library";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DEEC0FF0156B32B600B1F0D2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEEC101A156B335600B1F0D2 /* W5AlbumTableViewController.h in Headers */,
+				DEEC1019156B334800B1F0D2 /* W5AssetPickerController.h in Headers */,
+				DEEC101B156B335700B1F0D2 /* W5AssetTableViewController.h in Headers */,
+				DEEC101C156B335900B1F0D2 /* W5AssetsTableViewCell.h in Headers */,
+				DEEC101D156B335C00B1F0D2 /* W5AssetWrapper.h in Headers */,
+				DEEC101E156B336100B1F0D2 /* W5AssetViewColumn.h in Headers */,
+				DEEC101F156B376400B1F0D2 /* W5AssetPicker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		DE017CF3155EC92F002E7BB0 /* W5AssetPickerController */ = {
@@ -223,23 +349,40 @@
 			productReference = DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DE017D0E155EC930002E7BB0 /* W5AssetPickerControllerTests */ = {
+		DEEC0FF1156B32B600B1F0D2 /* W5AssetPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE017D24155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "W5AssetPickerControllerTests" */;
+			buildConfigurationList = DEEC1013156B32B600B1F0D2 /* Build configuration list for PBXNativeTarget "W5AssetPicker" */;
 			buildPhases = (
-				DE017D0A155EC930002E7BB0 /* Sources */,
-				DE017D0B155EC930002E7BB0 /* Frameworks */,
-				DE017D0C155EC930002E7BB0 /* Resources */,
-				DE017D0D155EC930002E7BB0 /* ShellScript */,
+				DEEC0FEE156B32B600B1F0D2 /* Sources */,
+				DEEC0FEF156B32B600B1F0D2 /* Frameworks */,
+				DEEC0FF0156B32B600B1F0D2 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DE017D15155EC930002E7BB0 /* PBXTargetDependency */,
 			);
-			name = W5AssetPickerControllerTests;
-			productName = W5AssetPickerControllerTests;
-			productReference = DE017D0F155EC930002E7BB0 /* W5AssetPickerControllerTests.octest */;
+			name = W5AssetPicker;
+			productName = W5AssetPicker;
+			productReference = DEEC0FF2156B32B600B1F0D2 /* libW5AssetPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DEEC0FFE156B32B600B1F0D2 /* W5AssetPickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEEC1014156B32B600B1F0D2 /* Build configuration list for PBXNativeTarget "W5AssetPickerTests" */;
+			buildPhases = (
+				DEEC0FFA156B32B600B1F0D2 /* Sources */,
+				DEEC0FFB156B32B600B1F0D2 /* Frameworks */,
+				DEEC0FFC156B32B600B1F0D2 /* Resources */,
+				DEEC0FFD156B32B600B1F0D2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DEEC1004156B32B600B1F0D2 /* PBXTargetDependency */,
+			);
+			name = W5AssetPickerTests;
+			productName = W5AssetPickerTests;
+			productReference = DEEC0FFF156B32B600B1F0D2 /* W5AssetPickerTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -265,7 +408,8 @@
 			projectRoot = "";
 			targets = (
 				DE017CF3155EC92F002E7BB0 /* W5AssetPickerController */,
-				DE017D0E155EC930002E7BB0 /* W5AssetPickerControllerTests */,
+				DEEC0FF1156B32B600B1F0D2 /* W5AssetPicker */,
+				DEEC0FFE156B32B600B1F0D2 /* W5AssetPickerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,26 +419,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEEC102B156B39AF00B1F0D2 /* libW5AssetPicker.a in Resources */,
 				DE017D03155EC92F002E7BB0 /* InfoPlist.strings in Resources */,
 				DE7FF81A155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard in Resources */,
 				DE885DEF15634437001A9D12 /* W5AssetViewSelectionIndicator.png in Resources */,
 				DEF8938015671DC600DAA688 /* W5AssetViewSelectionIndicator@2x.png in Resources */,
+				DEBE3BBE156B1C66004A9A31 /* W5NamerBackground.png in Resources */,
+				DEBE3BBF156B1C66004A9A31 /* W5NamerBackground@2x.png in Resources */,
+				DEBE3BC0156B1C66004A9A31 /* W5NamerTextFieldBackground.png in Resources */,
+				DEBE3BC1156B1C66004A9A31 /* W5NamerTextFieldBackground@2x.png in Resources */,
+				DEBE3BC2156B1C66004A9A31 /* W5NamerThumbSingle.png in Resources */,
+				DEBE3BC3156B1C66004A9A31 /* W5NamerThumbSingle@2x.png in Resources */,
+				DEBE3BC4156B1C66004A9A31 /* W5NamerThumbStack.png in Resources */,
+				DEBE3BC5156B1C66004A9A31 /* W5NamerThumbStack@2x.png in Resources */,
+				DEBE3BC6156B1C66004A9A31 /* W5NamerThumbTwoStack.png in Resources */,
+				DEBE3BC7156B1C66004A9A31 /* W5NamerThumbTwoStack@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE017D0C155EC930002E7BB0 /* Resources */ = {
+		DEEC0FFC156B32B600B1F0D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE017D1B155EC930002E7BB0 /* InfoPlist.strings in Resources */,
-				DE7FF81B155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard in Resources */,
+				DEEC100B156B32B600B1F0D2 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DE017D0D155EC930002E7BB0 /* ShellScript */ = {
+		DEEC0FFD156B32B600B1F0D2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -316,34 +470,39 @@
 			files = (
 				DE017D05155EC92F002E7BB0 /* main.m in Sources */,
 				DE017D09155EC92F002E7BB0 /* W5AppDelegate.m in Sources */,
-				DE017D29155EC991002E7BB0 /* W5AssetPickerController.m in Sources */,
-				DE7FF811155ECA7E00D7B3E8 /* W5AlbumTableViewController.m in Sources */,
 				DE7FF81E155EFEC700D7B3E8 /* W5MainViewController.m in Sources */,
-				DE7FF821155F09AD00D7B3E8 /* W5AssetTableViewController.m in Sources */,
-				DE7FF825155F1DD200D7B3E8 /* W5AssetViewColumn.m in Sources */,
-				DE7FF828155F1E1100D7B3E8 /* W5AssetsTableViewCell.m in Sources */,
-				DE885DFC15635F06001A9D12 /* W5AssetWrapper.m in Sources */,
+				4AE5CCE5156AB6A2004C2AB7 /* W5NamerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE017D0A155EC930002E7BB0 /* Sources */ = {
+		DEEC0FEE156B32B600B1F0D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE017D1E155EC930002E7BB0 /* W5AssetPickerControllerTests.m in Sources */,
-				DE017D2A155EC991002E7BB0 /* W5AssetPickerController.m in Sources */,
-				DE7FF812155ECA7E00D7B3E8 /* W5AlbumTableViewController.m in Sources */,
-				DE7FF822155F09AD00D7B3E8 /* W5AssetTableViewController.m in Sources */,
+				DEEC1020156B37E300B1F0D2 /* W5AssetPickerController.m in Sources */,
+				DEEC1021156B37F100B1F0D2 /* W5AlbumTableViewController.m in Sources */,
+				DEEC1022156B37F800B1F0D2 /* W5AssetTableViewController.m in Sources */,
+				DEEC1023156B37FE00B1F0D2 /* W5AssetsTableViewCell.m in Sources */,
+				DEEC1024156B380400B1F0D2 /* W5AssetWrapper.m in Sources */,
+				DEEC1025156B380A00B1F0D2 /* W5AssetViewColumn.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEEC0FFA156B32B600B1F0D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEEC100E156B32B600B1F0D2 /* W5AssetPickerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DE017D15155EC930002E7BB0 /* PBXTargetDependency */ = {
+		DEEC1004156B32B600B1F0D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DE017CF3155EC92F002E7BB0 /* W5AssetPickerController */;
-			targetProxy = DE017D14155EC930002E7BB0 /* PBXContainerItemProxy */;
+			target = DEEC0FF1156B32B600B1F0D2 /* W5AssetPicker */;
+			targetProxy = DEEC1003156B32B600B1F0D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -356,10 +515,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		DE017D19155EC930002E7BB0 /* InfoPlist.strings */ = {
+		DEEC1009156B32B600B1F0D2 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DE017D1A155EC930002E7BB0 /* en */,
+				DEEC100A156B32B600B1F0D2 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -437,36 +596,65 @@
 			};
 			name = Release;
 		};
-		DE017D25155EC930002E7BB0 /* Debug */ = {
+		DEEC100F156B32B600B1F0D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/W5AssetPickerController.app/W5AssetPickerController";
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/W5AssetPicker.dst;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "W5AssetPicker/W5AssetPicker-Prefix.pch";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Debug;
+		};
+		DEEC1010156B32B600B1F0D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/W5AssetPicker.dst;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "W5AssetPicker/W5AssetPicker-Prefix.pch";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+		DEEC1011156B32B600B1F0D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "W5AssetPickerController/W5AssetPickerController-Prefix.pch";
-				INFOPLIST_FILE = "W5AssetPickerControllerTests/W5AssetPickerControllerTests-Info.plist";
+				GCC_PREFIX_HEADER = "W5AssetPicker/W5AssetPicker-Prefix.pch";
+				INFOPLIST_FILE = "W5AssetPickerTests/W5AssetPickerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
-		DE017D26155EC930002E7BB0 /* Release */ = {
+		DEEC1012156B32B600B1F0D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/W5AssetPickerController.app/W5AssetPickerController";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "W5AssetPickerController/W5AssetPickerController-Prefix.pch";
-				INFOPLIST_FILE = "W5AssetPickerControllerTests/W5AssetPickerControllerTests-Info.plist";
+				GCC_PREFIX_HEADER = "W5AssetPicker/W5AssetPicker-Prefix.pch";
+				INFOPLIST_FILE = "W5AssetPickerTests/W5AssetPickerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -492,11 +680,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE017D24155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "W5AssetPickerControllerTests" */ = {
+		DEEC1013156B32B600B1F0D2 /* Build configuration list for PBXNativeTarget "W5AssetPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DE017D25155EC930002E7BB0 /* Debug */,
-				DE017D26155EC930002E7BB0 /* Release */,
+				DEEC100F156B32B600B1F0D2 /* Debug */,
+				DEEC1010156B32B600B1F0D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEEC1014156B32B600B1F0D2 /* Build configuration list for PBXNativeTarget "W5AssetPickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEEC1011156B32B600B1F0D2 /* Debug */,
+				DEEC1012156B32B600B1F0D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
