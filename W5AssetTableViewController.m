@@ -219,6 +219,15 @@
     
     W5AssetWrapper *assetWrapper = [self.fetchedAssets objectAtIndex:assetIndex];
     assetWrapper.selected = selected;
+    
+    // The navigationController is actually a subclass of W5AssetPickerController. It's delegate conforms to the
+    // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
+    id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.navigationController.delegate;
+    
+    if ([delegate respondsToSelector:@selector(assetPickerController:didChangeSelectionState:forAsset:)]) {
+        
+        [delegate assetPickerController:(W5AssetPickerController *)self.navigationController didChangeSelectionState:selected forAsset:assetWrapper.asset];
+    }
 }
 
 

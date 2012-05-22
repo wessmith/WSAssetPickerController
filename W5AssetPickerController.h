@@ -22,4 +22,7 @@
 - (void)assetPickerControllerDidCancel:(W5AssetPickerController *)sender;
 - (void)assetPickerController:(W5AssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets;
 
+@optional
+- (void)assetPickerController:(W5AssetPickerController *)sender didChangeSelectionState:(BOOL)selected forAsset:(ALAsset *)asset;
+
 @end
