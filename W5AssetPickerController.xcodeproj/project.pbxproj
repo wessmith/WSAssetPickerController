@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A5F7F4E156BF46D006ABBCA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5F7F4C156BF46D006ABBCA /* Icon.png */; };
+		4A5F7F4F156BF46D006ABBCA /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5F7F4D156BF46D006ABBCA /* Icon@2x.png */; };
 		4AE5CCE8156AB810004C2AB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */; };
 		DE017CF9155EC92F002E7BB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
 		DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
@@ -40,8 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A5F7F4C156BF46D006ABBCA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		4A5F7F4D156BF46D006ABBCA /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = W5AssetPickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE017CF4155EC92F002E7BB0 /* W5AssetPickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = W5AssetPickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE017CF8155EC92F002E7BB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE017CFA155EC92F002E7BB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,7 +121,7 @@
 		DE017CF5155EC92F002E7BB0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */,
+				DE017CF4155EC92F002E7BB0 /* W5AssetPickerDemo.app */,
 				DEEC0FF2156B32B600B1F0D2 /* libW5AssetPicker.a */,
 			);
 			name = Products;
@@ -191,6 +195,8 @@
 		DEEC1026156B388E00B1F0D2 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				4A5F7F4C156BF46D006ABBCA /* Icon.png */,
+				4A5F7F4D156BF46D006ABBCA /* Icon@2x.png */,
 				DE7FF819155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard */,
 				DE7FF81C155EFEC700D7B3E8 /* W5MainViewController.h */,
 				DE7FF81D155EFEC700D7B3E8 /* W5MainViewController.m */,
@@ -227,9 +233,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DE017CF3155EC92F002E7BB0 /* W5AssetPickerController */ = {
+		DE017CF3155EC92F002E7BB0 /* Picker Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE017D21155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "W5AssetPickerController" */;
+			buildConfigurationList = DE017D21155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "Picker Demo" */;
 			buildPhases = (
 				DE017CF0155EC92F002E7BB0 /* Sources */,
 				DE017CF1155EC92F002E7BB0 /* Frameworks */,
@@ -239,9 +245,9 @@
 			);
 			dependencies = (
 			);
-			name = W5AssetPickerController;
+			name = "Picker Demo";
 			productName = W5AssetPickerController;
-			productReference = DE017CF4155EC92F002E7BB0 /* W5AssetPickerController.app */;
+			productReference = DE017CF4155EC92F002E7BB0 /* W5AssetPickerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DEEC0FF1156B32B600B1F0D2 /* W5AssetPicker */ = {
@@ -283,7 +289,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DE017CF3155EC92F002E7BB0 /* W5AssetPickerController */,
+				DE017CF3155EC92F002E7BB0 /* Picker Demo */,
 				DEEC0FF1156B32B600B1F0D2 /* W5AssetPicker */,
 			);
 		};
@@ -299,6 +305,8 @@
 				DE7FF81A155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard in Resources */,
 				DE885DEF15634437001A9D12 /* W5AssetViewSelectionIndicator.png in Resources */,
 				DEF8938015671DC600DAA688 /* W5AssetViewSelectionIndicator@2x.png in Resources */,
+				4A5F7F4E156BF46D006ABBCA /* Icon.png in Resources */,
+				4A5F7F4F156BF46D006ABBCA /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +465,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE017D21155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "W5AssetPickerController" */ = {
+		DE017D21155EC930002E7BB0 /* Build configuration list for PBXNativeTarget "Picker Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE017D22155EC930002E7BB0 /* Debug */,
