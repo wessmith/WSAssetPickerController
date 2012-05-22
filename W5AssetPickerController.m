@@ -9,8 +9,15 @@
 #import "W5AssetPickerController.h"
 #import "W5AlbumTableViewController.h"
 
+@interface W5AssetPickerController ()
+@property (nonatomic) UIStatusBarStyle originalStatusBarStyle;
+@end
+
 
 @implementation W5AssetPickerController
+
+@synthesize originalStatusBarStyle = _originalStatusBarStyle;
+
 
 #pragma mark - Initialization
 
@@ -22,6 +29,7 @@
     if ((self = [super initWithRootViewController:albumTableViewController])) {
         
         self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        self.toolbar.barStyle = UIBarStyleBlackTranslucent;
         
         self.delegate = delegate;
     }
@@ -33,8 +41,20 @@
 {
     [super viewWillAppear:animated];
     
+    self.originalStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    
+    DLog(@"Toolbar items: %@", self.toolbarItems);
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:self.originalStatusBarStyle animated:YES];
+}
+
 
 #pragma mark - Rotation
 
