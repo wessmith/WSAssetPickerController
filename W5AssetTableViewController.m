@@ -42,6 +42,22 @@
     [super viewWillAppear:animated];
     
     self.wantsFullScreenLayout = YES;
+    
+    // Setup the toolbar if there are items in the navigationController's toolbarItems.
+    if (self.navigationController.toolbarItems.count > 0) {
+        self.toolbarItems = self.navigationController.toolbarItems;
+        [self.navigationController setToolbarHidden:NO animated:YES];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // Hide the toolbar in the event it's being displayed.
+    if (self.navigationController.toolbarItems.count > 0) {
+        [self.navigationController setToolbarHidden:YES animated:YES];
+    }
+    
+    [super viewWillDisappear:animated];
 }
 
 
@@ -136,6 +152,10 @@
 
 - (void)fetchAssets
 {
+    // TODO: Listen to ALAssetsLibrary changes in order to update the library if it changes. 
+    // (e.g. if user closes, opens Photos and deletes/takes a photo, we'll get out of range/other error when they come back.
+    // IDEA: Perhaps the best solution, since this is a modal controller, is to close the modal controller.
+    
     dispatch_queue_t enumQ = dispatch_queue_create("AssetEnumeration", NULL);
     
     dispatch_async(enumQ, ^{
@@ -221,8 +241,6 @@
     if (assetRange.length > self.fetchedAssets.count - assetRange.location) {
         assetRange.length = self.fetchedAssets.count - assetRange.location;
     }
-    
-    //DLog(@"Getting assets: %d -> %d (of %d) --- for row: %d", assetRange.location, assetRange.length, self.fetchedAssets.count, indexPath.row);
     
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:assetRange];
     
