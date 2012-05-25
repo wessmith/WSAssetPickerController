@@ -16,6 +16,7 @@
 		DE017D03155EC92F002E7BB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE017D01155EC92F002E7BB0 /* InfoPlist.strings */; };
 		DE017D05155EC92F002E7BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D04155EC92F002E7BB0 /* main.m */; };
 		DE017D09155EC92F002E7BB0 /* W5AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE017D08155EC92F002E7BB0 /* W5AppDelegate.m */; };
+		DE3FAEAB156F38BD0063A52D /* W5AssetPickerState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3FAEAA156F38BD0063A52D /* W5AssetPickerState.m */; };
 		DE7FF814155ECB0A00D7B3E8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
 		DE7FF81A155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE7FF819155EE3D600D7B3E8 /* MainStoryboard_iPhone.storyboard */; };
 		DE7FF81E155EFEC700D7B3E8 /* W5MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7FF81D155EFEC700D7B3E8 /* W5MainViewController.m */; };
@@ -58,6 +59,8 @@
 		DE017D10155EC930002E7BB0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DE017D27155EC991002E7BB0 /* W5AssetPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AssetPickerController.h; sourceTree = SOURCE_ROOT; };
 		DE017D28155EC991002E7BB0 /* W5AssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AssetPickerController.m; sourceTree = SOURCE_ROOT; };
+		DE3FAEA9156F38BC0063A52D /* W5AssetPickerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5AssetPickerState.h; sourceTree = SOURCE_ROOT; };
+		DE3FAEAA156F38BD0063A52D /* W5AssetPickerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5AssetPickerState.m; sourceTree = SOURCE_ROOT; };
 		DE7FF80F155ECA7E00D7B3E8 /* W5AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W5AlbumTableViewController.h; path = ../W5AlbumTableViewController.h; sourceTree = "<group>"; };
 		DE7FF810155ECA7E00D7B3E8 /* W5AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W5AlbumTableViewController.m; path = ../W5AlbumTableViewController.m; sourceTree = "<group>"; };
 		DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -176,6 +179,8 @@
 		DEEC1016156B32D500B1F0D2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DE3FAEA9156F38BC0063A52D /* W5AssetPickerState.h */,
+				DE3FAEAA156F38BD0063A52D /* W5AssetPickerState.m */,
 				DE017D27155EC991002E7BB0 /* W5AssetPickerController.h */,
 				DE017D28155EC991002E7BB0 /* W5AssetPickerController.m */,
 				DE7FF80F155ECA7E00D7B3E8 /* W5AlbumTableViewController.h */,
@@ -320,6 +325,7 @@
 				DE017D05155EC92F002E7BB0 /* main.m in Sources */,
 				DE017D09155EC92F002E7BB0 /* W5AppDelegate.m in Sources */,
 				DE7FF81E155EFEC700D7B3E8 /* W5MainViewController.m in Sources */,
+				DE3FAEAB156F38BD0063A52D /* W5AssetPickerState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
