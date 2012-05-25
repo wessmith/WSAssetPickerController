@@ -13,6 +13,7 @@
 @interface W5AssetPickerController : UINavigationController
 
 @property (nonatomic, readonly) NSArray *selectedAssets;
+@property (nonatomic, readonly) NSUInteger selectedCount; // Observable.
 
 // Designated initializer.
 - (id)initWithDelegate:(id<W5AssetPickerControllerDelegate>)delegate;

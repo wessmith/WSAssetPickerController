@@ -11,6 +11,7 @@
 #import "W5AssetTableViewController.h"
 
 @interface W5AssetPickerController ()
+@property (nonatomic, readwrite) NSUInteger selectedCount;
 @property (nonatomic) UIStatusBarStyle originalStatusBarStyle;
 @end
 
@@ -18,6 +19,7 @@
 @implementation W5AssetPickerController
 
 @dynamic selectedAssets;
+@synthesize selectedCount = _selectedCount;
 
 @synthesize originalStatusBarStyle = _originalStatusBarStyle;
 

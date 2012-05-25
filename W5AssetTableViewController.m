@@ -16,6 +16,9 @@
 #define ASSETS_PER_ROW_V 4.0
 #define ASSETS_PER_ROW_H 6.0
 
+@interface W5AssetPickerController (Private)
+@property (nonatomic, readwrite) NSUInteger selectedCount;
+@end
 
 @interface W5AssetTableViewController () <W5AssetsTableViewCellDelegate>
 @property (nonatomic, strong) NSMutableArray *fetchedAssets;
@@ -209,16 +212,16 @@
 - (void)assetsTableViewCell:(W5AssetsTableViewCell *)cell didSelectAsset:(BOOL)selected atColumn:(NSUInteger)column
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    DLog(@"Column: %d", column);
     
     // Calculate the index of the corresponding asset.
     NSUInteger assetIndex = indexPath.row * self.assetsPerRow + column;
     
-    
-    DLog(@"Asset Index: %d", assetIndex);
-    
     W5AssetWrapper *assetWrapper = [self.fetchedAssets objectAtIndex:assetIndex];
     assetWrapper.selected = selected;
+    
+    // Update the selectedCount.
+    W5AssetPickerController *assetPickerController = (W5AssetPickerController *)self.navigationController;
+    (selected) ? assetPickerController.selectedCount++ : assetPickerController.selectedCount--;
     
     // The navigationController is actually a subclass of W5AssetPickerController. It's delegate conforms to the
     // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
@@ -226,7 +229,7 @@
     
     if ([delegate respondsToSelector:@selector(assetPickerController:didChangeSelectionState:forAsset:)]) {
         
-        [delegate assetPickerController:(W5AssetPickerController *)self.navigationController didChangeSelectionState:selected forAsset:assetWrapper.asset];
+        [delegate assetPickerController:assetPickerController didChangeSelectionState:selected forAsset:assetWrapper.asset];
     }
 }
 
