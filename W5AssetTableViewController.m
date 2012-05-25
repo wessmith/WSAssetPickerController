@@ -8,17 +8,12 @@
 
 
 #import "W5AssetTableViewController.h"
+#import "W5AssetPickerState.h"
 #import "W5AssetsTableViewCell.h"
-#import "W5AssetPickerController.h"
 #import "W5AssetWrapper.h"
 
-#define FETCH_SIZE 25
-#define ASSETS_PER_ROW_V 4.0
-#define ASSETS_PER_ROW_H 6.0
-
-@interface W5AssetPickerController (Private)
-@property (nonatomic, readwrite) NSUInteger selectedCount;
-@end
+#define ASSETS_PER_ROW_PORTRAIT 4.0
+#define ASSETS_PER_ROW_LANDSCAPE 6.0
 
 @interface W5AssetTableViewController () <W5AssetsTableViewCellDelegate>
 @property (nonatomic, strong) NSMutableArray *fetchedAssets;
@@ -28,8 +23,7 @@
 
 @implementation W5AssetTableViewController
 
-@dynamic selectedAssets;
-
+@synthesize assetPickerState = _assetPickerState;
 @synthesize assetsGroup = _assetsGroup;
 @synthesize fetchedAssets = _fetchedAssets;
 @synthesize assetsPerRow =_assetsPerRow;
@@ -50,6 +44,10 @@
         self.toolbarItems = self.navigationController.toolbarItems;
         [self.navigationController setToolbarHidden:NO animated:YES];
     }
+    
+    self.assetPickerState.state = W5AssetPickerStatePickingAssets;
+    
+    DLog(@"\n*********************************\n\nShowing Asset Picker\n\n*********************************");
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -88,7 +86,7 @@
 - (NSMutableArray *)fetchedAssets
 {
     if (!_fetchedAssets) {
-        _fetchedAssets = [NSMutableArray arrayWithCapacity:FETCH_SIZE];
+        _fetchedAssets = [NSMutableArray array];
     }
     return _fetchedAssets;
 }
@@ -98,44 +96,10 @@
     if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || 
         self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
         
-        return ASSETS_PER_ROW_H;
+        return ASSETS_PER_ROW_PORTRAIT;
     } else {
-        return ASSETS_PER_ROW_V;
+        return ASSETS_PER_ROW_LANDSCAPE;
     }
-}
-
-- (NSArray *)selectedAssets
-{
-    NSDate *start = [NSDate date];
-    DLog(@"\n\nGetting selected photos.");
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.isSelected == YES"];
-    NSArray *matches = [self.fetchedAssets filteredArrayUsingPredicate:predicate];
-    
-    NSDate *methodFinish = [NSDate date];
-    NSLog(@"Done.");
-    NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:start];
-    NSLog(@"Execution Time: %f\n\n", executionTime);
-    
-    DLog(@"Matches: %@", matches);
-    
-    
-    
-    
-    start = [NSDate date];
-    DLog(@"\n\nGetting real assets.");
-    
-    NSMutableArray *selectedAssets = [NSMutableArray arrayWithCapacity:[matches count]];
-    for (W5AssetWrapper *wrapper in matches) {
-        [selectedAssets addObject:wrapper.asset];
-    }
-    
-    methodFinish = [NSDate date];
-    NSLog(@"Done.");
-    executionTime = [methodFinish timeIntervalSinceDate:start];
-    NSLog(@"Execution Time: %f\n\n", executionTime);
-    
-    return selectedAssets;
 }
 
 #pragma mark - Rotation
@@ -196,14 +160,7 @@
 
 - (void)doneButtonAction:(id)sender
 {     
-    // The navigationController is actually a subclass of W5AssetPickerController. It's delegate conforms to the
-    // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
-    id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.navigationController.delegate;
-    
-    if ([delegate respondsToSelector:@selector(assetPickerController:didFinishPickingMediaWithAssets:)]) {
-        
-        [delegate assetPickerController:(W5AssetPickerController *)self.navigationController didFinishPickingMediaWithAssets:self.selectedAssets];
-    }
+    self.assetPickerState.state = W5AssetPickerStatePickingDone;
 }
 
 
@@ -219,18 +176,8 @@
     W5AssetWrapper *assetWrapper = [self.fetchedAssets objectAtIndex:assetIndex];
     assetWrapper.selected = selected;
     
-    // Update the selectedCount.
-    W5AssetPickerController *assetPickerController = (W5AssetPickerController *)self.navigationController;
-    (selected) ? assetPickerController.selectedCount++ : assetPickerController.selectedCount--;
-    
-    // The navigationController is actually a subclass of W5AssetPickerController. It's delegate conforms to the
-    // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
-    id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.navigationController.delegate;
-    
-    if ([delegate respondsToSelector:@selector(assetPickerController:didChangeSelectionState:forAsset:)]) {
-        
-        [delegate assetPickerController:assetPickerController didChangeSelectionState:selected forAsset:assetWrapper.asset];
-    }
+    // Update the state object's selectedAssets.
+    [self.assetPickerState changeSelectionState:selected forAsset:assetWrapper.asset];
 }
 
 

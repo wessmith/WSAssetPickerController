@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
+    W5AssetPickerStateInitializing,
     W5AssetPickerStatePickingAlbum,
     W5AssetPickerStatePickingAssets,
     W5AssetPickerStatePickingDone,
@@ -16,7 +17,10 @@ typedef enum {
 } W5AssetPickingState;
 
 @interface W5AssetPickerState : NSObject
-@property (nonatomic, strong) NSMutableArray *selectedAssets;
+@property (nonatomic, readonly) NSArray *selectedAssets;
 @property (nonatomic, readwrite) NSUInteger selectedCount;
 @property (nonatomic, readwrite) W5AssetPickingState state;
+
+- (void)changeSelectionState:(BOOL)selected forAsset:(ALAsset *)asset;
+
 @end

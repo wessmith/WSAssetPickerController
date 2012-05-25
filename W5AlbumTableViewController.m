@@ -7,8 +7,8 @@
 //
 
 #import "W5AlbumTableViewController.h"
+#import "W5AssetPickerState.h"
 #import "W5AssetTableViewController.h"
-#import "W5AssetPickerController.h"
 
 
 @interface W5AlbumTableViewController ()
@@ -19,6 +19,7 @@
 
 @implementation W5AlbumTableViewController
 
+@synthesize assetPickerState = _assetPickerState;
 @synthesize assetsLibrary = _assetsLibrary;
 @synthesize assetGroups = _assetGroups;
 
@@ -42,7 +43,6 @@
     return _assetGroups;
 }
 
-
 #pragma mark - View Lifecycle
 
 
@@ -51,6 +51,10 @@
     [super viewWillAppear:animated];
     
     self.wantsFullScreenLayout = YES;
+    
+    self.assetPickerState.state = W5AssetPickerStatePickingAlbum;
+    
+    DLog(@"\n*********************************\n\nShowing Album Picker\n\n*********************************");
 }
 
 
@@ -101,18 +105,7 @@
 
 - (void)cancelButtonAction:(id)sender 
 {    
-    // The navigationController is actually a subclass of W5AssetPickerController. It's delegate conforms to the
-    // W5AssetPickerControllerDelegate protocol, an extended version of the UINavigationControllerDelegate protocol.
-    id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.navigationController.delegate;
-    
-    if ([delegate respondsToSelector:@selector(assetPickerControllerDidCancel:)]) {
-        
-        [delegate assetPickerControllerDidCancel:(W5AssetPickerController *)self.navigationController];
-    } else {
-        
-        [self.presentingViewController dismissModalViewControllerAnimated:YES];
-    }
-
+    self.assetPickerState.state = W5AssetPickerStatePickingCancelled;
 }
 
 
@@ -153,6 +146,7 @@
     [group setAssetsFilter:[ALAssetsFilter allPhotos]]; // TODO: Make this a delegate choice.
     
     W5AssetTableViewController *assetTableViewController = [[W5AssetTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    assetTableViewController.assetPickerState = self.assetPickerState;
     assetTableViewController.assetsGroup = group;
     
     [self.navigationController pushViewController:assetTableViewController animated:YES];

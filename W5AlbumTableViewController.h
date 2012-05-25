@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface W5AlbumTableViewController : UITableViewController
+@class W5AssetPickerState;
 
+@interface W5AlbumTableViewController : UITableViewController
+@property (nonatomic, weak) W5AssetPickerState *assetPickerState;
 @end

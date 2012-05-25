@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class W5AssetPickerState;
+
 @interface W5AssetTableViewController : UITableViewController
 
+@property (nonatomic, weak) W5AssetPickerState *assetPickerState;
 @property (nonatomic, weak) ALAssetsGroup *assetsGroup; // Model (a specific, filtered, group of assets).
-
-@property (nonatomic, readonly) NSArray *selectedAssets;
 
 @end

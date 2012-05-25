@@ -78,7 +78,7 @@
 		DE885DFB15635F06001A9D12 /* W5AssetWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W5AssetWrapper.m; path = ../W5AssetWrapper.m; sourceTree = "<group>"; };
 		DEEC0FF2156B32B600B1F0D2 /* libW5AssetPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libW5AssetPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEC0FF6156B32B600B1F0D2 /* W5AssetPicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "W5AssetPicker-Prefix.pch"; sourceTree = "<group>"; };
-		DEEC0FF7156B32B600B1F0D2 /* W5AssetPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = W5AssetPicker.h; sourceTree = "<group>"; };
+		DEEC0FF7156B32B600B1F0D2 /* W5AssetPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = W5AssetPicker.h; path = W5AssetPicker/W5AssetPicker.h; sourceTree = "<group>"; };
 		DEF8937F15671DC600DAA688 /* W5AssetViewSelectionIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W5AssetViewSelectionIndicator@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +112,7 @@
 		DE017CE9155EC92F002E7BB0 = {
 			isa = PBXGroup;
 			children = (
-				DEEC1027156B38C400B1F0D2 /* Asset Picker Static Library */,
+				DEEC1027156B38C400B1F0D2 /* src */,
 				DEEC1026156B388E00B1F0D2 /* Demo */,
 				DE017CF7155EC92F002E7BB0 /* Frameworks */,
 				DE017CF5155EC92F002E7BB0 /* Products */,
@@ -157,23 +157,13 @@
 			path = W5AssetPickerController;
 			sourceTree = "<group>";
 		};
-		DEEC0FF4156B32B600B1F0D2 /* libW5AssetPicker */ = {
-			isa = PBXGroup;
-			children = (
-				DEEC1016156B32D500B1F0D2 /* Classes */,
-				DEEC0FF7156B32B600B1F0D2 /* W5AssetPicker.h */,
-				DEEC0FF5156B32B600B1F0D2 /* Supporting Files */,
-			);
-			name = libW5AssetPicker;
-			path = W5AssetPicker;
-			sourceTree = "<group>";
-		};
 		DEEC0FF5156B32B600B1F0D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				DEEC0FF6156B32B600B1F0D2 /* W5AssetPicker-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = W5AssetPicker;
 			sourceTree = "<group>";
 		};
 		DEEC1016156B32D500B1F0D2 /* Classes */ = {
@@ -195,6 +185,7 @@
 				DE7FF824155F1DD200D7B3E8 /* W5AssetViewColumn.m */,
 			);
 			name = Classes;
+			path = W5AssetPicker;
 			sourceTree = "<group>";
 		};
 		DEEC1026156B388E00B1F0D2 /* Demo */ = {
@@ -210,12 +201,14 @@
 			name = Demo;
 			sourceTree = "<group>";
 		};
-		DEEC1027156B38C400B1F0D2 /* Asset Picker Static Library */ = {
+		DEEC1027156B38C400B1F0D2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				DEEC0FF4156B32B600B1F0D2 /* libW5AssetPicker */,
+				DEEC0FF7156B32B600B1F0D2 /* W5AssetPicker.h */,
+				DEEC1016156B32D500B1F0D2 /* Classes */,
+				DEEC0FF5156B32B600B1F0D2 /* Supporting Files */,
 			);
-			name = "Asset Picker Static Library";
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
