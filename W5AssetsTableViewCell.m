@@ -73,9 +73,10 @@
 
 - (void)layoutSubviews
 {
-    // Calculate the container's width dynamically.
-    float containerWidth = (self.cellAssetViews.count * ASSET_VIEW_FRAME.size.width) + ((self.cellAssetViews.count - 1) * ASSET_VIEW_PADDING);
-
+    // Calculate the container's width.
+    int assetsPerRow = self.frame.size.width / ASSET_VIEW_FRAME.size.width;    
+    float containerWidth = assetsPerRow * ASSET_VIEW_FRAME.size.width + (assetsPerRow - 1) * ASSET_VIEW_PADDING;
+    
     // Create the container frame dynamically.
     CGRect containerFrame;
     containerFrame.origin.x = (self.frame.size.width - containerWidth) / 2;
