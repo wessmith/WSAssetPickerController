@@ -12,8 +12,8 @@
 #import "W5AssetsTableViewCell.h"
 #import "W5AssetWrapper.h"
 
-#define ASSETS_PER_ROW_PORTRAIT 4.0
-#define ASSETS_PER_ROW_LANDSCAPE 6.0
+#define ASSETS_PER_ROW_PORTRAIT 4
+#define ASSETS_PER_ROW_LANDSCAPE 6
 
 @interface W5AssetTableViewController () <W5AssetsTableViewCellDelegate>
 @property (nonatomic, strong) NSMutableArray *fetchedAssets;
@@ -96,9 +96,9 @@
     if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || 
         self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
         
-        return ASSETS_PER_ROW_PORTRAIT;
-    } else {
         return ASSETS_PER_ROW_LANDSCAPE;
+    } else {
+        return ASSETS_PER_ROW_PORTRAIT;
     }
 }
 
