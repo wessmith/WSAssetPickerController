@@ -1,24 +1,24 @@
 //
-//  W5MainViewController.m
-//  W5AssetPickerController
+//  WSMainViewController.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/12/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-#import "W5MainViewController.h"
-#import <W5AssetPicker/W5AssetPicker.h>
+#import "WSMainViewController.h"
+#import "WSAssetPicker.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface W5MainViewController () <W5AssetPickerControllerDelegate>
-@property (nonatomic, strong) W5AssetPickerController *pickerController;
+@interface WSMainViewController () <WSAssetPickerControllerDelegate>
+@property (nonatomic, strong) WSAssetPickerController *pickerController;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, readwrite) BOOL pageControlInUse;
 @end
 
 
-@implementation W5MainViewController
+@implementation WSMainViewController
 @synthesize pickerController = _pickerController;
 @synthesize scrollView = _scrollView;
 @synthesize pageControl = _pageControl;
@@ -40,7 +40,7 @@
 
 - (IBAction)pick:(id)sender 
 {
-    self.pickerController = [[W5AssetPickerController alloc] initWithDelegate:self];
+    self.pickerController = [[WSAssetPickerController alloc] initWithDelegate:self];
     
     [self presentViewController:self.pickerController animated:YES completion:NULL];
 }
@@ -60,14 +60,14 @@
 }
 
 
-#pragma mark - W5AssetPickerControllerDelegate Methods
+#pragma mark - WSAssetPickerControllerDelegate Methods
 
-- (void)assetPickerControllerDidCancel:(W5AssetPickerController *)sender
+- (void)assetPickerControllerDidCancel:(WSAssetPickerController *)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void)assetPickerController:(W5AssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
+- (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
 {
     
     UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];

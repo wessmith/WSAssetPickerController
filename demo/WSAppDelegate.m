@@ -1,14 +1,14 @@
 //
-//  W5AppDelegate.m
-//  W5AssetPickerController
+//  WSAppDelegate.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/12/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-#import "W5AppDelegate.h"
+#import "WSAppDelegate.h"
 
-@implementation W5AppDelegate
+@implementation WSAppDelegate
 
 @synthesize window = _window;
 

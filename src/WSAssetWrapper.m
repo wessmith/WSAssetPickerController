@@ -1,21 +1,21 @@
 //
-//  W5AssetWrapper.m
-//  W5AssetPickerController
+//  WSAssetWrapper.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/16/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-#import "W5AssetWrapper.h"
+#import "WSAssetWrapper.h"
 
-@implementation W5AssetWrapper
+@implementation WSAssetWrapper
 
 @synthesize asset = _asset;
 @synthesize selected = _selected;
 
-+ (W5AssetWrapper *)wrapperWithAsset:(ALAsset *)asset
++ (WSAssetWrapper *)wrapperWithAsset:(ALAsset *)asset
 {
-    W5AssetWrapper *wrapper = [[W5AssetWrapper alloc] initWithAsset:asset];
+    WSAssetWrapper *wrapper = [[WSAssetWrapper alloc] initWithAsset:asset];
     return wrapper;
 }
 

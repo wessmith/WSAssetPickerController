@@ -1,23 +1,23 @@
 //
-//  W5AssetPickerController.m
-//  W5AssetPickerController
+//  WSAssetPickerController.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/12/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-#import "W5AssetPickerController.h"
-#import "W5AssetPickerState.h"
-#import "W5AlbumTableViewController.h"
+#import "WSAssetPickerController.h"
+#import "WSAssetPickerState.h"
+#import "WSAlbumTableViewController.h"
 
-@interface W5AssetPickerController ()
-@property (nonatomic, strong) W5AssetPickerState *assetPickerState;
+@interface WSAssetPickerController ()
+@property (nonatomic, strong) WSAssetPickerState *assetPickerState;
 @property (nonatomic, readwrite) NSUInteger selectedCount;
 @property (nonatomic) UIStatusBarStyle originalStatusBarStyle;
 @end
 
 
-@implementation W5AssetPickerController
+@implementation WSAssetPickerController
 
 @dynamic selectedAssets;
 
@@ -28,10 +28,10 @@
 
 #pragma mark - Initialization
 
-- (id)initWithDelegate:(id <W5AssetPickerControllerDelegate>)delegate;
+- (id)initWithDelegate:(id <WSAssetPickerControllerDelegate>)delegate;
 {
     // Create the Album TableView Controller.
-    W5AlbumTableViewController *albumTableViewController = [[W5AlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    WSAlbumTableViewController *albumTableViewController = [[WSAlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
     albumTableViewController.assetPickerState = self.assetPickerState;
     
     if ((self = [super initWithRootViewController:albumTableViewController])) {
@@ -47,10 +47,10 @@
 #define STATE_KEY @"state"
 #define SELECTED_COUNT_KEY @"selectedCount"
 
-- (W5AssetPickerState *)assetPickerState
+- (WSAssetPickerState *)assetPickerState
 {
     if (!_assetPickerState) {
-        _assetPickerState = [[W5AssetPickerState alloc] init];
+        _assetPickerState = [[WSAssetPickerState alloc] init];
     }
     return _assetPickerState;
 }
@@ -88,14 +88,14 @@
         DLog(@"State Changed: %@", change);
         
         // Cast the delegate to the assetPickerDelegate.
-        id <W5AssetPickerControllerDelegate> delegate = (id <W5AssetPickerControllerDelegate>)self.delegate;
+        id <WSAssetPickerControllerDelegate> delegate = (id <WSAssetPickerControllerDelegate>)self.delegate;
         
-        if (W5AssetPickerStatePickingCancelled == self.assetPickerState.state) {
-            if ([delegate conformsToProtocol:@protocol(W5AssetPickerControllerDelegate)]) {
+        if (WSAssetPickerStatePickingCancelled == self.assetPickerState.state) {
+            if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
                 [delegate assetPickerControllerDidCancel:self];
             }
-        } else if (W5AssetPickerStatePickingDone == self.assetPickerState.state) {
-            if ([delegate conformsToProtocol:@protocol(W5AssetPickerControllerDelegate)]) {
+        } else if (WSAssetPickerStatePickingDone == self.assetPickerState.state) {
+            if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
                 [delegate assetPickerController:self didFinishPickingMediaWithAssets:self.assetPickerState.selectedAssets];
             }
         }

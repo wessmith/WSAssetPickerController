@@ -1,23 +1,23 @@
 //
-//  W5AlbumTableViewController.m
-//  W5AssetPickerController
+//  WSAlbumTableViewController.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/12/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-#import "W5AlbumTableViewController.h"
-#import "W5AssetPickerState.h"
-#import "W5AssetTableViewController.h"
+#import "WSAlbumTableViewController.h"
+#import "WSAssetPickerState.h"
+#import "WSAssetTableViewController.h"
 
 
-@interface W5AlbumTableViewController ()
+@interface WSAlbumTableViewController ()
 @property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
 @property (nonatomic, strong) NSMutableArray *assetGroups; // Model (all groups of assets).
 @end
 
 
-@implementation W5AlbumTableViewController
+@implementation WSAlbumTableViewController
 
 @synthesize assetPickerState = _assetPickerState;
 @synthesize assetsLibrary = _assetsLibrary;
@@ -52,7 +52,7 @@
     
     self.wantsFullScreenLayout = YES;
     
-    self.assetPickerState.state = W5AssetPickerStatePickingAlbum;
+    self.assetPickerState.state = WSAssetPickerStatePickingAlbum;
     
     DLog(@"\n*********************************\n\nShowing Album Picker\n\n*********************************");
 }
@@ -105,7 +105,7 @@
 
 - (void)cancelButtonAction:(id)sender 
 {    
-    self.assetPickerState.state = W5AssetPickerStatePickingCancelled;
+    self.assetPickerState.state = WSAssetPickerStatePickingCancelled;
 }
 
 
@@ -118,7 +118,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"W5AlbumCell";
+    static NSString *CellIdentifier = @"WSAlbumCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
@@ -145,7 +145,7 @@
     ALAssetsGroup *group = [self.assetGroups objectAtIndex:indexPath.row];
     [group setAssetsFilter:[ALAssetsFilter allPhotos]]; // TODO: Make this a delegate choice.
     
-    W5AssetTableViewController *assetTableViewController = [[W5AssetTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    WSAssetTableViewController *assetTableViewController = [[WSAssetTableViewController alloc] initWithStyle:UITableViewStylePlain];
     assetTableViewController.assetPickerState = self.assetPickerState;
     assetTableViewController.assetsGroup = group;
     

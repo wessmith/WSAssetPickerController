@@ -1,20 +1,20 @@
 //
-//  W5AssetView.m
-//  W5AssetPickerController
+//  WSAssetView.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/12/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-#import "W5AssetViewColumn.h"
-#import "W5AssetWrapper.h"
+#import "WSAssetViewColumn.h"
+#import "WSAssetWrapper.h"
 
-@interface W5AssetViewColumn ()
+@interface WSAssetViewColumn ()
 @property (nonatomic, weak) UIImageView *selectedView;
 @end
 
 
-@implementation W5AssetViewColumn
+@implementation WSAssetViewColumn
 
 @synthesize column = _column;
 @synthesize selected = _selected;
@@ -25,9 +25,9 @@
 
 #define ASSET_VIEW_FRAME CGRectMake(0, 0, 75, 75)
 
-+ (W5AssetViewColumn *)assetViewWithImage:(UIImage *)thumbnail
++ (WSAssetViewColumn *)assetViewWithImage:(UIImage *)thumbnail
 {
-    W5AssetViewColumn *assetView = [[W5AssetViewColumn alloc] initWithImage:thumbnail];
+    WSAssetViewColumn *assetView = [[WSAssetViewColumn alloc] initWithImage:thumbnail];
     
     return assetView;
 }
@@ -67,7 +67,7 @@
     [self setNeedsDisplay];
 }
 
-#define SELECTED_IMAGE @"W5AssetViewSelectionIndicator.png"
+#define SELECTED_IMAGE @"WSAssetViewSelectionIndicator.png"
 
 - (UIImageView *)selectedView
 {

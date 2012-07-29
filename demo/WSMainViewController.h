@@ -1,6 +1,6 @@
 //
-//  W5MainViewController.h
-//  W5AssetPickerController
+//  WSMainViewController.h
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/12/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface W5MainViewController : UIViewController
+@interface WSMainViewController : UIViewController
 
 @end

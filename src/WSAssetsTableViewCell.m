@@ -1,24 +1,24 @@
 //
-//  W5AssetsTableViewCell.m
-//  W5AssetPickerController
+//  WSAssetsTableViewCell.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/12/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-#import "W5AssetsTableViewCell.h"
-#import "W5AssetWrapper.h"
-#import "W5AssetViewColumn.h"
+#import "WSAssetsTableViewCell.h"
+#import "WSAssetWrapper.h"
+#import "WSAssetViewColumn.h"
 
 
-@implementation W5AssetsTableViewCell
+@implementation WSAssetsTableViewCell
 
 @synthesize delegate = _delegate;
 @synthesize cellAssetViews = _cellAssetViews;
 
-+ (W5AssetsTableViewCell *)assetsCellWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier
++ (WSAssetsTableViewCell *)assetsCellWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier
 {
-    W5AssetsTableViewCell *cell = [[W5AssetsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    WSAssetsTableViewCell *cell = [[WSAssetsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     cell.cellAssetViews = assets;
     
     return cell;
@@ -36,8 +36,8 @@
 
 - (void)stopObserving
 {
-    // Remove the old W5AssetViews.    
-    for (W5AssetViewColumn *assetViewColumn in self.cellAssetViews) {
+    // Remove the old WSAssetViews.    
+    for (WSAssetViewColumn *assetViewColumn in self.cellAssetViews) {
         
         [assetViewColumn removeObserver:self forKeyPath:@"isSelected"];
         
@@ -47,15 +47,15 @@
 
 - (void)setCellAssetViews:(NSArray *)assets
 {
-    // Remove the old W5AssetViews.    
+    // Remove the old WSAssetViews.    
     [self stopObserving];
     
-    // Create new W5AssetViews
+    // Create new WSAssetViews
     NSMutableArray *columns = [NSMutableArray arrayWithCapacity:[assets count]];
     
-    for (W5AssetWrapper *assetWrapper in assets) {
+    for (WSAssetWrapper *assetWrapper in assets) {
         
-        W5AssetViewColumn *assetViewColumn = [[W5AssetViewColumn alloc] initWithImage:[UIImage imageWithCGImage:assetWrapper.asset.thumbnail]];
+        WSAssetViewColumn *assetViewColumn = [[WSAssetViewColumn alloc] initWithImage:[UIImage imageWithCGImage:assetWrapper.asset.thumbnail]];
         assetViewColumn.column = [assets indexOfObject:assetWrapper];
         assetViewColumn.selected = assetWrapper.isSelected;
         
@@ -93,7 +93,7 @@
     
     CGRect frame = ASSET_VIEW_FRAME;
     
-    for (W5AssetViewColumn *assetView in self.cellAssetViews) {
+    for (WSAssetViewColumn *assetView in self.cellAssetViews) {
         
         assetView.frame = frame;
         
@@ -108,10 +108,10 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([object isMemberOfClass:[W5AssetViewColumn class]]) {
+    if ([object isMemberOfClass:[WSAssetViewColumn class]]) {
         //DLog(@"%@", change);
         
-        W5AssetViewColumn *column = (W5AssetViewColumn *)object;
+        WSAssetViewColumn *column = (WSAssetViewColumn *)object;
         if ([self.delegate respondsToSelector:@selector(assetsTableViewCell:didSelectAsset:atColumn:)]) {
 
             [self.delegate assetsTableViewCell:self didSelectAsset:column.isSelected atColumn:column.column];

@@ -1,27 +1,27 @@
 //
-//  W5AssetTableViewController.m
-//  W5AssetPickerController
+//  WSAssetTableViewController.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/12/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
 
-#import "W5AssetTableViewController.h"
-#import "W5AssetPickerState.h"
-#import "W5AssetsTableViewCell.h"
-#import "W5AssetWrapper.h"
+#import "WSAssetTableViewController.h"
+#import "WSAssetPickerState.h"
+#import "WSAssetsTableViewCell.h"
+#import "WSAssetWrapper.h"
 
 #define ASSETS_PER_ROW_PORTRAIT 4
 #define ASSETS_PER_ROW_LANDSCAPE 6
 
-@interface W5AssetTableViewController () <W5AssetsTableViewCellDelegate>
+@interface WSAssetTableViewController () <WSAssetsTableViewCellDelegate>
 @property (nonatomic, strong) NSMutableArray *fetchedAssets;
 @property (nonatomic, readonly) NSInteger assetsPerRow;
 @end
 
 
-@implementation W5AssetTableViewController
+@implementation WSAssetTableViewController
 
 @synthesize assetPickerState = _assetPickerState;
 @synthesize assetsGroup = _assetsGroup;
@@ -45,7 +45,7 @@
         [self.navigationController setToolbarHidden:NO animated:YES];
     }
     
-    self.assetPickerState.state = W5AssetPickerStatePickingAssets;
+    self.assetPickerState.state = WSAssetPickerStatePickingAssets;
     
     DLog(@"\n*********************************\n\nShowing Asset Picker\n\n*********************************");
 }
@@ -140,7 +140,7 @@
                 return;
             }
             
-            W5AssetWrapper *assetWrapper = [[W5AssetWrapper alloc] initWithAsset:result];
+            WSAssetWrapper *assetWrapper = [[WSAssetWrapper alloc] initWithAsset:result];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -160,20 +160,20 @@
 
 - (void)doneButtonAction:(id)sender
 {     
-    self.assetPickerState.state = W5AssetPickerStatePickingDone;
+    self.assetPickerState.state = WSAssetPickerStatePickingDone;
 }
 
 
-#pragma mark - W5AssetsTableViewCellDelegate Methods
+#pragma mark - WSAssetsTableViewCellDelegate Methods
 
-- (void)assetsTableViewCell:(W5AssetsTableViewCell *)cell didSelectAsset:(BOOL)selected atColumn:(NSUInteger)column
+- (void)assetsTableViewCell:(WSAssetsTableViewCell *)cell didSelectAsset:(BOOL)selected atColumn:(NSUInteger)column
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
     // Calculate the index of the corresponding asset.
     NSUInteger assetIndex = indexPath.row * self.assetsPerRow + column;
     
-    W5AssetWrapper *assetWrapper = [self.fetchedAssets objectAtIndex:assetIndex];
+    WSAssetWrapper *assetWrapper = [self.fetchedAssets objectAtIndex:assetIndex];
     assetWrapper.selected = selected;
     
     // Update the state object's selectedAssets.
@@ -209,12 +209,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *AssetCellIdentifier = @"W5AssetCell";
-    W5AssetsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AssetCellIdentifier];
+    static NSString *AssetCellIdentifier = @"WSAssetCell";
+    WSAssetsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AssetCellIdentifier];
     
     if (cell == nil) {
         
-        cell = [[W5AssetsTableViewCell alloc] initWithAssets:[self assetsForIndexPath:indexPath] reuseIdentifier:AssetCellIdentifier];        
+        cell = [[WSAssetsTableViewCell alloc] initWithAssets:[self assetsForIndexPath:indexPath] reuseIdentifier:AssetCellIdentifier];        
     } else {
         
         cell.cellAssetViews = [self assetsForIndexPath:indexPath];

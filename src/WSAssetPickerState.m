@@ -1,18 +1,18 @@
 //
-//  W5AssetPickerState.m
-//  W5AssetPickerController
+//  WSAssetPickerState.m
+//  WSAssetPickerController
 //
 //  Created by Wesley Smith on 5/24/12.
 //  Copyright (c) 2012 Wesley D. Smith. All rights reserved.
 //
 
-#import "W5AssetPickerState.h"
+#import "WSAssetPickerState.h"
 
-@interface W5AssetPickerState ()
+@interface WSAssetPickerState ()
 @property (nonatomic, strong) NSMutableOrderedSet *selectedAssetsSet;
 @end
 
-@implementation W5AssetPickerState
+@implementation WSAssetPickerState
 
 @dynamic selectedAssets;
 @synthesize selectedAssetsSet = _selectedAssetsSet;
@@ -22,17 +22,17 @@
 - (id)init
 {
     if ((self = [super init])) {
-        self.state = W5AssetPickerStateInitializing;
+        self.state = WSAssetPickerStateInitializing;
     }
     return self;
 }
 
-- (void)setState:(W5AssetPickingState)state
+- (void)setState:(WSAssetPickingState)state
 {
     _state = state;
     
     // Clear the selcted assets and count.
-    if (W5AssetPickerStatePickingAlbum == _state) {
+    if (WSAssetPickerStatePickingAlbum == _state) {
         [self.selectedAssetsSet removeAllObjects];
         self.selectedCount = 0;
     }
