@@ -12,12 +12,13 @@
 		DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
 		DE017CFD155EC92F002E7BB0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */; };
 		DE7FF814155ECB0A00D7B3E8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
+		DE960F5615C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DE960F5515C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch */; };
 		DEBD0F1E15C5DDE600B9C9B5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBD0F1C15C5DDE600B9C9B5 /* Icon.png */; };
 		DEBD0F1F15C5DDE600B9C9B5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBD0F1D15C5DDE600B9C9B5 /* Icon@2x.png */; };
 		DEC2ADF215C5D5D60078B2C7 /* WSAlbumTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DEC2ADE215C5D5D60078B2C7 /* WSAlbumTableViewController.h */; };
 		DEC2ADF315C5D5D60078B2C7 /* WSAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2ADE315C5D5D60078B2C7 /* WSAlbumTableViewController.m */; };
-		DEC2ADF515C5D5D60078B2C7 /* WSAssetPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DEC2ADE515C5D5D60078B2C7 /* WSAssetPicker.h */; };
-		DEC2ADF615C5D5D60078B2C7 /* WSAssetPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = DEC2ADE615C5D5D60078B2C7 /* WSAssetPickerController.h */; };
+		DEC2ADF515C5D5D60078B2C7 /* WSAssetPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DEC2ADE515C5D5D60078B2C7 /* WSAssetPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DEC2ADF615C5D5D60078B2C7 /* WSAssetPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = DEC2ADE615C5D5D60078B2C7 /* WSAssetPickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DEC2ADF715C5D5D60078B2C7 /* WSAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2ADE715C5D5D60078B2C7 /* WSAssetPickerController.m */; };
 		DEC2ADF815C5D5D60078B2C7 /* WSAssetPickerState.h in Headers */ = {isa = PBXBuildFile; fileRef = DEC2ADE815C5D5D60078B2C7 /* WSAssetPickerState.h */; };
 		DEC2ADF915C5D5D60078B2C7 /* WSAssetPickerState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2ADE915C5D5D60078B2C7 /* WSAssetPickerState.m */; };
@@ -35,7 +36,6 @@
 		DEC2AE1415C5D6270078B2C7 /* WSAssetViewSelectionIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE0B15C5D6270078B2C7 /* WSAssetViewSelectionIndicator.png */; };
 		DEC2AE1515C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE0C15C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png */; };
 		DEC2AE1615C5D6270078B2C7 /* WSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2AE0E15C5D6270078B2C7 /* WSMainViewController.m */; };
-		DEC2AE1A15C5DA010078B2C7 /* WSAssetPicker-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DEC2AE1915C5DA010078B2C7 /* WSAssetPicker-Prefix.pch */; };
 		DEEC0FF3156B32B600B1F0D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
 		DEEC1017156B332900B1F0D2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
 		DEEC1018156B333600B1F0D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
@@ -51,6 +51,7 @@
 		DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DE017D10155EC930002E7BB0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		DE960F5515C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSAssetPicker-Prefix.pch"; sourceTree = "<group>"; };
 		DEBD0F1C15C5DDE600B9C9B5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		DEBD0F1D15C5DDE600B9C9B5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		DEC2ADE215C5D5D60078B2C7 /* WSAlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSAlbumTableViewController.h; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		DEC2AE0C15C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WSAssetViewSelectionIndicator@2x.png"; sourceTree = "<group>"; };
 		DEC2AE0D15C5D6270078B2C7 /* WSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMainViewController.h; sourceTree = "<group>"; };
 		DEC2AE0E15C5D6270078B2C7 /* WSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMainViewController.m; sourceTree = "<group>"; };
-		DEC2AE1915C5DA010078B2C7 /* WSAssetPicker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSAssetPicker-Prefix.pch"; sourceTree = "<group>"; };
 		DEEC0FF2156B32B600B1F0D2 /* libWSAssetPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWSAssetPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,7 +196,7 @@
 		DEC2AE1815C5D7820078B2C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DEC2AE1915C5DA010078B2C7 /* WSAssetPicker-Prefix.pch */,
+				DE960F5515C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -208,15 +208,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEC2ADF215C5D5D60078B2C7 /* WSAlbumTableViewController.h in Headers */,
 				DEC2ADF515C5D5D60078B2C7 /* WSAssetPicker.h in Headers */,
 				DEC2ADF615C5D5D60078B2C7 /* WSAssetPickerController.h in Headers */,
+				DEC2ADF215C5D5D60078B2C7 /* WSAlbumTableViewController.h in Headers */,
 				DEC2ADF815C5D5D60078B2C7 /* WSAssetPickerState.h in Headers */,
 				DEC2ADFA15C5D5D60078B2C7 /* WSAssetsTableViewCell.h in Headers */,
 				DEC2ADFC15C5D5D60078B2C7 /* WSAssetTableViewController.h in Headers */,
 				DEC2ADFE15C5D5D60078B2C7 /* WSAssetViewColumn.h in Headers */,
 				DEC2AE0015C5D5D60078B2C7 /* WSAssetWrapper.h in Headers */,
-				DEC2AE1A15C5DA010078B2C7 /* WSAssetPicker-Prefix.pch in Headers */,
+				DE960F5615C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
