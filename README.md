@@ -1,6 +1,8 @@
 ## Description
 
-This is an iOS, Objective-C alternative to `UIImagePickerController` that looks almost exactly the same, but provides the ability to select multiple images. It's as easy to setup as `UIImagePickerController` and it works in both portrait and landscape orientations. It requires the addition of **AssetsLibrary.framework** and it will prompt users to allow use of their location data. This code uses **ARC**.
+This is an iOS, Objective-C alternative to `UIImagePickerController` that looks almost exactly the same, but provides the ability to select multiple images. It's as easy to setup as `UIImagePickerController` and it works in both portrait and landscape orientations. It requires the addition of **AssetsLibrary.framework**. This code uses **ARC**.
+
+*Note: Using AssetsLibrary.framework will prompt users to allow use of their location data in order to access their photos.*
 
 ## Adding to your project
 
