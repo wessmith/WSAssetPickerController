@@ -26,6 +26,7 @@ Copy all the files in the `src` directory into your project and be sure 'Copy it
 2. Create an instance of `WSAssetPickerController` passing a delegate of type `id <WSAssetPickerControllerDelegate>`
 3. Present the `WSAssetPickerController` instance
 4. Implement the delegate methods
+5. You will also need to include the selection state `png` files: `WSAssetViewSelectionIndicator.png` and `WSAssetViewSelectionIndicator@2x.png` or make your own.
 
 ####Initialization and presentation
 <pre>
