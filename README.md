@@ -8,7 +8,7 @@ This is an iOS, Objective-C alternative to `UIImagePickerController` that looks 
 
 There are two ways to add `WSAssetPickerController` to your project. Either way, be sure to add the `AssetsLibrary.framework`
 
-**Option 1:** Build and add the static library to you project:
+**Option 1:** Build and add the static library to your project:
 
 1. Open the demo project
 2. select the WSAssetPicker scheme
