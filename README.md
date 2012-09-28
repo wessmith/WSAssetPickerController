@@ -29,13 +29,13 @@ Copy all the files in the `src` directory into your project and be sure 'Copy it
 5. You will also need to include the selection state `png` files: `WSAssetViewSelectionIndicator.png` and `WSAssetViewSelectionIndicator@2x.png` or make your own.
 
 ####Initialization and presentation
-<pre>
+```` objective-c
 WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithDelegate:self];
 [self presentViewController:controller animated:YES completion:NULL];
-</pre>
+````
 
 #### Delegate Methods
-<pre>
+```` objective-c
 
 - (void)assetPickerControllerDidCancel:(WSAssetPickerController *)sender
 {
@@ -53,4 +53,4 @@ WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithD
     }];
 }
 
-</pre>
+````
