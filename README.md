@@ -14,7 +14,7 @@ There are a few ways to add `WSAssetPickerController` to your project.
 2. Select the `WSAssetPickerCombined` scheme
 3. In the menu bar choose Product > Build
 5. Copy the generated `WSAssetPicker` directory (found in the builds folder in the project directory) into your project.
-6. Make sure that `libWSAssetPicker.a` has been added to your targets Build Phases
+6. Make sure that `libWSAssetPicker-Combined.a` has been added to your targets Build Phases
     
 **Option 2:** 
 Copy all the files in the `src` directory into your project and be sure 'Copy items to destination group's folder' is checked
