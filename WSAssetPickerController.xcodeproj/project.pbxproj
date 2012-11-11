@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		DEC0BC57164F3FF80078003F /* WSAssetPickerCombined */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DEC0BC58164F3FF80078003F /* Build configuration list for PBXAggregateTarget "WSAssetPickerCombined" */;
+			buildPhases = (
+				DEC0BC5B164F3FFC0078003F /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = WSAssetPickerCombined;
+			productName = WSAssetPickerCombined;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		4AE5CCE8156AB810004C2AB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */; };
 		DE017CF9155EC92F002E7BB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
@@ -281,6 +295,7 @@
 			targets = (
 				DE017CF3155EC92F002E7BB0 /* Picker Demo */,
 				DEEC0FF1156B32B600B1F0D2 /* WSAssetPicker */,
+				DEC0BC57164F3FF80078003F /* WSAssetPickerCombined */,
 			);
 		};
 /* End PBXProject section */
@@ -300,6 +315,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DEC0BC5B164F3FFC0078003F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "XCODEBUILD_PATH=/Applications/Xcode.app/Contents/Developer/usr/bin\nXCODEBUILD=$XCODEBUILD_PATH/xcodebuild\n\n$XCODEBUILD -project WSAssetPickerController.xcodeproj -target \"WSAssetPicker\" -sdk \"iphonesimulator\" -configuration \"Release\" clean build\n$XCODEBUILD -project WSAssetPickerController.xcodeproj -target \"WSAssetPicker\" -sdk \"iphoneos\" -configuration \"Release\" clean build\n\nmkdir -p \"build/WSAssetPicker/headers\"\n\nlipo -create -output \"build/WSAssetPicker/libWSAssetPicker-Combined.a\" \"build/Release-iphoneos/libWSAssetPicker.a\" \"build/Release-iphonesimulator/libWSAssetPicker.a\"\ncp -r  \"build/Release-iphoneos/include/WSAssetPicker/\" \"build/WSAssetPicker/headers\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE017CF0155EC92F002E7BB0 /* Sources */ = {
@@ -410,6 +441,20 @@
 			};
 			name = Release;
 		};
+		DEC0BC59164F3FF80078003F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DEC0BC5A164F3FF80078003F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		DEEC100F156B32B600B1F0D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,6 +510,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		DEC0BC58164F3FF80078003F /* Build configuration list for PBXAggregateTarget "WSAssetPickerCombined" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEC0BC59164F3FF80078003F /* Debug */,
+				DEC0BC5A164F3FF80078003F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		DEEC1013156B32B600B1F0D2 /* Build configuration list for PBXNativeTarget "WSAssetPicker" */ = {
 			isa = XCConfigurationList;
