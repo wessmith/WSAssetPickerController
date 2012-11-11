@@ -11,10 +11,9 @@ There are two ways to add `WSAssetPickerController` to your project. Either way,
 **Option 1:** Build and add the static library to your project:
 
 1. Open the demo project
-2. select the WSAssetPicker scheme
-3. choose Product > Build for > Archiving
-4. In the project navigator, right-click on `libWSAssetPicker.a` in the Products group and choose "Show in Finder"
-5. Add `libWSAssetPicker.a`, `WSAssetPicker.h`, and `WSAssetPickerController` to your project
+2. Select the `WSAssetPickerCombined` scheme
+3. In the menu bar choose Product > Build
+5. Copy the generated `WSAssetPicker` directory (found in the builds folder in the project directory) into your project.
 6. Make sure that `libWSAssetPicker.a` has been added to your targets Build Phases
     
 **Option 2:** 
