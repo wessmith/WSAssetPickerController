@@ -161,7 +161,10 @@
         }];
     });
     
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 60000
     dispatch_release(enumQ);
+#endif
+
     
     [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.5];
 }
