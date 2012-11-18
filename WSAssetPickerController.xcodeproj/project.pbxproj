@@ -25,6 +25,7 @@
 		DE017CF9155EC92F002E7BB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
 		DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
 		DE017CFD155EC92F002E7BB0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */; };
+		DE0C6ECD1659592D00ED8496 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0C6ECC1659592D00ED8496 /* Default-568h@2x.png */; };
 		DE7FF814155ECB0A00D7B3E8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
 		DE960F5615C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DE960F5515C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch */; };
 		DEBD0F1E15C5DDE600B9C9B5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBD0F1C15C5DDE600B9C9B5 /* Icon.png */; };
@@ -64,6 +65,7 @@
 		DE017CFA155EC92F002E7BB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DE017D10155EC930002E7BB0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		DE0C6ECC1659592D00ED8496 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		DE960F5515C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSAssetPicker-Prefix.pch"; sourceTree = "<group>"; };
 		DEBD0F1C15C5DDE600B9C9B5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		DE017CE9155EC92F002E7BB0 = {
 			isa = PBXGroup;
 			children = (
+				DE0C6ECC1659592D00ED8496 /* Default-568h@2x.png */,
 				DEC2ADE115C5D5D60078B2C7 /* src */,
 				DEC2AE0215C5D6270078B2C7 /* demo */,
 				DE017CF7155EC92F002E7BB0 /* Frameworks */,
@@ -311,6 +314,7 @@
 				DEC2AE1515C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png in Resources */,
 				DEBD0F1E15C5DDE600B9C9B5 /* Icon.png in Resources */,
 				DEBD0F1F15C5DDE600B9C9B5 /* Icon@2x.png in Resources */,
+				DE0C6ECD1659592D00ED8496 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +522,7 @@
 				DEC0BC5A164F3FF80078003F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DEEC1013156B32B600B1F0D2 /* Build configuration list for PBXNativeTarget "WSAssetPicker" */ = {
 			isa = XCConfigurationList;
