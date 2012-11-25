@@ -22,8 +22,7 @@
 #import "WSAssetsTableViewCell.h"
 #import "WSAssetWrapper.h"
 
-#define ASSETS_PER_ROW_PORTRAIT 4
-#define ASSETS_PER_ROW_LANDSCAPE 6
+#define ASSET_WIDTH_WITH_PADDING 79.0f
 
 @interface WSAssetTableViewController () <WSAssetsTableViewCellDelegate>
 @property (nonatomic, strong) NSMutableArray *fetchedAssets;
@@ -103,13 +102,7 @@
 
 - (NSInteger)assetsPerRow
 {
-    if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || 
-        self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        
-        return ASSETS_PER_ROW_LANDSCAPE;
-    } else {
-        return ASSETS_PER_ROW_PORTRAIT;
-    }
+    return MAX(1, (NSInteger)floorf(self.tableView.contentSize.width / ASSET_WIDTH_WITH_PADDING));
 }
 
 #pragma mark - Rotation
