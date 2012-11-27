@@ -47,12 +47,22 @@ WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithD
 
 - (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
 {
+    // Hang on to the picker to avoid ALAssetsLibrary from being released (see note below).
+    self.picker = sender;
+
     // Dismiss the WSAssetPickerController.
+    __block id weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
         
         // Do something with the assets here.
         
+        
+        // Release the picker.
+        weakSelf.picker = nil;
     }];
 }
 
 ````
+
+*Note: The `ALAsset` objects in the `assets` array are only valid while the `ALAssetsLibrary` instance they came from still exists.
+(The `ALAssetsLibrary` is created in the picker controller implementation)*
