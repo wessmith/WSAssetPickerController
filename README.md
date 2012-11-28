@@ -58,7 +58,7 @@ WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithD
         
         
         // Release the picker.
-        weakSelf.picker = nil;
+        [weakSelf setPicker:nil];
     }];
 }
 
