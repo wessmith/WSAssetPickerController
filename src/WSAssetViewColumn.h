@@ -27,5 +27,6 @@
 + (WSAssetViewColumn *)assetViewWithImage:(UIImage *)thumbnail;
 
 - (id)initWithImage:(UIImage *)thumbnail;
+- (void)markAsVideo:(BOOL)isVideo;
 
 @end

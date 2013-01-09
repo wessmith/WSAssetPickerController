@@ -23,4 +23,6 @@
 
 @interface WSAlbumTableViewController : UITableViewController
 @property (nonatomic, weak) WSAssetPickerState *assetPickerState;
+- (void)setAssetGroupTypes:(ALAssetsGroupType)types;
+- (void)setAssetsFilter:(ALAssetsFilter *)filter;
 @end

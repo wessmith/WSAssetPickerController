@@ -22,6 +22,7 @@
 
 @interface WSAssetViewColumn ()
 @property (nonatomic, weak) UIImageView *selectedView;
+@property (nonatomic, weak) UIImageView *videoView;
 @end
 
 
@@ -30,6 +31,7 @@
 @synthesize column = _column;
 @synthesize selected = _selected;
 @synthesize selectedView = _selectedView;
+@synthesize videoView = _videoView;
 
 
 #pragma mark - Initialization
@@ -92,6 +94,19 @@
         _selectedView = imageView;
     }
     return _selectedView;
+}
+
+
+
+#define VIDEO_IMAGE @"WSAssetViewVideoIndicator.png"
+
+- (void)markAsVideo:(BOOL)isVideo {
+    if(!_videoView) {
+        UIImageView *videoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:VIDEO_IMAGE]];
+        _videoView = videoView;
+        [self addSubview:videoView];
+    }
+    _videoView.hidden = !isVideo;
 }
 
 

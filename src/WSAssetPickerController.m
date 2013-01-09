@@ -25,6 +25,7 @@
 @property (nonatomic, strong) WSAssetPickerState *assetPickerState;
 @property (nonatomic, readwrite) NSUInteger selectedCount;
 @property (nonatomic) UIStatusBarStyle originalStatusBarStyle;
+@property (nonatomic, strong) WSAlbumTableViewController *albumTableViewController;
 @end
 
 
@@ -35,6 +36,7 @@
 @synthesize assetPickerState = _assetPickerState;
 @synthesize selectedCount = _selectedCount;
 @synthesize originalStatusBarStyle = _originalStatusBarStyle;
+@synthesize albumTableViewController = _albumTableViewController;
 
 
 #pragma mark - Initialization
@@ -42,10 +44,10 @@
 - (id)initWithDelegate:(id <WSAssetPickerControllerDelegate>)delegate;
 {
     // Create the Album TableView Controller.
-    WSAlbumTableViewController *albumTableViewController = [[WSAlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    albumTableViewController.assetPickerState = self.assetPickerState;
+    self.albumTableViewController = [[WSAlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.albumTableViewController.assetPickerState = self.assetPickerState;
     
-    if ((self = [super initWithRootViewController:albumTableViewController])) {
+    if ((self = [super initWithRootViewController:self.albumTableViewController])) {
         
         self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         self.toolbar.barStyle = UIBarStyleBlackTranslucent;
@@ -122,6 +124,19 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+#pragma mark - Filtering
+
+// Forward these calls on to albums controller.
+-(void)setAssetGroupTypes:(ALAssetsGroupType)types
+{
+    [self.albumTableViewController setAssetGroupTypes:types];
+}
+
+-(void)setAssetsFilter:(ALAssetsFilter *)filter
+{
+    [self.albumTableViewController setAssetsFilter:filter];
 }
 
 @end

@@ -29,6 +29,8 @@ You can also get the code via CocoaPods (thanks [@AlexIzvekov](https://github.co
 3. Present the `WSAssetPickerController` instance
 4. Implement the delegate methods
 5. You will also need to include the selection state `png` files: `WSAssetViewSelectionIndicator.png` and `WSAssetViewSelectionIndicator@2x.png` or make your own.
+6. You can use setAssetGroupTypes: and setAssetsFilter: to enable video picking. Include `WSAssetViewVideoIndicator.png` and `WSAssetViewVideoIndicator@2x.png`.
+
 
 ####Initialization and presentation
 ```` objective-c

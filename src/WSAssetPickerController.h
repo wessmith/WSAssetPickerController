@@ -28,6 +28,8 @@
 
 // Designated initializer.
 - (id)initWithDelegate:(id<WSAssetPickerControllerDelegate>)delegate;
+- (void)setAssetGroupTypes:(ALAssetsGroupType)types;
+- (void)setAssetsFilter:(ALAssetsFilter *)filter;
 
 @end
 
