@@ -29,6 +29,10 @@
 // Designated initializer.
 - (id)initWithDelegate:(id<WSAssetPickerControllerDelegate>)delegate;
 
+- (void)selectAll;
+
+- (void)selectNone;
+
 @end
 
 

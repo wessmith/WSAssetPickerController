@@ -60,6 +60,7 @@
     DLog(@"\n*********************************\n\nShowing Asset Picker\n\n*********************************");
 }
 
+#define STATE_KEY @"state"
 - (void)viewWillDisappear:(BOOL)animated
 {
     // Hide the toolbar in the event it's being displayed.
@@ -67,9 +68,11 @@
         [self.navigationController setToolbarHidden:YES animated:YES];
     }
     
+    // Stop observing state changes.
+    [self.assetPickerState removeObserver:self forKeyPath:STATE_KEY];
+    
     [super viewWillDisappear:animated];
 }
-
 
 - (void)viewDidLoad
 {
@@ -78,7 +81,8 @@
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
                                                                                            target:self 
                                                                                            action:@selector(doneButtonAction:)];
-    
+    // Start observing state changes.
+    [self.assetPickerState addObserver:self forKeyPath:STATE_KEY options:NSKeyValueObservingOptionNew context:NULL];
     
     // TableView configuration.
     self.tableView.contentInset = TABLEVIEW_INSETS;
@@ -123,7 +127,6 @@
 {
     [self.tableView reloadData];
 }
-
 
 #pragma mark - Fetching Code
 
@@ -245,6 +248,42 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath 
 { 
 	return ROW_HEIGHT;
+}
+
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (![object isEqual:self.assetPickerState]) return;
+    
+    if ([STATE_KEY isEqualToString:keyPath]) {
+        
+        if (WSAssetPickerStateSelectAll == self.assetPickerState.state) {
+            
+            [self.fetchedAssets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                
+                ((WSAssetWrapper *)obj).selected = YES;
+                [self.assetPickerState changeSelectionState:YES forAsset:obj];
+            }];
+            
+            // Reload visible rows.
+            [self.tableView reloadRowsAtIndexPaths:self.tableView.indexPathsForVisibleRows
+                                  withRowAnimation:UITableViewRowAnimationNone];
+            
+        } else if (WSAssetPickerStateSelectNone == self.assetPickerState.state) {
+            
+            [self.fetchedAssets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                
+                ((WSAssetWrapper *)obj).selected = NO;
+                [self.assetPickerState changeSelectionState:NO forAsset:obj];
+            }];
+            
+            // Reload visible rows.
+            [self.tableView reloadRowsAtIndexPaths:self.tableView.indexPathsForVisibleRows
+                                  withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
 }
 
 @end

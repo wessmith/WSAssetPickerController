@@ -23,6 +23,8 @@ typedef enum {
     WSAssetPickerStateInitializing,
     WSAssetPickerStatePickingAlbum,
     WSAssetPickerStatePickingAssets,
+    WSAssetPickerStateSelectAll,
+    WSAssetPickerStateSelectNone,
     WSAssetPickerStatePickingDone,
     WSAssetPickerStatePickingCancelled
 } WSAssetPickingState;
