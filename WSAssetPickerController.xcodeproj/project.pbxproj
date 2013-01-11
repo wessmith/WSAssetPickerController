@@ -26,6 +26,24 @@
 		DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
 		DE017CFD155EC92F002E7BB0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */; };
 		DE0C6ECD1659592D00ED8496 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0C6ECC1659592D00ED8496 /* Default-568h@2x.png */; };
+		DE4B6CA8169FCE1300D6EE0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
+		DE4B6CA9169FCE1300D6EE0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
+		DE4B6CAA169FCE1300D6EE0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */; };
+		DE4B6CB0169FCE1300D6EE0D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE4B6CAE169FCE1300D6EE0D /* InfoPlist.strings */; };
+		DE4B6CB2169FCE1300D6EE0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4B6CB1169FCE1300D6EE0D /* main.m */; };
+		DE4B6CB6169FCE1300D6EE0D /* WSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4B6CB5169FCE1300D6EE0D /* WSAppDelegate.m */; };
+		DE4B6CB8169FCE1300D6EE0D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DE4B6CB7169FCE1300D6EE0D /* Default.png */; };
+		DE4B6CBA169FCE1300D6EE0D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE4B6CB9169FCE1300D6EE0D /* Default@2x.png */; };
+		DE4B6CBC169FCE1300D6EE0D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE4B6CBB169FCE1300D6EE0D /* Default-568h@2x.png */; };
+		DE4B6CBF169FCE1300D6EE0D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4B6CBD169FCE1300D6EE0D /* MainStoryboard.storyboard */; };
+		DE4B6CC2169FCE1300D6EE0D /* WSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4B6CC1169FCE1300D6EE0D /* WSViewController.m */; };
+		DE4B6CC8169FCEC500D6EE0D /* WSPickerWithToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4B6CC7169FCEC500D6EE0D /* WSPickerWithToolbar.m */; };
+		DE4B6CC9169FD57D00D6EE0D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
+		DE4B6CCA169FD76B00D6EE0D /* libWSAssetPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEC0FF2156B32B600B1F0D2 /* libWSAssetPicker.a */; };
+		DE4B6CCB169FE11A00D6EE0D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBD0F1C15C5DDE600B9C9B5 /* Icon.png */; };
+		DE4B6CCC169FE11A00D6EE0D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBD0F1D15C5DDE600B9C9B5 /* Icon@2x.png */; };
+		DE4B6CCD169FE14300D6EE0D /* WSAssetViewSelectionIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE0B15C5D6270078B2C7 /* WSAssetViewSelectionIndicator.png */; };
+		DE4B6CCE169FE14300D6EE0D /* WSAssetViewSelectionIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE0C15C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png */; };
 		DE7FF814155ECB0A00D7B3E8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
 		DE960F5615C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DE960F5515C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch */; };
 		DEBD0F1E15C5DDE600B9C9B5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBD0F1C15C5DDE600B9C9B5 /* Icon.png */; };
@@ -66,6 +84,21 @@
 		DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DE017D10155EC930002E7BB0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DE0C6ECC1659592D00ED8496 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DE4B6CA6169FCE1300D6EE0D /* Toolbar Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toolbar Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE4B6CAD169FCE1300D6EE0D /* Toolbar Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Toolbar Demo-Info.plist"; sourceTree = "<group>"; };
+		DE4B6CAF169FCE1300D6EE0D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DE4B6CB1169FCE1300D6EE0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DE4B6CB3169FCE1300D6EE0D /* Toolbar Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Toolbar Demo-Prefix.pch"; sourceTree = "<group>"; };
+		DE4B6CB4169FCE1300D6EE0D /* WSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSAppDelegate.h; sourceTree = "<group>"; };
+		DE4B6CB5169FCE1300D6EE0D /* WSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSAppDelegate.m; sourceTree = "<group>"; };
+		DE4B6CB7169FCE1300D6EE0D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DE4B6CB9169FCE1300D6EE0D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DE4B6CBB169FCE1300D6EE0D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DE4B6CBE169FCE1300D6EE0D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		DE4B6CC0169FCE1300D6EE0D /* WSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSViewController.h; sourceTree = "<group>"; };
+		DE4B6CC1169FCE1300D6EE0D /* WSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSViewController.m; sourceTree = "<group>"; };
+		DE4B6CC6169FCEC500D6EE0D /* WSPickerWithToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPickerWithToolbar.h; sourceTree = "<group>"; };
+		DE4B6CC7169FCEC500D6EE0D /* WSPickerWithToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPickerWithToolbar.m; sourceTree = "<group>"; };
 		DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		DE960F5515C5F84C00BB5E0B /* WSAssetPicker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSAssetPicker-Prefix.pch"; sourceTree = "<group>"; };
 		DEBD0F1C15C5DDE600B9C9B5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -113,6 +146,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE4B6CA3169FCE1300D6EE0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE4B6CCA169FD76B00D6EE0D /* libWSAssetPicker.a in Frameworks */,
+				DE4B6CC9169FD57D00D6EE0D /* AssetsLibrary.framework in Frameworks */,
+				DE4B6CA8169FCE1300D6EE0D /* UIKit.framework in Frameworks */,
+				DE4B6CA9169FCE1300D6EE0D /* Foundation.framework in Frameworks */,
+				DE4B6CAA169FCE1300D6EE0D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEEC0FEF156B32B600B1F0D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,7 +176,8 @@
 			children = (
 				DE0C6ECC1659592D00ED8496 /* Default-568h@2x.png */,
 				DEC2ADE115C5D5D60078B2C7 /* src */,
-				DEC2AE0215C5D6270078B2C7 /* demo */,
+				DEC2AE0215C5D6270078B2C7 /* Picker demo */,
+				DE4B6CAB169FCE1300D6EE0D /* Picker with toolbar demo */,
 				DE017CF7155EC92F002E7BB0 /* Frameworks */,
 				DE017CF5155EC92F002E7BB0 /* Products */,
 			);
@@ -142,6 +188,7 @@
 			children = (
 				DE017CF4155EC92F002E7BB0 /* Picker Demo.app */,
 				DEEC0FF2156B32B600B1F0D2 /* libWSAssetPicker.a */,
+				DE4B6CA6169FCE1300D6EE0D /* Toolbar Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +204,36 @@
 				DE017D10155EC930002E7BB0 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE4B6CAB169FCE1300D6EE0D /* Picker with toolbar demo */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B6CB4169FCE1300D6EE0D /* WSAppDelegate.h */,
+				DE4B6CB5169FCE1300D6EE0D /* WSAppDelegate.m */,
+				DE4B6CBD169FCE1300D6EE0D /* MainStoryboard.storyboard */,
+				DE4B6CC0169FCE1300D6EE0D /* WSViewController.h */,
+				DE4B6CC1169FCE1300D6EE0D /* WSViewController.m */,
+				DE4B6CAC169FCE1300D6EE0D /* Supporting Files */,
+				DE4B6CC6169FCEC500D6EE0D /* WSPickerWithToolbar.h */,
+				DE4B6CC7169FCEC500D6EE0D /* WSPickerWithToolbar.m */,
+			);
+			name = "Picker with toolbar demo";
+			path = "Toolbar Demo";
+			sourceTree = "<group>";
+		};
+		DE4B6CAC169FCE1300D6EE0D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B6CAD169FCE1300D6EE0D /* Toolbar Demo-Info.plist */,
+				DE4B6CAE169FCE1300D6EE0D /* InfoPlist.strings */,
+				DE4B6CB1169FCE1300D6EE0D /* main.m */,
+				DE4B6CB3169FCE1300D6EE0D /* Toolbar Demo-Prefix.pch */,
+				DE4B6CB7169FCE1300D6EE0D /* Default.png */,
+				DE4B6CB9169FCE1300D6EE0D /* Default@2x.png */,
+				DE4B6CBB169FCE1300D6EE0D /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		DEC2ADE115C5D5D60078B2C7 /* src */ = {
@@ -182,7 +259,7 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-		DEC2AE0215C5D6270078B2C7 /* demo */ = {
+		DEC2AE0215C5D6270078B2C7 /* Picker demo */ = {
 			isa = PBXGroup;
 			children = (
 				DEC2AE0615C5D6270078B2C7 /* MainStoryboard_iPhone.storyboard */,
@@ -192,6 +269,7 @@
 				DEC2AE0E15C5D6270078B2C7 /* WSMainViewController.m */,
 				DEC2AE1715C5D6320078B2C7 /* Supporting Files */,
 			);
+			name = "Picker demo";
 			path = demo;
 			sourceTree = "<group>";
 		};
@@ -257,6 +335,23 @@
 			productReference = DE017CF4155EC92F002E7BB0 /* Picker Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DE4B6CA5169FCE1300D6EE0D /* Toolbar Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE4B6CC3169FCE1300D6EE0D /* Build configuration list for PBXNativeTarget "Toolbar Demo" */;
+			buildPhases = (
+				DE4B6CA2169FCE1300D6EE0D /* Sources */,
+				DE4B6CA3169FCE1300D6EE0D /* Frameworks */,
+				DE4B6CA4169FCE1300D6EE0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Toolbar Demo";
+			productName = "Toolbar Demo";
+			productReference = DE4B6CA6169FCE1300D6EE0D /* Toolbar Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		DEEC0FF1156B32B600B1F0D2 /* WSAssetPicker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEEC1013156B32B600B1F0D2 /* Build configuration list for PBXNativeTarget "WSAssetPicker" */;
@@ -297,6 +392,7 @@
 			projectRoot = "";
 			targets = (
 				DE017CF3155EC92F002E7BB0 /* Picker Demo */,
+				DE4B6CA5169FCE1300D6EE0D /* Toolbar Demo */,
 				DEEC0FF1156B32B600B1F0D2 /* WSAssetPicker */,
 				DEC0BC57164F3FF80078003F /* WSAssetPickerCombined */,
 			);
@@ -315,6 +411,22 @@
 				DEBD0F1E15C5DDE600B9C9B5 /* Icon.png in Resources */,
 				DEBD0F1F15C5DDE600B9C9B5 /* Icon@2x.png in Resources */,
 				DE0C6ECD1659592D00ED8496 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE4B6CA4169FCE1300D6EE0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE4B6CB0169FCE1300D6EE0D /* InfoPlist.strings in Resources */,
+				DE4B6CB8169FCE1300D6EE0D /* Default.png in Resources */,
+				DE4B6CBA169FCE1300D6EE0D /* Default@2x.png in Resources */,
+				DE4B6CBC169FCE1300D6EE0D /* Default-568h@2x.png in Resources */,
+				DE4B6CBF169FCE1300D6EE0D /* MainStoryboard.storyboard in Resources */,
+				DE4B6CCB169FE11A00D6EE0D /* Icon.png in Resources */,
+				DE4B6CCC169FE11A00D6EE0D /* Icon@2x.png in Resources */,
+				DE4B6CCD169FE14300D6EE0D /* WSAssetViewSelectionIndicator.png in Resources */,
+				DE4B6CCE169FE14300D6EE0D /* WSAssetViewSelectionIndicator@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +459,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE4B6CA2169FCE1300D6EE0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE4B6CB2169FCE1300D6EE0D /* main.m in Sources */,
+				DE4B6CB6169FCE1300D6EE0D /* WSAppDelegate.m in Sources */,
+				DE4B6CC2169FCE1300D6EE0D /* WSViewController.m in Sources */,
+				DE4B6CC8169FCEC500D6EE0D /* WSPickerWithToolbar.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEEC0FEE156B32B600B1F0D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,6 +487,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		DE4B6CAE169FCE1300D6EE0D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE4B6CAF169FCE1300D6EE0D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DE4B6CBD169FCE1300D6EE0D /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE4B6CBE169FCE1300D6EE0D /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		DEC2AE0315C5D6270078B2C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -445,6 +584,41 @@
 			};
 			name = Release;
 		};
+		DE4B6CC4169FCE1300D6EE0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Toolbar Demo/Toolbar Demo-Prefix.pch";
+				INFOPLIST_FILE = "Toolbar Demo/Toolbar Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DE4B6CC5169FCE1300D6EE0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Toolbar Demo/Toolbar Demo-Prefix.pch";
+				INFOPLIST_FILE = "Toolbar Demo/Toolbar Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		DEC0BC59164F3FF80078003F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -514,6 +688,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		DE4B6CC3169FCE1300D6EE0D /* Build configuration list for PBXNativeTarget "Toolbar Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE4B6CC4169FCE1300D6EE0D /* Debug */,
+				DE4B6CC5169FCE1300D6EE0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		DEC0BC58164F3FF80078003F /* Build configuration list for PBXAggregateTarget "WSAssetPickerCombined" */ = {
 			isa = XCConfigurationList;
