@@ -20,6 +20,7 @@
 #import "WSAssetPickerController.h"
 #import "WSAssetPickerState.h"
 #import "WSAlbumTableViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface WSAssetPickerController ()
 @property (nonatomic, strong) WSAssetPickerState *assetPickerState;

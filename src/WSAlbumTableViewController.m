@@ -20,6 +20,7 @@
 #import "WSAlbumTableViewController.h"
 #import "WSAssetPickerState.h"
 #import "WSAssetTableViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 
 @interface WSAlbumTableViewController ()
