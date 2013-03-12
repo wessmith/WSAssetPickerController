@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		4AE5CCE8156AB810004C2AB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */; };
+		D84A10E9169E18D9002F7DCC /* WSAssetViewVideoIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = D84A10E7169E18D9002F7DCC /* WSAssetViewVideoIndicator.png */; };
+		D84A10EA169E18D9002F7DCC /* WSAssetViewVideoIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D84A10E8169E18D9002F7DCC /* WSAssetViewVideoIndicator@2x.png */; };
 		DE017CF9155EC92F002E7BB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
 		DE017CFB155EC92F002E7BB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
 		DE017CFD155EC92F002E7BB0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFC155EC92F002E7BB0 /* CoreGraphics.framework */; };
@@ -60,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		4AE5CCE7156AB810004C2AB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D84A10E7169E18D9002F7DCC /* WSAssetViewVideoIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WSAssetViewVideoIndicator.png; sourceTree = "<group>"; };
+		D84A10E8169E18D9002F7DCC /* WSAssetViewVideoIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WSAssetViewVideoIndicator@2x.png"; sourceTree = "<group>"; };
 		DE017CF4155EC92F002E7BB0 /* Picker Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picker Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE017CF8155EC92F002E7BB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE017CFA155EC92F002E7BB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,6 +192,8 @@
 				DEC2AE0615C5D6270078B2C7 /* MainStoryboard_iPhone.storyboard */,
 				DEC2AE0B15C5D6270078B2C7 /* WSAssetViewSelectionIndicator.png */,
 				DEC2AE0C15C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png */,
+				D84A10E7169E18D9002F7DCC /* WSAssetViewVideoIndicator.png */,
+				D84A10E8169E18D9002F7DCC /* WSAssetViewVideoIndicator@2x.png */,
 				DEC2AE0D15C5D6270078B2C7 /* WSMainViewController.h */,
 				DEC2AE0E15C5D6270078B2C7 /* WSMainViewController.m */,
 				DEC2AE1715C5D6320078B2C7 /* Supporting Files */,
@@ -315,6 +321,8 @@
 				DEBD0F1E15C5DDE600B9C9B5 /* Icon.png in Resources */,
 				DEBD0F1F15C5DDE600B9C9B5 /* Icon@2x.png in Resources */,
 				DE0C6ECD1659592D00ED8496 /* Default-568h@2x.png in Resources */,
+				D84A10E9169E18D9002F7DCC /* WSAssetViewVideoIndicator.png in Resources */,
+				D84A10EA169E18D9002F7DCC /* WSAssetViewVideoIndicator@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -67,6 +67,11 @@
     for (WSAssetWrapper *assetWrapper in assets) {
         
         WSAssetViewColumn *assetViewColumn = [[WSAssetViewColumn alloc] initWithImage:[UIImage imageWithCGImage:assetWrapper.asset.thumbnail]];
+
+        if([[assetWrapper.asset valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypeVideo]) {
+            [assetViewColumn markAsVideo:YES];
+        }
+        
         assetViewColumn.column = [assets indexOfObject:assetWrapper];
         assetViewColumn.selected = assetWrapper.isSelected;
         

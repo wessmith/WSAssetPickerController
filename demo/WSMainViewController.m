@@ -56,6 +56,17 @@
     [self presentViewController:self.pickerController animated:YES completion:NULL];
 }
 
+- (IBAction)pickAny:(id)sender {
+    self.pickerController = [[WSAssetPickerController alloc] initWithDelegate:self];
+
+    // Default is ALAssetsGroupAll and only photos.
+    // These settings will let you capture video as well.
+    [self.pickerController setAssetGroupTypes:ALAssetsGroupSavedPhotos | ALAssetsGroupAlbum | ALAssetsGroupLibrary | ALAssetsGroupPhotoStream];
+    [self.pickerController setAssetsFilter:[ALAssetsFilter allAssets]];
+    
+    [self presentViewController:self.pickerController animated:YES completion:NULL];
+}
+
 - (IBAction)changePage:(UIPageControl *)sender
 {
     self.pageControlInUse = YES;

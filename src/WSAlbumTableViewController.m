@@ -26,6 +26,8 @@
 @interface WSAlbumTableViewController ()
 @property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
 @property (nonatomic, strong) NSMutableArray *assetGroups; // Model (all groups of assets).
+@property (nonatomic, strong) ALAssetsFilter *filter;
+@property ALAssetsGroupType groupTypes;
 @end
 
 
@@ -34,6 +36,27 @@
 @synthesize assetPickerState = _assetPickerState;
 @synthesize assetsLibrary = _assetsLibrary;
 @synthesize assetGroups = _assetGroups;
+
+
+#pragma mark - Init
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    self.filter = [ALAssetsFilter allPhotos];
+    self.groupTypes = ALAssetsGroupAll;
+    return self;
+}
+
+-(void)setAssetGroupTypes:(ALAssetsGroupType)types
+{
+    self.groupTypes = types;
+}
+
+-(void)setAssetsFilter:(ALAssetsFilter *)filter
+{
+    self.filter = filter;
+}
 
 
 #pragma mark - Getters 
@@ -78,7 +101,7 @@
                                                                                            target:self 
                                                                                            action:@selector(cancelButtonAction:)];
     
-    [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [self.assetsLibrary enumerateGroupsWithTypes:self.groupTypes usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         
         // If group is nil, the end has been reached.
         if (group == nil) {
@@ -88,7 +111,14 @@
             });
             return;
         }
-        
+
+        [group setAssetsFilter:self.filter];
+
+        if(![group numberOfAssets]) {
+            // No sense showing empty groups/albums
+            return;
+        }
+
         // Add the group to the array.
         [self.assetGroups addObject:group];
         
@@ -137,7 +167,6 @@
     
     // Get the group from the datasource.
     ALAssetsGroup *group = [self.assetGroups objectAtIndex:indexPath.row];
-    [group setAssetsFilter:[ALAssetsFilter allPhotos]]; // TODO: Make this a delegate choice.
     
     // Setup the cell.
     cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d)", [group valueForProperty:ALAssetsGroupPropertyName], [group numberOfAssets]];
@@ -153,7 +182,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ALAssetsGroup *group = [self.assetGroups objectAtIndex:indexPath.row];
-    [group setAssetsFilter:[ALAssetsFilter allPhotos]]; // TODO: Make this a delegate choice.
     
     WSAssetTableViewController *assetTableViewController = [[WSAssetTableViewController alloc] initWithStyle:UITableViewStylePlain];
     assetTableViewController.assetPickerState = self.assetPickerState;
