@@ -55,8 +55,6 @@
     }
     
     self.assetPickerState.state = WSAssetPickerStatePickingAssets;
-    
-    DLog(@"\n*********************************\n\nShowing Asset Picker\n\n*********************************");
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -131,7 +129,6 @@
         [self.assetsGroup enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             
             if (!result || index == NSNotFound) {
-                DLog(@"Done fetching.");
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView reloadData];
@@ -189,8 +186,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    DLog(@"Num Rows: %d", (self.fetchedAssets.count + self.assetsPerRow - 1) / self.assetsPerRow);
-    
     return (self.fetchedAssets.count + self.assetsPerRow - 1) / self.assetsPerRow;
 }
 

@@ -65,8 +65,6 @@
     self.wantsFullScreenLayout = YES;
     
     self.assetPickerState.state = WSAssetPickerStatePickingAlbum;
-    
-    DLog(@"\n*********************************\n\nShowing Album Picker\n\n*********************************");
 }
 
 
