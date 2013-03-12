@@ -120,7 +120,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([object isMemberOfClass:[WSAssetViewColumn class]]) {
-        //DLog(@"%@", change);
         
         WSAssetViewColumn *column = (WSAssetViewColumn *)object;
         if ([self.delegate respondsToSelector:@selector(assetsTableViewCell:didSelectAsset:atColumn:)]) {
