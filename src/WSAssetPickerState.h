@@ -30,6 +30,7 @@ typedef enum {
 @interface WSAssetPickerState : NSObject
 @property (nonatomic, readonly) NSArray *selectedAssets;
 @property (nonatomic, readwrite) NSUInteger selectedCount;
+@property (nonatomic, readwrite) NSInteger selectionLimit;
 @property (nonatomic, readwrite) WSAssetPickingState state;
 
 - (void)changeSelectionState:(BOOL)selected forAsset:(ALAsset *)asset;

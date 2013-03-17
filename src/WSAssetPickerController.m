@@ -66,6 +66,14 @@
     return _assetPickerState;
 }
 
+- (void)setSelectionLimit:(NSInteger)selectionLimit
+{
+    if (_selectionLimit != selectionLimit) {
+        _selectionLimit = selectionLimit;
+        self.assetPickerState.selectionLimit = _selectionLimit;
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

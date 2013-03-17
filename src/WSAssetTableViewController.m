@@ -165,6 +165,11 @@
 
 #pragma mark - WSAssetsTableViewCellDelegate Methods
 
+- (BOOL)assetsTableViewCell:(WSAssetsTableViewCell *)cell shouldSelectAssetAtColumn:(NSUInteger)column
+{
+    return (self.assetPickerState.selectedCount < self.assetPickerState.selectionLimit);
+}
+
 - (void)assetsTableViewCell:(WSAssetsTableViewCell *)cell didSelectAsset:(BOOL)selected atColumn:(NSUInteger)column
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
