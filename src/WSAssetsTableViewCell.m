@@ -21,7 +21,6 @@
 #import "WSAssetWrapper.h"
 #import "WSAssetViewColumn.h"
 
-
 @implementation WSAssetsTableViewCell
 
 @synthesize delegate = _delegate;
@@ -69,6 +68,11 @@
         WSAssetViewColumn *assetViewColumn = [[WSAssetViewColumn alloc] initWithImage:[UIImage imageWithCGImage:assetWrapper.asset.thumbnail]];
         assetViewColumn.column = [assets indexOfObject:assetWrapper];
         assetViewColumn.selected = assetWrapper.isSelected;
+        
+        __weak __typeof__(self) weakSelf = self;
+        [assetViewColumn setShouldSelectItemBlock:^BOOL(NSInteger column) {
+            return [weakSelf.delegate assetsTableViewCell:weakSelf shouldSelectAssetAtColumn:column];
+        }];
         
         // Observe the column's isSelected property.
         [assetViewColumn addObserver:self forKeyPath:@"isSelected" options:NSKeyValueObservingOptionNew context:NULL];
@@ -129,8 +133,6 @@
         }
     }
 }
-
-
 
 - (void)dealloc
 {

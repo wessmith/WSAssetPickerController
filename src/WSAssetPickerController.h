@@ -26,6 +26,9 @@
 @property (nonatomic, readonly) NSArray *selectedAssets;
 @property (nonatomic, readonly) NSUInteger selectedCount; // Observable via key-value observing.
 
+// Limit the number of assets that can be selected.
+@property (nonatomic, readwrite) NSInteger selectionLimit;
+
 // Designated initializer.
 - (id)initWithDelegate:(id<WSAssetPickerControllerDelegate>)delegate;
 
