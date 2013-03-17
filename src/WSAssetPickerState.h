@@ -24,7 +24,7 @@ typedef enum {
     WSAssetPickerStatePickingAlbum,
     WSAssetPickerStatePickingAssets,
     WSAssetPickerStatePickingDone,
-    WSAssetPickerStatePickingCancelled
+    WSAssetPickerStatePickingCanceled
 } WSAssetPickingState;
 
 @interface WSAssetPickerState : NSObject

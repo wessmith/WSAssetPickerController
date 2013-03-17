@@ -109,7 +109,7 @@
         // Cast the delegate to the assetPickerDelegate.
         id <WSAssetPickerControllerDelegate> delegate = (id <WSAssetPickerControllerDelegate>)self.delegate;
         
-        if (WSAssetPickerStatePickingCancelled == self.assetPickerState.state) {
+        if (WSAssetPickerStatePickingCanceled == self.assetPickerState.state) {
             if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
                 [delegate assetPickerControllerDidCancel:self];
             }

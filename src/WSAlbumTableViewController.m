@@ -116,7 +116,7 @@
 
 - (void)cancelButtonAction:(id)sender 
 {    
-    self.assetPickerState.state = WSAssetPickerStatePickingCancelled;
+    self.assetPickerState.state = WSAssetPickerStatePickingCanceled;
 }
 
 
