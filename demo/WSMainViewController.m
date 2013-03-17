@@ -52,6 +52,7 @@
 - (IBAction)pick:(id)sender 
 {
     self.pickerController = [[WSAssetPickerController alloc] initWithDelegate:self];
+    self.pickerController.selectionLimit = 5;
     
     [self presentViewController:self.pickerController animated:YES completion:NULL];
 }
@@ -84,7 +85,7 @@
     UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     activityView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/2);
     [self.scrollView addSubview:activityView];
-    [activityView startAnimating];
+    if (assets.count > 0) [activityView startAnimating];
     
     [self dismissViewControllerAnimated:YES completion:^{
         
