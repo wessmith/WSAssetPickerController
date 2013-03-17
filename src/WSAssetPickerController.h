@@ -18,6 +18,15 @@
 //  limitations under the License.
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
+extern NSString *const WSAssetPickerAssetsOwningLibraryInstance;
+extern NSString *const WSAssetPickerURLsForSelectedAssets;
+extern NSString *const WSAssetPickerSelectedAssets;
+
+typedef void (^PickerDidCompleteBlock)(NSDictionary *info);
+typedef void (^PickerDidCancelBlock)(void);
+typedef void (^PickerDidFailBlock)(NSError *error);
 
 @protocol WSAssetPickerControllerDelegate;
 
@@ -29,8 +38,24 @@
 // Limit the number of assets that can be selected.
 @property (nonatomic, readwrite) NSInteger selectionLimit;
 
-// Designated initializer.
-- (id)initWithDelegate:(id<WSAssetPickerControllerDelegate>)delegate;
++ (WSAssetPickerController *)pickerWithAssetsLibrary:(ALAssetsLibrary *)library;
+
++ (WSAssetPickerController *)pickerWithCompletionBlock:(PickerDidCompleteBlock)completionBlock
+                                           cancelBlock:(PickerDidCancelBlock)cancelBlock
+                                          failureBlock:(PickerDidFailBlock)failureBlock;
+
++ (WSAssetPickerController *)pickerWithAssetsLibrary:(ALAssetsLibrary *)library
+                                          completionBlock:(PickerDidCompleteBlock)completionBlock
+                                              cancelBlock:(PickerDidCancelBlock)cancelBlock
+                                             failureBlock:(PickerDidFailBlock)failureBlock;
+
+- (id)initWithDelegate:(id<WSAssetPickerControllerDelegate>)delegate DEPRECATED_ATTRIBUTE;
+
+- (void)setPickerDidFailBlock:(PickerDidFailBlock)block;
+
+- (void)setPickerDidCancelBlock:(PickerDidCancelBlock)block;
+
+- (void)setPickerDidCompleteBlock:(PickerDidCompleteBlock)block;
 
 @end
 
@@ -38,9 +63,9 @@
 @protocol WSAssetPickerControllerDelegate <UINavigationControllerDelegate>
 
 // Called when the 'cancel' button it tapped.
-- (void)assetPickerControllerDidCancel:(WSAssetPickerController *)sender;
+- (void)assetPickerControllerDidCancel:(WSAssetPickerController *)sender DEPRECATED_ATTRIBUTE;
 
 // Called when the done button is tapped.
-- (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets;
+- (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets DEPRECATED_ATTRIBUTE;
 
 @end

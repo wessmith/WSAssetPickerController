@@ -26,14 +26,6 @@
 @synthesize delegate = _delegate;
 @synthesize cellAssetViews = _cellAssetViews;
 
-+ (WSAssetsTableViewCell *)assetsCellWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier
-{
-    WSAssetsTableViewCell *cell = [[WSAssetsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    cell.cellAssetViews = assets;
-    
-    return cell;
-}
-
 - (id)initWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier
 {
     if ((self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier])) {

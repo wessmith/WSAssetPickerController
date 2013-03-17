@@ -21,36 +21,19 @@
 #import "WSAssetPickerState.h"
 #import "WSAssetTableViewController.h"
 
-
 @interface WSAlbumTableViewController ()
-@property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
-@property (nonatomic, strong) NSMutableArray *assetGroups; // Model (all groups of assets).
+@property (nonatomic, strong) NSMutableArray *assetGroups; // Data source (all groups of assets).
 @end
-
 
 @implementation WSAlbumTableViewController
 
-@synthesize assetPickerState = _assetPickerState;
-@synthesize assetsLibrary = _assetsLibrary;
-@synthesize assetGroups = _assetGroups;
-
-
 #pragma mark - Getters 
-
-- (ALAssetsLibrary *)assetsLibrary
-{
-    if (!_assetsLibrary) {
-        _assetsLibrary = [[ALAssetsLibrary alloc] init];
-    }
-    return _assetsLibrary;
-}
 
 - (NSMutableArray *)assetGroups
 {
     if (!_assetGroups) {
         _assetGroups = [NSMutableArray array];
     }
-    
     return _assetGroups;
 }
 
@@ -63,7 +46,7 @@
     
     self.wantsFullScreenLayout = YES;
     
-    self.assetPickerState.state = WSAssetPickerStatePickingAlbum;
+    [self.assetPickerState clearSelectedAssets];
     
     DLog(@"\n*********************************\n\nShowing Album Picker\n\n*********************************");
 }
@@ -79,13 +62,14 @@
                                                                                            target:self 
                                                                                            action:@selector(cancelButtonAction:)];
     
-    [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [self.assetPickerState.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         
         // If group is nil, the end has been reached.
         if (group == nil) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.navigationItem.title = @"Albums";
+                [self.tableView reloadData];
             });
             return;
         }
@@ -93,13 +77,9 @@
         // Add the group to the array.
         [self.assetGroups addObject:group];
         
-        // Reload the tableview on the main thread.
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-        
     } failureBlock:^(NSError *error) {
-        // TODO: User denied access. Tell them we can't do anything.
+        
+        [self.assetPickerState sessionFailed:error];
     }];
 }
 
@@ -115,8 +95,8 @@
 #pragma  mark - Actions
 
 - (void)cancelButtonAction:(id)sender 
-{    
-    self.assetPickerState.state = WSAssetPickerStatePickingCanceled;
+{
+    [self.assetPickerState sessionCanceled];
 }
 
 

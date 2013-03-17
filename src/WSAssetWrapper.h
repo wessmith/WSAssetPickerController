@@ -24,8 +24,6 @@
 @property (nonatomic, strong, readonly) ALAsset *asset;
 @property (nonatomic, getter = isSelected) BOOL selected;
 
-+ (WSAssetWrapper *)wrapperWithAsset:(ALAsset *)asset;
-
 - (id)initWithAsset:(ALAsset *)asset;
 
 @end

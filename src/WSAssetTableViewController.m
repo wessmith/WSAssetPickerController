@@ -54,8 +54,6 @@
         [self.navigationController setToolbarHidden:NO animated:YES];
     }
     
-    self.assetPickerState.state = WSAssetPickerStatePickingAssets;
-    
     DLog(@"\n*********************************\n\nShowing Asset Picker\n\n*********************************");
 }
 
@@ -159,7 +157,7 @@
 
 - (void)doneButtonAction:(id)sender
 {     
-    self.assetPickerState.state = WSAssetPickerStatePickingDone;
+    [self.assetPickerState sessionCompleted];
 }
 
 

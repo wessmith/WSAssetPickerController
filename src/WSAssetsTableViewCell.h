@@ -27,8 +27,6 @@
 
 @property (nonatomic, weak) id <WSAssetsTableViewCellDelegate> delegate;
 
-+ (WSAssetsTableViewCell *)assetsCellWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier;
-
 - (id)initWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier;
 
 @end

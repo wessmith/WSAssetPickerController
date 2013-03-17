@@ -18,37 +18,48 @@
 //  limitations under the License.
 
 #import "WSAssetPickerState.h"
+#import "WSAssetWrapper.h"
 
+NSString *const WSAssetPickerAssetsOwningLibraryInstance = @"WSAssetPickerAssetsOwningLibraryInstance";
+NSString *const WSAssetPickerURLsForSelectedAssets       = @"WSAssetPickerURLsForSelectedAssets";
+NSString *const WSAssetPickerSelectedAssets              = @"WSAssetPickerSelectedAssets";
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 @interface WSAssetPickerState ()
 @property (nonatomic, strong) NSMutableOrderedSet *selectedAssetsSet;
 @end
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 @implementation WSAssetPickerState
 
-@dynamic selectedAssets;
-@synthesize selectedAssetsSet = _selectedAssetsSet;
-@synthesize selectedCount = _selectedCount;
-@synthesize state = _state;
+@dynamic info;
 
-- (id)init
+////////////////////////////////////////////////////////////////////////////////
+- (ALAssetsLibrary *)assetsLibrary
 {
-    if ((self = [super init])) {
-        self.state = WSAssetPickerStateInitializing;
+    if (_assetsLibrary == nil) {
+        _assetsLibrary = [[ALAssetsLibrary alloc] init];
     }
-    return self;
+    return _assetsLibrary;
 }
 
-- (void)setState:(WSAssetPickingState)state
+////////////////////////////////////////////////////////////////////////////////
+- (NSDictionary *)info
 {
-    _state = state;
+    NSArray *selectedAssets   = self.selectedAssetsSet.array.copy;
+    NSArray *urls             = [selectedAssets valueForKeyPath:@"defaultRepresentation.url"];
     
-    // Clear the selcted assets and count.
-    if (WSAssetPickerStatePickingAlbum == _state) {
-        [self.selectedAssetsSet removeAllObjects];
-        self.selectedCount = 0;
-    }
+    return
+    @{
+        WSAssetPickerAssetsOwningLibraryInstance       : self.assetsLibrary,
+        WSAssetPickerSelectedAssets                    : selectedAssets,
+        WSAssetPickerURLsForSelectedAssets             : urls,
+     };
 }
 
+////////////////////////////////////////////////////////////////////////////////
 - (NSMutableOrderedSet *)selectedAssetsSet
 {
     if (!_selectedAssetsSet) {
@@ -57,11 +68,35 @@
     return _selectedAssetsSet;
 }
 
-- (NSArray *)selectedAssets
+////////////////////////////////////////////////////////////////////////////////
+- (void)clearSelectedAssets
 {
-    return [[self.selectedAssetsSet array] copy];
+    [self.selectedAssetsSet removeAllObjects];
+    self.selectedCount = 0;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+- (void)sessionCanceled
+{
+    if (self.pickerDidCancelBlock)
+        self.pickerDidCancelBlock();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+- (void)sessionCompleted
+{
+    if (self.pickerDidCompleteBlock)
+        self.pickerDidCompleteBlock(self.info);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+- (void)sessionFailed:(NSError *)error
+{
+    if (self.pickerDidFailBlock)
+        self.pickerDidFailBlock(error);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 - (void)changeSelectionState:(BOOL)selected forAsset:(ALAsset *)asset
 {
     if (selected) {
