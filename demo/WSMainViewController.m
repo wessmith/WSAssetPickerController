@@ -21,20 +21,18 @@
 #import "WSAssetPicker.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface WSMainViewController () <WSAssetPickerControllerDelegate>
-@property (nonatomic, strong) WSAssetPickerController *pickerController;
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+@interface WSMainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (nonatomic, readwrite) BOOL pageControlInUse;
 @end
 
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 @implementation WSMainViewController
-@synthesize pickerController = _pickerController;
-@synthesize scrollView = _scrollView;
-@synthesize pageControl = _pageControl;
-@synthesize pageControlInUse = _pageControlInUse;
 
+////////////////////////////////////////////////////////////////////////////////
 - (void)setScrollView:(UIScrollView *)scrollView
 {
     scrollView.layer.cornerRadius = 5.f;
@@ -43,108 +41,108 @@
     _scrollView = scrollView;
 }
 
+////////////////////////////////////////////////////////////////////////////////
 - (void)setPageControl:(UIPageControl *)pageControl
 {
     pageControl.numberOfPages = 0;
     _pageControl = pageControl;
 }
 
-- (IBAction)pick:(id)sender 
+////////////////////////////////////////////////////////////////////////////////
+- (IBAction)pick:(id)sender
 {
-    self.pickerController = [[WSAssetPickerController alloc] initWithDelegate:self];
-    self.pickerController.selectionLimit = 5;
+    WSAssetPickerController *picker = [WSAssetPickerController pickerWithCompletionBlock:^(NSDictionary *info) {
+        
+        // Show some activity.
+        UIActivityIndicatorView *activityView =
+        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        activityView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/2);
+        [self.scrollView addSubview:activityView];
+        [activityView startAnimating];
+        
+        // Dismiss the modal picker controller and load the images into the scrollView in the completion block.
+        // If we try to load the images from the asset representations before dismissing the modal controller,
+        // the UI will block and the experience will be degraded. Yet it's equally important that a reference to
+        // the ALAssetsLibrary be maintained until we are finished accessing the ALAsset objects owned by the library.
+        // Once the library instance is deallocated, the ALAssets will become unavailable. See the README for more info.
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+            NSArray *assets = assets = [info objectForKey:WSAssetPickerSelectedAssets];
+            if ([info isKindOfClass:[NSDictionary class]])
+
+            if (assets.count == 0) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                return;
+            }
+            
+            // ScrollView setup.
+            CGSize contentSize = CGSizeZero;
+            contentSize.width = self.scrollView.frame.size.width * assets.count;
+            contentSize.height = self.scrollView.frame.size.height;
+            self.scrollView.contentSize = contentSize;
+            
+            // PageControl setup.
+            self.pageControl.hidden = NO;
+            self.pageControl.numberOfPages = assets.count;
+            
+            [assets enumerateObjectsUsingBlock:^(ALAsset *asset, NSUInteger idx, BOOL *stop) {
+                
+                CGRect imageViewFrame;
+                imageViewFrame.origin.x = self.scrollView.frame.size.width * idx;
+                imageViewFrame.origin.y = 0;
+                imageViewFrame.size = self.scrollView.frame.size;
+                
+                UIImage *image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+                UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+                imageView.clipsToBounds = YES;
+                imageView.contentMode = UIViewContentModeScaleAspectFill;
+                imageView.frame = imageViewFrame;
+                
+                [self.scrollView addSubview:imageView];
+            }];
+            
+            [activityView stopAnimating];
+            
+            [self.scrollView flashScrollIndicators];
+        }];
+        
+    } cancelBlock:^{
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } failureBlock:^(NSError *error) {
+        
+        NSLog(@"Picker failed with error -> %@", error.localizedDescription);
+    }];
     
-    [self presentViewController:self.pickerController animated:YES completion:NULL];
+    picker.selectionLimit = 5;
+    
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
+////////////////////////////////////////////////////////////////////////////////
 - (IBAction)changePage:(UIPageControl *)sender
 {
-    self.pageControlInUse = YES;
-    
     CGRect pageFrame = self.scrollView.bounds;
     pageFrame.origin.x = pageFrame.size.width * self.pageControl.currentPage;
     [self.scrollView scrollRectToVisible:pageFrame animated:YES];
 }
 
+////////////////////////////////////////////////////////////////////////////////
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
-#pragma mark - WSAssetPickerControllerDelegate Methods
-
-- (void)assetPickerControllerDidCancel:(WSAssetPickerController *)sender
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-- (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
-{
-    
-    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    activityView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/2);
-    [self.scrollView addSubview:activityView];
-    if (assets.count > 0) [activityView startAnimating];
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-        if (assets.count < 1) return;
-        
-        CGSize contentSize;
-        contentSize.width = self.scrollView.frame.size.width * assets.count;
-        contentSize.height = self.scrollView.frame.size.height;
-        self.scrollView.contentSize = contentSize;
-        
-        
-        self.pageControl.hidden = NO;
-        self.pageControl.numberOfPages = assets.count;
-        
-        
-        int index = 0;
-        
-        for (ALAsset *asset in assets) {
-            
-            CGRect imageViewFrame;
-            imageViewFrame.origin.x = self.scrollView.frame.size.width * index;
-            imageViewFrame.origin.y = 0;
-            imageViewFrame.size = self.scrollView.frame.size;
-           
-            
-            UIImage *image = [[UIImage alloc] initWithCGImage:asset.defaultRepresentation.fullScreenImage];
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-            imageView.clipsToBounds = YES;
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
-            imageView.frame = imageViewFrame;
-            
-            index++;
-            
-            [self.scrollView addSubview:imageView];
-            if (index == 0) [activityView stopAnimating];
-        }
-        
-        [self.scrollView flashScrollIndicators];
-    }];
-}
-
 #pragma mark - UIScrollViewDelegate Methods
 
+////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     // Update the pageControl > 50% of the previous/next page is visible.
     CGFloat pageWidth = self.scrollView.frame.size.width;
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView 
-{
-    self.pageControlInUse = NO;
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView 
-{
-    self.pageControlInUse = NO;
 }
 
 @end
