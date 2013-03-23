@@ -51,7 +51,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 - (IBAction)pick:(id)sender
 {
-    WSAssetPickerController *picker = [WSAssetPickerController pickerWithCompletionBlock:^(NSDictionary *info) {
+    WSAssetPickerController *picker = [WSAssetPickerController pickerWithCompletion:^(NSDictionary *info) {
         
         // Show some activity.
         UIActivityIndicatorView *activityView =
@@ -69,11 +69,11 @@
             
             NSArray *assets = assets = [info objectForKey:WSAssetPickerSelectedAssets];
             if ([info isKindOfClass:[NSDictionary class]])
-
-            if (assets.count == 0) {
-                [self dismissViewControllerAnimated:YES completion:nil];
-                return;
-            }
+                
+                if (assets.count == 0) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    return;
+                }
             
             // ScrollView setup.
             CGSize contentSize = CGSizeZero;
@@ -106,15 +106,18 @@
             [self.scrollView flashScrollIndicators];
         }];
         
-    } cancelBlock:^{
+    } canceled:^{
         
         [self dismissViewControllerAnimated:YES completion:nil];
-        
-    } failureBlock:^(NSError *error) {
-        
+    }];
+    
+    // Handle errors.
+    [picker setPickerFailedBlock:^(NSError *error) {
+
         NSLog(@"Picker failed with error -> %@", error.localizedDescription);
     }];
     
+    // Limit number of selected items.
     picker.selectionLimit = 5;
     
     [self presentViewController:picker animated:YES completion:nil];

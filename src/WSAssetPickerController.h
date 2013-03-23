@@ -17,6 +17,10 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+/**
+ [1] Testing
+ */
+
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -38,24 +42,26 @@ typedef void (^PickerDidFailBlock)(NSError *error);
 // Limit the number of assets that can be selected.
 @property (nonatomic, readwrite) NSInteger selectionLimit;
 
-+ (WSAssetPickerController *)pickerWithAssetsLibrary:(ALAssetsLibrary *)library;
-
-+ (WSAssetPickerController *)pickerWithCompletionBlock:(PickerDidCompleteBlock)completionBlock
-                                           cancelBlock:(PickerDidCancelBlock)cancelBlock
-                                          failureBlock:(PickerDidFailBlock)failureBlock;
-
+/** 
+ Creates a picker controller with an existing ALAssetsLibrary instance.
+ 
+ @param library An instance of ALAssetsLibrary.
+ @param completion A block to be executed when the picker controller finishes successfully. This block has not return value and takes a single argument: an NSDictionary containing the selection information. The keys for this dictionary are listed in “Selection Info Keys”
+ @param canceled test
+ 
+ */
 + (WSAssetPickerController *)pickerWithAssetsLibrary:(ALAssetsLibrary *)library
-                                          completionBlock:(PickerDidCompleteBlock)completionBlock
-                                              cancelBlock:(PickerDidCancelBlock)cancelBlock
-                                             failureBlock:(PickerDidFailBlock)failureBlock;
+                                          completion:(PickerDidCompleteBlock)completion
+                                            canceled:(PickerDidCancelBlock)canceled;
+
++ (WSAssetPickerController *)pickerWithCompletion:(PickerDidCompleteBlock)completion
+                                         canceled:(PickerDidCancelBlock)canceled;
 
 - (id)initWithDelegate:(id<WSAssetPickerControllerDelegate>)delegate DEPRECATED_ATTRIBUTE;
 
-- (void)setPickerDidFailBlock:(PickerDidFailBlock)block;
-
-- (void)setPickerDidCancelBlock:(PickerDidCancelBlock)block;
-
-- (void)setPickerDidCompleteBlock:(PickerDidCompleteBlock)block;
+- (void)setPickerCompletionBlock:(PickerDidCompleteBlock)block;
+- (void)setPickerCanceledBlock:(PickerDidCancelBlock)block;
+- (void)setPickerFailedBlock:(PickerDidFailBlock)block;
 
 @end
 

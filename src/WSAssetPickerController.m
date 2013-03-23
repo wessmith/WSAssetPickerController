@@ -42,36 +42,23 @@
 #pragma mark - Initialization -
 
 ////////////////////////////////////////////////////////////////////////////////
-+ (WSAssetPickerController *)pickerWithAssetsLibrary:(ALAssetsLibrary *)library
-{
-    return [[self class] pickerWithAssetsLibrary:library
-                                 completionBlock:nil
-                                     cancelBlock:nil
-                                    failureBlock:nil];
-}
-
-////////////////////////////////////////////////////////////////////////////////
-+ (WSAssetPickerController *)pickerWithCompletionBlock:(PickerDidCompleteBlock)completionBlock
-                                           cancelBlock:(PickerDidCancelBlock)cancelBlock
-                                          failureBlock:(PickerDidFailBlock)failureBlock
++ (WSAssetPickerController *)pickerWithCompletion:(PickerDidCompleteBlock)completion
+                                         canceled:(PickerDidCancelBlock)canceled
 {
     return [[self class] pickerWithAssetsLibrary:nil
-                                 completionBlock:completionBlock
-                                     cancelBlock:cancelBlock
-                                    failureBlock:failureBlock];
+                                      completion:completion
+                                        canceled:canceled];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 + (WSAssetPickerController *)pickerWithAssetsLibrary:(ALAssetsLibrary *)library
-                                     completionBlock:(PickerDidCompleteBlock)completionBlock
-                                         cancelBlock:(PickerDidCancelBlock)cancelBlock
-                                        failureBlock:(PickerDidFailBlock)failureBlock
+                                          completion:(PickerDidCompleteBlock)completion
+                                            canceled:(PickerDidCancelBlock)canceled
 {
     WSAssetPickerController *picker = [[[self class] alloc] init];
     picker.assetPickerState.assetsLibrary = library;
-    picker.assetPickerState.pickerDidCompleteBlock = completionBlock;
-    picker.assetPickerState.pickerDidCancelBlock = cancelBlock;
-    picker.assetPickerState.pickerDidFailBlock = failureBlock;
+    picker.assetPickerState.pickerDidCompleteBlock = completion;
+    picker.assetPickerState.pickerDidCancelBlock = canceled;
     return picker;
 }
 
@@ -119,7 +106,18 @@
 #pragma mark - Block Setters -
 
 ////////////////////////////////////////////////////////////////////////////////
-- (void)setPickerDidFailBlock:(PickerDidFailBlock)block
+- (void)setPickerCompletionBlock:(PickerDidCompleteBlock)block
+{
+    self.assetPickerState.pickerDidCompleteBlock = block;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+- (void)setPickerCanceledBlock:(PickerDidCancelBlock)block
+{
+    self.assetPickerState.pickerDidCancelBlock = block;
+}
+
+- (void)setPickerFailedBlock:(PickerDidFailBlock)block
 {
     // Hang on to the library consumer's fail block locally and set a private block.
     // This provides an opportunity to change the UI before notifying the consumer of the failure.
@@ -132,18 +130,6 @@
         if (weakSelf.pickerDidFailBlock)
             weakSelf.pickerDidFailBlock(error);
     }];
-}
-
-////////////////////////////////////////////////////////////////////////////////
-- (void)setPickerDidCancelBlock:(PickerDidCancelBlock)block
-{
-    self.assetPickerState.pickerDidCancelBlock = block; 
-}
-
-////////////////////////////////////////////////////////////////////////////////
-- (void)setPickerDidCompleteBlock:(PickerDidCompleteBlock)block
-{
-    self.assetPickerState.pickerDidCompleteBlock = block;
 }
 
 #pragma mark - Overrides -
