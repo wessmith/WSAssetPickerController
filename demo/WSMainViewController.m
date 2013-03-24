@@ -23,6 +23,7 @@
 
 @interface WSMainViewController () <WSAssetPickerControllerDelegate>
 @property (nonatomic, strong) WSAssetPickerController *pickerController;
+@property (strong, nonatomic) UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, readwrite) BOOL pageControlInUse;
@@ -30,10 +31,17 @@
 
 
 @implementation WSMainViewController
-@synthesize pickerController = _pickerController;
-@synthesize scrollView = _scrollView;
-@synthesize pageControl = _pageControl;
-@synthesize pageControlInUse = _pageControlInUse;
+
+- (UIActivityIndicatorView *)activityView
+{
+    if (_activityView == nil) {
+        
+        _activityView =
+        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [self.view addSubview:_activityView];
+    }
+    return _activityView;
+}
 
 - (void)setScrollView:(UIScrollView *)scrollView
 {
@@ -49,7 +57,17 @@
     _pageControl = pageControl;
 }
 
-- (IBAction)pick:(id)sender 
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    CGPoint scrollViewCenter = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/2);
+    CGPoint activityCenter = [self.view convertPoint:scrollViewCenter fromView:self.scrollView];
+    
+    self.activityView.center = activityCenter;
+}
+
+- (IBAction)pick:(id)sender
 {
     self.pickerController = [[WSAssetPickerController alloc] initWithDelegate:self];
     self.pickerController.selectionLimit = 5;
@@ -71,6 +89,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
 
 #pragma mark - WSAssetPickerControllerDelegate Methods
 
@@ -81,25 +104,33 @@
 
 - (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
 {
+    // Reset the scroll view and page control.
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.scrollView.contentSize = CGSizeZero;
+    self.pageControl.numberOfPages = 0;
+    self.pageControl.currentPage = 0;
+    self.pageControl.hidden = YES;
     
-    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    activityView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/2);
-    [self.scrollView addSubview:activityView];
-    if (assets.count > 0) [activityView startAnimating];
+    // Show some activity.
+    [self.activityView startAnimating];
     
+    // Dismiss the picker controller.
     [self dismissViewControllerAnimated:YES completion:^{
         
-        if (assets.count < 1) return;
-        
-        CGSize contentSize;
+        if (assets.count == 0) {
+            [self.activityView stopAnimating];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            return;
+        }
+        // ScrollView setup.
+        CGSize contentSize = CGSizeZero;
         contentSize.width = self.scrollView.frame.size.width * assets.count;
         contentSize.height = self.scrollView.frame.size.height;
         self.scrollView.contentSize = contentSize;
-        
-        
+
+        // PageControl setup.
         self.pageControl.hidden = NO;
         self.pageControl.numberOfPages = assets.count;
-        
         
         int index = 0;
         
@@ -120,8 +151,9 @@
             index++;
             
             [self.scrollView addSubview:imageView];
-            if (index == 0) [activityView stopAnimating];
         }
+        
+        [self.activityView stopAnimating];
         
         [self.scrollView flashScrollIndicators];
     }];
