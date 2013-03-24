@@ -24,6 +24,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 @interface WSMainViewController ()
+@property (strong, nonatomic) UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @end
@@ -31,6 +32,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 @implementation WSMainViewController
+
+////////////////////////////////////////////////////////////////////////////////
+- (UIActivityIndicatorView *)activityView
+{
+    if (_activityView == nil) {
+        
+        _activityView =
+        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [self.view addSubview:_activityView];
+    }
+    return _activityView;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 - (void)setScrollView:(UIScrollView *)scrollView
@@ -49,16 +62,25 @@
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    CGPoint scrollViewCenter = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/2);
+    CGPoint activityCenter = [self.view convertPoint:scrollViewCenter fromView:self.scrollView];
+    
+    self.activityView.center = activityCenter;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 - (IBAction)pick:(id)sender
 {
     WSAssetPickerController *picker = [WSAssetPickerController pickerWithCompletion:^(NSDictionary *info) {
         
+        [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        
         // Show some activity.
-        UIActivityIndicatorView *activityView =
-        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        activityView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/2);
-        [self.scrollView addSubview:activityView];
-        [activityView startAnimating];
+        [self.activityView startAnimating];
         
         // Dismiss the modal picker controller and load the images into the scrollView in the completion block.
         // If we try to load the images from the asset representations before dismissing the modal controller,
@@ -67,13 +89,15 @@
         // Once the library instance is deallocated, the ALAssets will become unavailable. See the README for more info.
         [self dismissViewControllerAnimated:YES completion:^{
             
-            NSArray *assets = assets = [info objectForKey:WSAssetPickerSelectedAssets];
-            if ([info isKindOfClass:[NSDictionary class]])
-                
-                if (assets.count == 0) {
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                    return;
-                }
+            NSArray *assets = [info objectForKey:WSAssetPickerSelectedAssets];
+            
+            if (assets.count == 0) {
+                [self.activityView stopAnimating];
+                self.pageControl.numberOfPages = 0;
+                self.pageControl.hidden = YES;
+                [self dismissViewControllerAnimated:YES completion:nil];
+                return;
+            }
             
             // ScrollView setup.
             CGSize contentSize = CGSizeZero;
@@ -101,7 +125,7 @@
                 [self.scrollView addSubview:imageView];
             }];
             
-            [activityView stopAnimating];
+            [self.activityView stopAnimating];
             
             [self.scrollView flashScrollIndicators];
         }];
@@ -135,6 +159,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+- (BOOL)shouldAutorotate
+{
+    return NO;
 }
 
 #pragma mark - UIScrollViewDelegate Methods
