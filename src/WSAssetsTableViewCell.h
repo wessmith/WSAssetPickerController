@@ -31,6 +31,8 @@
 
 - (id)initWithAssets:(NSArray *)assets reuseIdentifier:(NSString *)identifier;
 
+- (void) select: (CGPoint) localPoint;
+
 @end
 
 @protocol WSAssetsTableViewCellDelegate <NSObject>
