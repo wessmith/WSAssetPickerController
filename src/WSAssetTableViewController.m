@@ -36,6 +36,7 @@
 @synthesize assetsGroup = _assetsGroup;
 @synthesize fetchedAssets = _fetchedAssets;
 @synthesize assetsPerRow =_assetsPerRow;
+@synthesize recognizer = _recognizer;
 
 
 #pragma mark - View Lifecycle
@@ -75,6 +76,11 @@
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
                                                                                            target:self 
                                                                                            action:@selector(doneButtonAction:)];
+    
+    self.recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                              action:@selector(handlePanning:)];
+    self.recognizer.minimumNumberOfTouches = 2;
+    [self.view addGestureRecognizer:self.recognizer];
     
     
     // TableView configuration.
@@ -215,7 +221,7 @@
     
     if (cell == nil) {
         
-        cell = [[WSAssetsTableViewCell alloc] initWithAssets:[self assetsForIndexPath:indexPath] reuseIdentifier:AssetCellIdentifier];        
+        cell = [[WSAssetsTableViewCell alloc] initWithAssets:[self assetsForIndexPath:indexPath] reuseIdentifier:AssetCellIdentifier];
     } else {
         
         cell.cellAssetViews = [self assetsForIndexPath:indexPath];
@@ -223,6 +229,31 @@
     cell.delegate = self;
     
     return cell;
+}
+
+-(void) handlePanning:(UIPanGestureRecognizer *) recognizer
+{
+    
+    CGPoint location = [recognizer locationInView:self.view];
+//    NSLog(@"point: %@", NSStringFromCGPoint(location));
+    
+    
+    UITableView *tableView = (UITableView *)self.view;
+//    CGPoint p = [tap locationInView:tap.view];
+    NSIndexPath* indexPath = [tableView indexPathForRowAtPoint:location];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    WSAssetsTableViewCell *cell = (WSAssetsTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    CGPoint pointInCell = [recognizer locationInView:cell];
+    if (CGRectContainsPoint(cell.imageView.frame, pointInCell)) {
+        // user tapped image
+        NSLog(@"image selected");
+    } else {
+        // user tapped cell
+        NSLog(@"cell selected");
+        [cell select:pointInCell];
+    }
+    
+
 }
 
 

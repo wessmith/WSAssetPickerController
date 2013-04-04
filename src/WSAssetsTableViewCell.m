@@ -129,6 +129,22 @@
     }
 }
 
+- (void) select: (CGPoint) localPoint
+{
+    NSLog(@"point: %@", NSStringFromCGPoint(localPoint));
+    
+    NSLog(@"number: %d", self.cellAssetViews.count);
+    
+    for (WSAssetViewColumn * item in self.cellAssetViews)
+    {
+        if(CGRectContainsPoint(item.frame, localPoint))
+        {
+            item.selected = true;
+            break;
+        }
+    }
+    
+}
 
 
 - (void)dealloc

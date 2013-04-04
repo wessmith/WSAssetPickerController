@@ -27,4 +27,6 @@
 @property (nonatomic, weak) WSAssetPickerState *assetPickerState;
 @property (nonatomic, weak) ALAssetsGroup *assetsGroup; // Model (a specific, filtered, group of assets).
 
+@property (nonatomic, strong) UIPanGestureRecognizer * recognizer;
+
 @end
