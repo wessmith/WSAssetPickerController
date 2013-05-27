@@ -27,6 +27,8 @@
 @property (strong, nonatomic) UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UIButton *unlimitedPickButton;
+@property (strong, nonatomic) IBOutlet UIButton *limitedPickButton;
 @property (nonatomic, readwrite) BOOL pageControlInUse;
 @end
 
@@ -39,6 +41,7 @@
         
         _activityView =
         [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [_activityView setColor:[UIColor darkGrayColor]];
         [self.view addSubview:_activityView];
     }
     return _activityView;
@@ -46,9 +49,9 @@
 
 - (void)setScrollView:(UIScrollView *)scrollView
 {
-    scrollView.layer.cornerRadius = 5.f;
-    scrollView.layer.borderWidth = 2.f;
-    scrollView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    scrollView.layer.cornerRadius = 4.f;
+    scrollView.layer.borderWidth = 1.f;
+    scrollView.layer.borderColor = [UIColor colorWithWhite:0.5 alpha:0.5].CGColor;
     _scrollView = scrollView;
 }
 
@@ -56,6 +59,24 @@
 {
     pageControl.numberOfPages = 0;
     _pageControl = pageControl;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    void (^styleButton)(UIButton *) =
+    ^(UIButton *button) {
+        
+        [button setBackgroundColor:[UIColor clearColor]];
+        UIImage *image = [UIImage imageNamed:@"WSButtonBackground"];
+        UIImage *pressedImage = [UIImage imageNamed:@"WSButtonBackgroundPressed"];
+        [button setBackgroundImage:[image resizableImageWithCapInsets:UIEdgeInsetsMake(26, 7, 3, 7)] forState:UIControlStateNormal];
+        [button setBackgroundImage:[pressedImage resizableImageWithCapInsets:UIEdgeInsetsMake(26, 7, 3, 7)] forState:UIControlStateHighlighted];
+    };
+    
+    styleButton(self.unlimitedPickButton);
+    styleButton(self.limitedPickButton);
 }
 
 - (void)viewWillLayoutSubviews
@@ -71,7 +92,8 @@
 - (IBAction)pick:(id)sender
 {
     self.pickerController = [[WSAssetPickerController alloc] initWithDelegate:self];
-    self.pickerController.selectionLimit = 5;
+    if ([sender isEqual:self.limitedPickButton])
+        self.pickerController.selectionLimit = 5;
     
     [self presentViewController:self.pickerController animated:YES completion:NULL];
 }
@@ -144,18 +166,15 @@
         
         for (ALAsset *asset in assets) {
             
-            CGRect imageViewFrame;
-            imageViewFrame.origin.x = self.scrollView.frame.size.width * index;
-            imageViewFrame.origin.y = 0;
-            imageViewFrame.size = self.scrollView.frame.size;
-           
+            CGFloat padding = 10.0;
+            CGRect imageViewFrame = CGRectInset(self.scrollView.bounds, padding, padding);
+            imageViewFrame.origin.x = self.scrollView.frame.size.width * index + padding;
             
             UIImage *image = [[UIImage alloc] initWithCGImage:asset.defaultRepresentation.fullScreenImage];
             UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-            imageView.clipsToBounds = YES;
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
             imageView.frame = imageViewFrame;
-            
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
+
             index++;
             
             [self.scrollView addSubview:imageView];

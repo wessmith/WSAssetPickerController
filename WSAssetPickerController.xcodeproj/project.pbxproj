@@ -52,6 +52,10 @@
 		DEC2AE1415C5D6270078B2C7 /* WSAssetViewSelectionIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE0B15C5D6270078B2C7 /* WSAssetViewSelectionIndicator.png */; };
 		DEC2AE1515C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE0C15C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png */; };
 		DEC2AE1615C5D6270078B2C7 /* WSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2AE0E15C5D6270078B2C7 /* WSMainViewController.m */; };
+		DEDF87571753077200D9A9A4 /* WSButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDF87531753077200D9A9A4 /* WSButtonBackground.png */; };
+		DEDF87581753077200D9A9A4 /* WSButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDF87541753077200D9A9A4 /* WSButtonBackground@2x.png */; };
+		DEDF87591753077200D9A9A4 /* WSButtonBackgroundPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDF87551753077200D9A9A4 /* WSButtonBackgroundPressed.png */; };
+		DEDF875A1753077200D9A9A4 /* WSButtonBackgroundPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDF87561753077200D9A9A4 /* WSButtonBackgroundPressed@2x.png */; };
 		DEEC0FF3156B32B600B1F0D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CFA155EC92F002E7BB0 /* Foundation.framework */; };
 		DEEC1017156B332900B1F0D2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FF813155ECB0A00D7B3E8 /* AssetsLibrary.framework */; };
 		DEEC1018156B333600B1F0D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE017CF8155EC92F002E7BB0 /* UIKit.framework */; };
@@ -98,6 +102,10 @@
 		DEC2AE0C15C5D6270078B2C7 /* WSAssetViewSelectionIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WSAssetViewSelectionIndicator@2x.png"; sourceTree = "<group>"; };
 		DEC2AE0D15C5D6270078B2C7 /* WSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMainViewController.h; sourceTree = "<group>"; };
 		DEC2AE0E15C5D6270078B2C7 /* WSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMainViewController.m; sourceTree = "<group>"; };
+		DEDF87531753077200D9A9A4 /* WSButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WSButtonBackground.png; sourceTree = "<group>"; };
+		DEDF87541753077200D9A9A4 /* WSButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WSButtonBackground@2x.png"; sourceTree = "<group>"; };
+		DEDF87551753077200D9A9A4 /* WSButtonBackgroundPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WSButtonBackgroundPressed.png; sourceTree = "<group>"; };
+		DEDF87561753077200D9A9A4 /* WSButtonBackgroundPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WSButtonBackgroundPressed@2x.png"; sourceTree = "<group>"; };
 		DEEC0FF2156B32B600B1F0D2 /* libWSAssetPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWSAssetPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8C127AA6E74EA5B04B6C1D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -203,6 +211,10 @@
 		DEC2AE1715C5D6320078B2C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DEDF87531753077200D9A9A4 /* WSButtonBackground.png */,
+				DEDF87541753077200D9A9A4 /* WSButtonBackground@2x.png */,
+				DEDF87551753077200D9A9A4 /* WSButtonBackgroundPressed.png */,
+				DEDF87561753077200D9A9A4 /* WSButtonBackgroundPressed@2x.png */,
 				DE0C6ECC1659592D00ED8496 /* Default-568h@2x.png */,
 				DEBD0F1C15C5DDE600B9C9B5 /* Icon.png */,
 				DEBD0F1D15C5DDE600B9C9B5 /* Icon@2x.png */,
@@ -323,6 +335,10 @@
 				DEBD0F1E15C5DDE600B9C9B5 /* Icon.png in Resources */,
 				DEBD0F1F15C5DDE600B9C9B5 /* Icon@2x.png in Resources */,
 				DE0C6ECD1659592D00ED8496 /* Default-568h@2x.png in Resources */,
+				DEDF87571753077200D9A9A4 /* WSButtonBackground.png in Resources */,
+				DEDF87581753077200D9A9A4 /* WSButtonBackground@2x.png in Resources */,
+				DEDF87591753077200D9A9A4 /* WSButtonBackgroundPressed.png in Resources */,
+				DEDF875A1753077200D9A9A4 /* WSButtonBackgroundPressed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
