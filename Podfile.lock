@@ -1,0 +1,14 @@
+PODS:
+  - TSMessages (0.9.2)
+
+DEPENDENCIES:
+  - TSMessages (from `https://github.com/w5mith/TSMessages.git`)
+
+EXTERNAL SOURCES:
+  TSMessages:
+    :git: https://github.com/w5mith/TSMessages.git
+
+SPEC CHECKSUMS:
+  TSMessages: 9169abb0e6962810b9aa8f731d7c481b05a73dec
+
+COCOAPODS: 0.19.1

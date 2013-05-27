@@ -1,3 +1,6 @@
+# Exclude Cocoapods
+Pods/
+
 # Exclude the build directory
 build/*
  
