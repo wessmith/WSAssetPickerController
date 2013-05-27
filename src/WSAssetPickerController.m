@@ -22,6 +22,9 @@
 #import "WSAlbumTableViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#define STATE_KEY @"state"
+#define SELECTED_COUNT_KEY @"selectedCount"
+
 @interface WSAssetPickerController ()
 @property (nonatomic, strong) WSAssetPickerState *assetPickerState;
 @property (nonatomic, readwrite) NSUInteger selectedCount;
@@ -56,8 +59,7 @@
     return self;
 }
 
-#define STATE_KEY @"state"
-#define SELECTED_COUNT_KEY @"selectedCount"
+#pragma mark - Accessors -
 
 - (WSAssetPickerState *)assetPickerState
 {
@@ -74,6 +76,13 @@
         self.assetPickerState.selectionLimit = _selectionLimit;
     }
 }
+
+- (NSArray *)selectedAssets
+{
+    return self.assetPickerState.selectedAssets;
+}
+
+#pragma mark - Overrides -
 
 - (void)viewWillAppear:(BOOL)animated
 {
