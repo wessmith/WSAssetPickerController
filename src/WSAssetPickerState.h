@@ -24,6 +24,7 @@ typedef enum {
     WSAssetPickerStateInitializing,
     WSAssetPickerStatePickingAlbum,
     WSAssetPickerStatePickingAssets,
+    WSAssetPickerStateSelectionLimitReached,
     WSAssetPickerStatePickingDone,
     WSAssetPickerStatePickingCanceled
 } WSAssetPickingState;

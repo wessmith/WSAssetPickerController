@@ -125,6 +125,10 @@
             if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
                 [delegate assetPickerController:self didFinishPickingMediaWithAssets:self.assetPickerState.selectedAssets];
             }
+        } else if (WSAssetPickerStateSelectionLimitReached == self.assetPickerState.state) {
+            if ([delegate respondsToSelector:@selector(assetPickerControllerDidReachSelectionLimit:)]) {
+                [delegate assetPickerControllerDidReachSelectionLimit:self];
+            }
         }
     } else if ([SELECTED_COUNT_KEY isEqualToString:keyPath]) {
         

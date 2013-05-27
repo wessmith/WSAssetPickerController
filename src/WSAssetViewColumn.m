@@ -107,7 +107,6 @@
     if (sender.state == UIGestureRecognizerStateEnded) {
         
         // Set the selection state.
-        
         BOOL canSelect = YES;
         if (self.shouldSelectItem)
             canSelect = self.shouldSelectItem(self.column);
@@ -115,4 +114,5 @@
         self.selected = (canSelect && (self.selected == NO));
     }
 }
+
 @end

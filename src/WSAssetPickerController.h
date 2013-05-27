@@ -43,4 +43,7 @@
 // Called when the done button is tapped.
 - (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets;
 
+// Called when the selection limit is reached.
+- (void)assetPickerControllerDidReachSelectionLimit:(WSAssetPickerController *)sender;
+
 @end

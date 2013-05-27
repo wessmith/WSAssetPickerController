@@ -164,7 +164,20 @@
 
 - (BOOL)assetsTableViewCell:(WSAssetsTableViewCell *)cell shouldSelectAssetAtColumn:(NSUInteger)column
 {
-    return (self.assetPickerState.selectedCount < self.assetPickerState.selectionLimit);
+    BOOL shouldSelectAsset = (self.assetPickerState.selectionLimit == 0 ||
+                              (self.assetPickerState.selectedCount < self.assetPickerState.selectionLimit));
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSUInteger assetIndex = indexPath.row * self.assetsPerRow + column;
+    
+    WSAssetWrapper *assetWrapper = [self.fetchedAssets objectAtIndex:assetIndex];
+    
+    if ((shouldSelectAsset == NO) && (assetWrapper.isSelected == NO))
+        self.assetPickerState.state = WSAssetPickerStateSelectionLimitReached;
+    else
+        self.assetPickerState.state = WSAssetPickerStatePickingAssets;
+    
+    return shouldSelectAsset;
 }
 
 - (void)assetsTableViewCell:(WSAssetsTableViewCell *)cell didSelectAsset:(BOOL)selected atColumn:(NSUInteger)column
