@@ -20,6 +20,7 @@
 #import "WSMainViewController.h"
 #import "WSAssetPicker.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TSMessage.h"
 
 @interface WSMainViewController () <WSAssetPickerControllerDelegate>
 @property (nonatomic, strong) WSAssetPickerController *pickerController;
@@ -100,6 +101,13 @@
 - (void)assetPickerControllerDidCancel:(WSAssetPickerController *)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)assetPickerControllerDidReachSelectionLimit:(WSAssetPickerController *)sender
+{
+    if ([TSMessage isNotificationActive] == NO) {
+        [TSMessage showNotificationInViewController:sender withTitle:@"Selection limit reached." withMessage:nil withType:TSMessageNotificationTypeWarning withDuration:2.0];
+    }
 }
 
 - (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
