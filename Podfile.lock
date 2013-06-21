@@ -1,14 +1,10 @@
 PODS:
-  - TSMessages (0.9.2)
+  - TSMessages (0.9.3)
 
 DEPENDENCIES:
-  - TSMessages (from `https://github.com/w5mith/TSMessages.git`)
-
-EXTERNAL SOURCES:
-  TSMessages:
-    :git: https://github.com/w5mith/TSMessages.git
+  - TSMessages (= 0.9.3)
 
 SPEC CHECKSUMS:
-  TSMessages: 9169abb0e6962810b9aa8f731d7c481b05a73dec
+  TSMessages: e741d102e8291074b4ee7545b53c90ed5f220dd5
 
-COCOAPODS: 0.19.1
+COCOAPODS: 0.20.2
