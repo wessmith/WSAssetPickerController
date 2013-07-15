@@ -43,18 +43,11 @@ WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithA
 
 - (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
 {
-    // Hang on to the picker to avoid ALAssetsLibrary from being released (see note below).
-    self.picker = sender;
-
     // Dismiss the WSAssetPickerController.
-    __block id weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
         
         // Do something with the assets here.
-        
-        
-        // Release the picker.
-        [weakSelf setPicker:nil];
+
     }];
 }
 
