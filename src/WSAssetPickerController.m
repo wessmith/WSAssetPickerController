@@ -36,26 +36,32 @@
 
 @dynamic selectedAssets;
 
-@synthesize assetPickerState = _assetPickerState;
-@synthesize selectedCount = _selectedCount;
-@synthesize originalStatusBarStyle = _originalStatusBarStyle;
-
-
 #pragma mark - Initialization
 
-- (id)initWithDelegate:(id <WSAssetPickerControllerDelegate>)delegate;
+- (id)initWithAssetsLibrary:(ALAssetsLibrary *)assetsLibrary
 {
     // Create the Album TableView Controller.
     WSAlbumTableViewController *albumTableViewController = [[WSAlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    albumTableViewController.assetPickerState = self.assetPickerState;
     
-    if ((self = [super initWithRootViewController:albumTableViewController])) {
-        
+    self = [super initWithRootViewController:albumTableViewController];
+    if (self) {
         self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         self.toolbar.barStyle = UIBarStyleBlackTranslucent;
-        self.delegate = delegate;
+        
+//        ALAssetsLibrary *library = (assetsLibrary) ?: [[ALAssetsLibrary alloc] init];
+        self.assetPickerState.assetsLibrary = assetsLibrary;
+        albumTableViewController.assetPickerState = self.assetPickerState;
     }
     
+    return self;
+}
+
+- (id)initWithDelegate:(id <WSAssetPickerControllerDelegate>)delegate;
+{
+    self = [[[self class] alloc] initWithAssetsLibrary:nil];
+    if (self) {
+        self.delegate = delegate;
+    }
     return self;
 }
 

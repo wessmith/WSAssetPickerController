@@ -25,6 +25,13 @@
 
 /** @name Properties */
 
+/** 
+ The asset picker's delegate object. 
+ 
+ @discussion The delegate receives notifications when the user picks assets, or exits the picker interface. The delegate also decides when to dismiss the picker interface, so you must provide a delegate to use a picker. For information about the methods you can implement for your delegate object, see WSAssetPickerControllerDelegate Protocol Reference.
+ */
+@property (nonatomic, weak) id <UINavigationControllerDelegate, WSAssetPickerControllerDelegate> delegate;
+
 /**  The assets that are selected in the picker view. */
 @property (nonatomic, readonly) NSArray *selectedAssets;
 
@@ -33,6 +40,15 @@
 
 /** Limits the number of assets that can be selected in the picker view. */
 @property (nonatomic, readwrite) NSInteger selectionLimit;
+
+/** 
+ Initializes an instance of `assetPickerViewController`.
+ 
+ @param assetsLibrary An instance of `ALAssetsLibrary` for the picker to access media for selection __required__.
+
+ @discussion This is the designated initializer. Keep in mind that The lifetimes of objects you get back from the picker are tied to the lifetime of the library instance. It is your responsibility to maintain a strong reference to the library until you are finished with the selected `ALAsset` objects. This is the designated initializer.
+ */
+- (id)initWithAssetsLibrary:(ALAssetsLibrary *)assetsLibrary;
 
 /** 
  Initializes an instance of `assetPickerViewController`.
@@ -49,6 +65,8 @@
 
 @protocol WSAssetPickerControllerDelegate <UINavigationControllerDelegate>
 
+@optional
+
 /**
  Tells the delegate that the user cancelled the pick operation.
  
@@ -62,7 +80,7 @@
  @param sender The controller object managing the asset picker interface.
  @param assets An array of `ALAsset` objects selected by the user.
  
- @discussion The lifetimes of the `ALAsset` objects are tied to the lifetime of the `assetPickerController`. This means that you must keep a strong reference to the `assetPickerSontroller` until you are finished using `ALAsset` objects selected in the picker.
+ @discussion The lifetimes of the `ALAsset` objects are tied to the lifetime of the `ALAssetsLibrary`. This means that you must keep a strong reference to your `ALAssetsLibrary` instance until you are finished using `ALAsset` objects selected in the picker.
  */
 - (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets;
 

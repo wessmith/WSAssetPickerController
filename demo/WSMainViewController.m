@@ -18,12 +18,12 @@
 //  limitations under the License.
 
 #import "WSMainViewController.h"
-#import "WSAssetPicker.h"
 #import <QuartzCore/QuartzCore.h>
+#import "WSAssetPicker.h"
 #import "TSMessage.h"
 
 @interface WSMainViewController () <WSAssetPickerControllerDelegate>
-@property (nonatomic, strong) WSAssetPickerController *pickerController;
+@property (strong, nonatomic) ALAssetsLibrary *assetsLibrary;
 @property (strong, nonatomic) UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -91,11 +91,15 @@
 
 - (IBAction)pick:(id)sender
 {
-    self.pickerController = [[WSAssetPickerController alloc] initWithDelegate:self];
-    if ([sender isEqual:self.limitedPickButton])
-        self.pickerController.selectionLimit = 5;
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    self.assetsLibrary = library;
     
-    [self presentViewController:self.pickerController animated:YES completion:NULL];
+    WSAssetPickerController *picker = [[WSAssetPickerController alloc] initWithAssetsLibrary:library];
+    picker.delegate = self;
+    if ([sender isEqual:self.limitedPickButton])
+        picker.selectionLimit = 5;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
 }
 
 - (IBAction)changePage:(UIPageControl *)sender

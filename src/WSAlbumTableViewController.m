@@ -24,7 +24,6 @@
 
 
 @interface WSAlbumTableViewController ()
-@property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
 @property (nonatomic, strong) NSMutableArray *assetGroups; // Model (all groups of assets).
 @end
 
@@ -32,19 +31,10 @@
 @implementation WSAlbumTableViewController
 
 @synthesize assetPickerState = _assetPickerState;
-@synthesize assetsLibrary = _assetsLibrary;
 @synthesize assetGroups = _assetGroups;
 
 
-#pragma mark - Getters 
-
-- (ALAssetsLibrary *)assetsLibrary
-{
-    if (!_assetsLibrary) {
-        _assetsLibrary = [[ALAssetsLibrary alloc] init];
-    }
-    return _assetsLibrary;
-}
+#pragma mark - Getters
 
 - (NSMutableArray *)assetGroups
 {
@@ -78,7 +68,7 @@
                                                                                            target:self 
                                                                                            action:@selector(cancelButtonAction:)];
     
-    [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [self.assetPickerState.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         
         // If group is nil, the end has been reached.
         if (group == nil) {
