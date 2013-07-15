@@ -71,6 +71,6 @@
 
  @param sender The controller object managing the asset picker interface.
  */
-- (void)assetPickerControllerDidReachSelectionLimit:(WSAssetPickerController *)sender;
+- (void)assetPickerControllerDidLimitSelection:(WSAssetPickerController *)sender;
 
 @end

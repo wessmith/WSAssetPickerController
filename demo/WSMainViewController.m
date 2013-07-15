@@ -125,7 +125,7 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void)assetPickerControllerDidReachSelectionLimit:(WSAssetPickerController *)sender
+- (void)assetPickerControllerDidLimitSelection:(WSAssetPickerController *)sender
 {
     if ([TSMessage isNotificationActive] == NO) {
         [TSMessage showNotificationInViewController:sender withTitle:@"Selection limit reached." withMessage:nil withType:TSMessageNotificationTypeWarning withDuration:2.0];

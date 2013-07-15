@@ -117,7 +117,7 @@
         // Cast the delegate to the assetPickerDelegate.
         id <WSAssetPickerControllerDelegate> delegate = (id <WSAssetPickerControllerDelegate>)self.delegate;
         
-        if (WSAssetPickerStatePickingCanceled == self.assetPickerState.state) {
+        if (WSAssetPickerStatePickingCancelled == self.assetPickerState.state) {
             if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
                 [delegate assetPickerControllerDidCancel:self];
             }
@@ -126,8 +126,8 @@
                 [delegate assetPickerController:self didFinishPickingMediaWithAssets:self.assetPickerState.selectedAssets];
             }
         } else if (WSAssetPickerStateSelectionLimitReached == self.assetPickerState.state) {
-            if ([delegate respondsToSelector:@selector(assetPickerControllerDidReachSelectionLimit:)]) {
-                [delegate assetPickerControllerDidReachSelectionLimit:self];
+            if ([delegate respondsToSelector:@selector(assetPickerControllerDidLimitSelection:)]) {
+                [delegate assetPickerControllerDidLimitSelection:self];
             }
         }
     } else if ([SELECTED_COUNT_KEY isEqualToString:keyPath]) {
