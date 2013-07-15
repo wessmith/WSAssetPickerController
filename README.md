@@ -2,37 +2,33 @@
 
 This is an iOS, Objective-C alternative to `UIImagePickerController` that looks almost exactly the same, but provides the ability to select multiple images. It's as easy to setup as `UIImagePickerController` and it works in both portrait and landscape orientations. It requires the addition of **AssetsLibrary.framework**. This code uses **ARC**.
 
-*Note: Using AssetsLibrary.framework will prompt users to allow use of their location data in order to access their photos.*
+*Note: Using AssetsLibrary.framework will prompt users to grant access to their photos.*
 
 ## Adding to your project
 
-There are a few ways to add `WSAssetPickerController` to your project. 
+The easiest way to add `WSAssetPickerController` to your project is via CocoaPods:
 
-**Option 1:** Build and add the static library to your project:
+`pod 'WSAssetPickerController'`
 
-1. Open the demo project
-2. Select the `WSAssetPickerCombined` scheme
-3. In the menu bar choose Product > Build
-5. Copy the generated `WSAssetPicker` directory (found in the builds folder in the project directory) into your project.
-6. Make sure that `libWSAssetPicker-Combined.a` has been added to your targets Build Phases
-    
-**Option 2:** 
-Copy all the files in the `src` directory into your project and be sure 'Copy items to destination group's folder' is checked
-
-**Option 3:**
-You can also get the code via CocoaPods (thanks [@AlexIzvekov](https://github.com/AlexIzvekov))
+Alternatively you could copy all the files in the `src` directory into your project. Be sure 'Copy items to destination group's folder' is checked.
 
 ## Use
 
 1. Import the header using `#import "WSAssetPicker.h"`
-2. Create an instance of `WSAssetPickerController` passing a delegate of type `id <WSAssetPickerControllerDelegate>`
-3. Present the `WSAssetPickerController` instance
-4. Implement the delegate methods
+2. Create an instance of `WSAssetPickerController` passing an instance of `ALAssetsLibrary`
+3. Implement the `WSAssetPickerControllerDelegate` protocol and set the picker's delegate
+4. Present the `WSAssetPickerController` instance
 5. You will also need to include the selection state `png` files: `WSAssetViewSelectionIndicator.png` and `WSAssetViewSelectionIndicator@2x.png` or make your own.
+
+Check out the demo project for more details.
 
 ####Initialization and presentation
 ```` objective-c
-WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithDelegate:self];
+
+ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+self.assetsLibrary = library;
+
+WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithAssetsLibrary:library];
 [self presentViewController:controller animated:YES completion:NULL];
 ````
 
@@ -64,5 +60,4 @@ WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithD
 
 ````
 
-*Note: The `ALAsset` objects in the `assets` array are only valid while the `ALAssetsLibrary` instance they came from still exists.
-(The `ALAssetsLibrary` is created in the picker controller implementation)*
+*Note: The `ALAsset` objects in the `assets` array are only valid for the lifetime of the `ALAssetsLibrary` instance they came from.*
