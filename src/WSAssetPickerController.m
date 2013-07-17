@@ -144,11 +144,11 @@
         id <WSAssetPickerControllerDelegate> delegate = (id <WSAssetPickerControllerDelegate>)self.delegate;
         
         if (WSAssetPickerStatePickingCancelled == self.assetPickerState.state) {
-            if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
+            if ([delegate respondsToSelector:@selector(assetPickerControllerDidCancel:)]) {
                 [delegate assetPickerControllerDidCancel:self];
             }
         } else if (WSAssetPickerStatePickingDone == self.assetPickerState.state) {
-            if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
+            if ([delegate respondsToSelector:@selector(assetPickerController:didFinishPickingMediaWithAssets:)]) {
                 [delegate assetPickerController:self didFinishPickingMediaWithAssets:self.assetPickerState.selectedAssets];
             }
         } else if (WSAssetPickerStateSelectionLimitReached == self.assetPickerState.state) {
