@@ -29,6 +29,7 @@
 @synthesize selectedAssetsSet = _selectedAssetsSet;
 @synthesize selectedCount = _selectedCount;
 @synthesize state = _state;
+@synthesize ascendingOrder = _ascendingOrder;
 
 - (id)init
 {

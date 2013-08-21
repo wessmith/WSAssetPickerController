@@ -83,6 +83,16 @@
     }
 }
 
+- (void)setAscendingOrder:(BOOL)ascendingOrder
+{
+    if (_ascendingOrder != ascendingOrder)
+    {
+        _ascendingOrder = ascendingOrder;
+        
+        self.assetPickerState.ascendingOrder = _ascendingOrder;
+    }
+}
+
 - (NSArray *)selectedAssets
 {
     return self.assetPickerState.selectedAssets;

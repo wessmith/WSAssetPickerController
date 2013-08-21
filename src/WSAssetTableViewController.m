@@ -132,6 +132,16 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView reloadData];
+
+                    if (self.assetPickerState.ascendingOrder)
+                    {
+                        // Scroll to the bottom of the table is the sort should be ascending.
+                        if (self.fetchedAssets.count > 0)
+                        {
+                            int nRows = (self.fetchedAssets.count - 1) / self.assetsPerRow;
+                            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:nRows inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+                        }
+                    }
                     self.navigationItem.title = [NSString stringWithFormat:@"%@", [self.assetsGroup valueForProperty:ALAssetsGroupPropertyName]];
                 });
                 
@@ -141,8 +151,14 @@
             WSAssetWrapper *assetWrapper = [[WSAssetWrapper alloc] initWithAsset:result];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self.fetchedAssets addObject:assetWrapper];
+                if (self.assetPickerState.ascendingOrder)
+                {
+                    [self.fetchedAssets insertObject:assetWrapper atIndex:0];
+                }
+                else
+                {
+                    [self.fetchedAssets addObject:assetWrapper];
+                }
                 
             });
             
