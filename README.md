@@ -39,7 +39,7 @@ To control the order of assets within the album, use ascendingOrder property.
 controller.ascendingOrder = YES;
 
 // This will list assets in descending order. The view stays at the top of the table.
-controller.ascendingOrder = YES;
+controller.ascendingOrder = NO;
 ````
 
 
