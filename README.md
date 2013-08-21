@@ -32,6 +32,17 @@ WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithA
 [self presentViewController:controller animated:YES completion:NULL];
 ````
 
+To control the order of assets within the album, use ascendingOrder property.
+```` objective-c
+// This will list assets in an ascending order in the same way as Photos app does. The
+// view is scrolled to the bottom of the table.
+controller.ascendingOrder = YES;
+
+// This will list assets in descending order. The view stays at the top of the table.
+controller.ascendingOrder = YES;
+````
+
+
 #### Delegate Methods
 ```` objective-c
 
