@@ -40,17 +40,10 @@
 
 - (id)initWithAssetsLibrary:(ALAssetsLibrary *)assetsLibrary
 {
-    // Create the Album TableView Controller.
-    WSAlbumTableViewController *albumTableViewController = [[WSAlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    
-    self = [super initWithRootViewController:albumTableViewController];
+    self = [super init];
     if (self) {
-        self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-        self.toolbar.barStyle = UIBarStyleBlackTranslucent;
-        
-//        ALAssetsLibrary *library = (assetsLibrary) ?: [[ALAssetsLibrary alloc] init];
+        [self commonInit];
         self.assetPickerState.assetsLibrary = assetsLibrary;
-        albumTableViewController.assetPickerState = self.assetPickerState;
     }
     
     return self;
@@ -63,6 +56,30 @@
         self.delegate = delegate;
     }
     return self;
+}
+
+- (void)commonInit
+{
+    WSAlbumTableViewController *albumTableViewController = [[WSAlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [self setViewControllers:@[albumTableViewController] animated:NO];
+    self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    self.toolbar.barStyle = UIBarStyleBlackTranslucent;
+    albumTableViewController.assetPickerState = self.assetPickerState;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)setAssetsLibrary:(ALAssetsLibrary *)assetsLibrary
+{
+    NSParameterAssert(assetsLibrary);
+    self.assetPickerState.assetsLibrary = assetsLibrary;
 }
 
 #pragma mark - Accessors -
@@ -93,6 +110,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    NSAssert(self.assetPickerState.assetsLibrary, @"An assets library must be provided.");
+    NSAssert(self.delegate, @"A delegate must be provided");
     
     self.originalStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
     

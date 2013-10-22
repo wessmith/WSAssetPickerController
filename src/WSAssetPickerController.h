@@ -60,6 +60,13 @@
  */
 - (id)initWithDelegate:(id <WSAssetPickerControllerDelegate>)delegate;
 
+/**
+ Sets the asset library instance to be used.
+ 
+ @param assetsLibrary An instance of ALAssetsLibrary
+ */
+- (void)setAssetsLibrary:(ALAssetsLibrary *)assetsLibrary;
+
 @end
 
 /** @name Asset Picker Controller Delegate Protocol */
