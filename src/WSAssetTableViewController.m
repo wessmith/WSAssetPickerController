@@ -192,6 +192,13 @@
     
     // Update the state object's selectedAssets.
     [self.assetPickerState changeSelectionState:selected forAsset:assetWrapper.asset];
+
+    // Update navigation bar with selected count and limit variables 
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.assetPickerState.selectionLimit) {
+            self.navigationItem.title = [NSString stringWithFormat:@"%@ (%u/%u)", [self.assetsGroup valueForProperty:ALAssetsGroupPropertyName], self.assetPickerState.selectedCount, self.assetPickerState.selectionLimit];
+        }
+    });
 }
 
 
