@@ -96,6 +96,7 @@
     
     WSAssetPickerController *picker = [[WSAssetPickerController alloc] initWithAssetsLibrary:library];
     picker.delegate = self;
+//    picker.ascendingOrder = YES;
     if ([sender isEqual:self.limitedPickButton])
         picker.selectionLimit = 5;
     

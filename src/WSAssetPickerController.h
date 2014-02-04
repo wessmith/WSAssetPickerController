@@ -43,6 +43,11 @@
 @property (nonatomic, readwrite) NSInteger selectionLimit;
 
 /** 
+ Specifies whether assets in albums should be displayed in an ascending order, similarly to the
+ default Photo's gallery */
+@property (nonatomic, readwrite) BOOL ascendingOrder;
+
+/** 
  Initializes an instance of `assetPickerViewController`.
  
  @param assetsLibrary An instance of `ALAssetsLibrary` for the picker to access media for selection __required__.
