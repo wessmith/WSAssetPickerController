@@ -26,7 +26,9 @@ typedef enum {
     WSAssetPickerStatePickingAssets,
     WSAssetPickerStateSelectionLimitReached,
     WSAssetPickerStatePickingDone,
-    WSAssetPickerStatePickingCancelled
+    WSAssetPickerStatePickingCancelled,
+    WSAssetPickerStateAccessError,
+    WSAssetPickerStateError
 } WSAssetPickingState;
 
 @interface WSAssetPickerState : NSObject

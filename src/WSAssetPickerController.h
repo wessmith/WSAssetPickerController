@@ -99,4 +99,19 @@
  */
 - (void)assetPickerControllerDidLimitSelection:(WSAssetPickerController *)sender;
 
+/**
+ Tells the delegate that app does not access to photos.
+ 
+ @param sender The controller object managing the asset picker interface.
+ */
+- (void)assetPickerControllerFoundAccessError:(WSAssetPickerController *)sender;
+
+/**
+ Tells the delegate that the controller found an error.
+ 
+ @param sender The controller object managing the asset picker interface.
+ */
+- (void)assetPickerControllerFoundError:(WSAssetPickerController *)sender;
+
+
 @end

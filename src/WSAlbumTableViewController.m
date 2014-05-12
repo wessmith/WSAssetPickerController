@@ -88,7 +88,13 @@
         });
         
     } failureBlock:^(NSError *error) {
-        // TODO: User denied access. Tell them we can't do anything.
+        if (error.code == ALAssetsLibraryAccessUserDeniedError) {
+            [self.assetPickerState setState:WSAssetPickerStateAccessError];
+        }else{
+            //Generic error is being reported here.
+            [self.assetPickerState setState:WSAssetPickerStateError];
+        }
+        // TODO: handle any other error
     }];
 }
 
