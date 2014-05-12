@@ -123,7 +123,13 @@
 
 
 #pragma mark - WSAssetPickerControllerDelegate Methods
-
+- (void)assetPickerControllerFoundAccessError:(WSAssetPickerController *)sender{
+    NSString *title = [NSString stringWithFormat:@"%@ doesn't have access to your photos or videos.", @"This App"]; //replace with your app's name
+    NSString *message = @"You can enable access in Privacy Settings.";
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert show];
+}
 - (void)assetPickerControllerDidCancel:(WSAssetPickerController *)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];

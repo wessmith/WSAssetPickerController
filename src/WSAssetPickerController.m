@@ -156,6 +156,18 @@
                 [delegate assetPickerControllerDidLimitSelection:self];
             }
         }
+        else if (WSAssetPickerStateAccessError == self.assetPickerState.state) {
+            //tells the delegate that we found an access error
+            if ([delegate respondsToSelector:@selector(assetPickerControllerFoundAccessError:)]) {
+                [delegate assetPickerControllerFoundAccessError:self];
+            }
+        }
+        else if (WSAssetPickerStateError == self.assetPickerState.state) {
+            if ([delegate respondsToSelector:@selector(assetPickerControllerFoundError:)]) {
+                [delegate assetPickerControllerFoundError:self];
+            }
+        }
+
     } else if ([SELECTED_COUNT_KEY isEqualToString:keyPath]) {
         
         self.selectedCount = self.assetPickerState.selectedCount;
