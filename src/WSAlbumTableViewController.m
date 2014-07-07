@@ -130,7 +130,7 @@
     [group setAssetsFilter:[ALAssetsFilter allPhotos]]; // TODO: Make this a delegate choice.
     
     // Setup the cell.
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d)", [group valueForProperty:ALAssetsGroupPropertyName], [group numberOfAssets]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d)", [group valueForProperty:ALAssetsGroupPropertyName], (int)[group numberOfAssets]];
     cell.imageView.image = [UIImage imageWithCGImage:[group posterImage]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
