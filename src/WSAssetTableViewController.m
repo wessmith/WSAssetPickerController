@@ -77,6 +77,12 @@
                                                                                            action:@selector(doneButtonAction:)];
     
     
+    if (self.assetPickerState.minSelectionLimit) {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        
+    }
+    
+    
     // TableView configuration.
     self.tableView.contentInset = TABLEVIEW_INSETS;
     self.tableView.separatorColor = [UIColor clearColor];
@@ -192,13 +198,19 @@
     
     // Update the state object's selectedAssets.
     [self.assetPickerState changeSelectionState:selected forAsset:assetWrapper.asset];
-
-    // Update navigation bar with selected count and limit variables 
+    
+    // Update navigstion bar with selectedd count and limit
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.assetPickerState.selectionLimit) {
-            self.navigationItem.title = [NSString stringWithFormat:@"%@ (%u/%u)", [self.assetsGroup valueForProperty:ALAssetsGroupPropertyName], self.assetPickerState.selectedCount, self.assetPickerState.selectionLimit];
+            self.navigationItem.title = [NSString stringWithFormat:@"%@ (%u/%u)", [self.assetsGroup valueForProperty:ALAssetsGroupPropertyName], (uint)self.assetPickerState.selectedCount, (uint)self.assetPickerState.selectionLimit];
         }
     });
+    
+    if (self.assetPickerState.selectedCount >= self.assetPickerState.minSelectionLimit) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    } else {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
 }
 
 

@@ -96,8 +96,12 @@
     
     WSAssetPickerController *picker = [[WSAssetPickerController alloc] initWithAssetsLibrary:library];
     picker.delegate = self;
-    if ([sender isEqual:self.limitedPickButton])
+    if ([sender isEqual:self.limitedPickButton]) {
         picker.selectionLimit = 5;
+        picker.minSelectionLimit = 2;
+        
+    }
+    
     
     [self presentViewController:picker animated:YES completion:NULL];
 }

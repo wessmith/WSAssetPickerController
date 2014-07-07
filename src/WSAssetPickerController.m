@@ -40,10 +40,17 @@
 
 - (id)initWithAssetsLibrary:(ALAssetsLibrary *)assetsLibrary
 {
-    self = [super init];
+    // Create the Album TableView Controller.
+    WSAlbumTableViewController *albumTableViewController = [[WSAlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    self = [super initWithRootViewController:albumTableViewController];
     if (self) {
-        [self commonInit];
+        self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        self.toolbar.barStyle = UIBarStyleBlackTranslucent;
+        
+//        ALAssetsLibrary *library = (assetsLibrary) ?: [[ALAssetsLibrary alloc] init];
         self.assetPickerState.assetsLibrary = assetsLibrary;
+        albumTableViewController.assetPickerState = self.assetPickerState;
     }
     
     return self;
@@ -56,30 +63,6 @@
         self.delegate = delegate;
     }
     return self;
-}
-
-- (void)commonInit
-{
-    WSAlbumTableViewController *albumTableViewController = [[WSAlbumTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    [self setViewControllers:@[albumTableViewController] animated:NO];
-    self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    self.toolbar.barStyle = UIBarStyleBlackTranslucent;
-    albumTableViewController.assetPickerState = self.assetPickerState;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
-- (void)setAssetsLibrary:(ALAssetsLibrary *)assetsLibrary
-{
-    NSParameterAssert(assetsLibrary);
-    self.assetPickerState.assetsLibrary = assetsLibrary;
 }
 
 #pragma mark - Accessors -
@@ -100,6 +83,14 @@
     }
 }
 
+- (void)setMinSelectionLimit:(NSInteger)minSelectionLimit
+{
+    if (_minSelectionLimit != minSelectionLimit) {
+        _minSelectionLimit = minSelectionLimit;
+        self.assetPickerState.minSelectionLimit = _minSelectionLimit;
+    }
+}
+
 - (NSArray *)selectedAssets
 {
     return self.assetPickerState.selectedAssets;
@@ -110,9 +101,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    NSAssert(self.assetPickerState.assetsLibrary, @"An assets library must be provided.");
-    NSAssert(self.delegate, @"A delegate must be provided");
     
     self.originalStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
     
@@ -144,11 +132,11 @@
         id <WSAssetPickerControllerDelegate> delegate = (id <WSAssetPickerControllerDelegate>)self.delegate;
         
         if (WSAssetPickerStatePickingCancelled == self.assetPickerState.state) {
-            if ([delegate respondsToSelector:@selector(assetPickerControllerDidCancel:)]) {
+            if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
                 [delegate assetPickerControllerDidCancel:self];
             }
         } else if (WSAssetPickerStatePickingDone == self.assetPickerState.state) {
-            if ([delegate respondsToSelector:@selector(assetPickerController:didFinishPickingMediaWithAssets:)]) {
+            if ([delegate conformsToProtocol:@protocol(WSAssetPickerControllerDelegate)]) {
                 [delegate assetPickerController:self didFinishPickingMediaWithAssets:self.assetPickerState.selectedAssets];
             }
         } else if (WSAssetPickerStateSelectionLimitReached == self.assetPickerState.state) {
@@ -167,6 +155,10 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+-(BOOL)shouldAutorotate {
+    return NO;
 }
 
 @end

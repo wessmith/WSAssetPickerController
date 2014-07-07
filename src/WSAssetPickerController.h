@@ -42,6 +42,10 @@
 /** Limits the number of assets that can be selected in the picker view. */
 @property (nonatomic, readwrite) NSInteger selectionLimit;
 
+/** Limits the number of assets that can be selected in the picker view. */
+@property (nonatomic, readwrite) NSInteger minSelectionLimit;
+
+
 /** 
  Initializes an instance of `assetPickerViewController`.
  
@@ -59,13 +63,6 @@
  @discussion This method is deprecated. @see `initWithAssetsLibrary:`.
  */
 - (id)initWithDelegate:(id <WSAssetPickerControllerDelegate>)delegate;
-
-/**
- Sets the asset library instance to be used.
- 
- @param assetsLibrary An instance of ALAssetsLibrary
- */
-- (void)setAssetsLibrary:(ALAssetsLibrary *)assetsLibrary;
 
 @end
 
