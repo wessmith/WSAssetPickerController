@@ -90,7 +90,8 @@
     if (!_selectedView) {
         
         // Lazily create the selectedView.
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:SELECTED_IMAGE]];
+        NSBundle *bundle = [NSBundle bundleForClass:WSAssetViewColumn.class];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:SELECTED_IMAGE inBundle:bundle compatibleWithTraitCollection:nil]];
         imageView.hidden = YES;
         [self addSubview:imageView];
         
