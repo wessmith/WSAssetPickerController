@@ -1,56 +1,10 @@
-## Description
+### ~~WSAssetPickerController~~ 🌇
 
-This is an iOS, Objective-C alternative to `UIImagePickerController` that looks almost exactly the same, but provides the ability to select multiple images. It's as easy to setup as `UIImagePickerController` and it works in both portrait and landscape orientations. It requires the addition of **AssetsLibrary.framework**. This code uses **ARC**.
+This project is out of date with iOS and has been deprecated. The last version [0.2.1](https://github.com/wessmith/WSAssetPickerController/releases/latest) will remain available via CocoaPods.
 
-*Note: Using AssetsLibrary.framework will prompt users to grant access to their photos.*
+### Other Options
 
-## Adding to your project
+There are plenty of other options for similar [libraries](https://cocoapods.org/?q=photo%20picker) available via [CocoaPods](http://cocoapods.org).
 
-The easiest way to add `WSAssetPickerController` to your project is via CocoaPods:
+Another solution might be to use the the [Photos framework added by Apple in iOS 8](https://developer.apple.com/library/ios/documentation/Photos/Reference/Photos_Framework/).
 
-`pod 'WSAssetPickerController'`
-
-Alternatively you could copy all the files in the `src` directory into your project. Be sure 'Copy items to destination group's folder' is checked.
-
-## Use
-
-1. Import the header using `#import "WSAssetPicker.h"`
-2. Create an instance of `WSAssetPickerController` passing an instance of `ALAssetsLibrary`
-3. Implement the `WSAssetPickerControllerDelegate` protocol and set the picker's delegate
-4. Present the `WSAssetPickerController` instance
-5. You will also need to include the selection state `png` files: `WSAssetViewSelectionIndicator.png` and `WSAssetViewSelectionIndicator@2x.png` or make your own.
-
-Check out the demo project for more details.
-
-####Initialization and presentation
-```` objective-c
-
-ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-self.assetsLibrary = library;
-
-WSAssetPickerController *controller = [[WSAssetPickerController alloc] initWithAssetsLibrary:library];
-[self presentViewController:controller animated:YES completion:NULL];
-````
-
-#### Delegate Methods
-```` objective-c
-
-- (void)assetPickerControllerDidCancel:(WSAssetPickerController *)sender
-{
-    // Dismiss the WSAssetPickerController.
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-- (void)assetPickerController:(WSAssetPickerController *)sender didFinishPickingMediaWithAssets:(NSArray *)assets
-{
-    // Dismiss the WSAssetPickerController.
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-        // Do something with the assets here.
-
-    }];
-}
-
-````
-
-*Note: The `ALAsset` objects in the `assets` array are only valid for the lifetime of the `ALAssetsLibrary` instance they came from.*
