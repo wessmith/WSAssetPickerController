@@ -34,6 +34,7 @@
 
 @implementation WSAssetPickerController
 
+@dynamic delegate;
 @dynamic selectedAssets;
 
 #pragma mark - Initialization
